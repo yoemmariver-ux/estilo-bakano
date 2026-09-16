@@ -21,48 +21,51 @@
     <button class="snipcart-checkout">🛒 Carrito</button>
   </header>
 
-  <!-- Catálogo -->
+  <!-- Sección de productos -->
   <main>
-    <section class="producto">
-      <img src="images/camiseta.jpg" alt="Camiseta Oversize">
-      <h2>Camiseta Oversize</h2>
-      <p>$4500</p>
-      <button 
-        class="snipcart-add-item"
-        data-item-id="camiseta-oversize"
-        data-item-name="Camiseta Oversize"
-        data-item-price="4500"
-        data-item-url="/"
-        data-item-description="Camiseta estilo urbano oversize">
-        Agregar al carrito
-      </button>
-      <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST">
-        <input type="hidden" name="pref_id" value="PREFERENCE_ID_CAMISETA">
-        <button type="submit" class="mp-btn">💳 Pagar con MercadoPago</button>
-      </form>
-    </section>
+    <h2>Prendas disponibles</h2>
+    <div class="catalogo">
+      <section class="producto">
+        <img src="images/camiseta.jpg" alt="Camiseta Oversize">
+        <h3>Camiseta Oversize</h3>
+        <p>$4500</p>
+        <button 
+          class="snipcart-add-item"
+          data-item-id="camiseta-oversize"
+          data-item-name="Camiseta Oversize"
+          data-item-price="4500"
+          data-item-url="/"
+          data-item-description="Camiseta estilo urbano oversize">
+          Agregar al carrito
+        </button>
+        <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST">
+          <input type="hidden" name="pref_id" value="PREFERENCE_ID_CAMISETA">
+          <button type="submit" class="mp-btn">💳 Pagar con MercadoPago</button>
+        </form>
+      </section>
 
-    <section class="producto">
-      <img src="images/buzo.jpg" alt="Buzo Hoodie">
-      <h2>Buzo Hoodie</h2>
-      <p>$8500</p>
-      <button 
-        class="snipcart-add-item"
-        data-item-id="buzo-hoodie"
-        data-item-name="Buzo Hoodie"
-        data-item-price="8500"
-        data-item-url="/"
-        data-item-description="Buzo urbano con capucha">
-        Agregar al carrito
-      </button>
-      <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST">
-        <input type="hidden" name="pref_id" value="PREFERENCE_ID_BUZO">
-        <button type="submit" class="mp-btn">💳 Pagar con MercadoPago</button>
-      </form>
-    </section>
+      <section class="producto">
+        <img src="images/buzo.jpg" alt="Buzo Hoodie">
+        <h3>Buzo Hoodie</h3>
+        <p>$8500</p>
+        <button 
+          class="snipcart-add-item"
+          data-item-id="buzo-hoodie"
+          data-item-name="Buzo Hoodie"
+          data-item-price="8500"
+          data-item-url="/"
+          data-item-description="Buzo urbano con capucha">
+          Agregar al carrito
+        </button>
+        <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST">
+          <input type="hidden" name="pref_id" value="PREFERENCE_ID_BUZO">
+          <button type="submit" class="mp-btn">💳 Pagar con MercadoPago</button>
+        </form>
+      </section>
+    </div>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer con redes -->
   <footer>
     <div class="redes">
       <a href="https://facebook.com/TuPagina" target="_blank">

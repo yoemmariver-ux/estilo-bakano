@@ -1,57 +1,49 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f4f4f4;
-}
-
 /* Banner principal */
 .banner {
   width: 100%;
-  max-height: 120px; /* tamaño reducido para móviles */
-  object-fit: contain;
+  max-width: 350px;   /* nunca más grande que 350px */
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Logos secundarios */
 .logos-chicos {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   margin-top: 5px;
 }
 .logo-pequeno {
-  width: 40px; /* tamaño chico */
+  width: 40px;        /* tamaño fijo chico */
+  height: auto;
 }
 
 /* Productos */
 .producto {
   background: #fff;
-  margin: 0.5rem;
+  margin: 0.5rem auto;
   padding: 0.5rem;
   border-radius: 8px;
   text-align: center;
+  max-width: 250px;   /* cada producto ocupa un bloque compacto */
 }
 .producto img {
-  max-width: 150px; /* tamaño controlado */
+  width: 100%;
+  max-width: 150px;   /* límite máximo */
   height: auto;
+  margin: 0 auto;
 }
 
 /* Botones */
-button {
-  background: #111;
-  color: #fff;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-  margin-top: 8px;
+button, .mp-btn {
   font-size: 12px;
-}
-button:hover {
-  background: #333;
+  padding: 6px 10px;
+  margin-top: 6px;
 }
 .mp-btn {
   background: #009EE3;
-  margin-top: 6px;
-  font-size: 12px;
+  color: #fff;
 }
 
 /* Footer */
@@ -62,10 +54,7 @@ footer {
   color: #fff;
 }
 .icono-red {
-  width: 18px; /* íconos bien chicos */
+  width: 16px;        /* íconos bien pequeños */
+  height: auto;
   margin: 0 4px;
-  transition: transform 0.3s;
-}
-.icono-red:hover {
-  transform: scale(1.2);
 }
