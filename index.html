@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Tienda Urbana - Estilo Bakano</title>
+  <title>Estilo Bakano</title>
   <link rel="stylesheet" href="styles.css">
 
   <!-- Snipcart -->
@@ -11,10 +11,13 @@
   <div hidden id="snipcart" data-api-key="TU_API_KEY_DE_SNIPCART"></div>
 </head>
 <body>
-  <!-- Header con marca -->
+  <!-- Header con título central -->
   <header>
-    <img src="images/estilobakanotitulo.jpeg" alt="Estilo Bakano" class="banner">
-    <h1>Tienda Urbana</h1>
+    <img src="images/estilobakanotitulo.jpeg" alt="Estilo Bakano" class="titulo-central">
+    <div class="logos-chicos">
+      <img src="images/estilobakano.jpg" alt="Logo Estilo Bakano" class="logo-pequeno">
+      <img src="images/estilobakanobk.jpg" alt="BK Logo" class="logo-pequeno">
+    </div>
     <button class="snipcart-checkout">🛒 Carrito</button>
   </header>
 
@@ -36,7 +39,7 @@
       <!-- Botón MercadoPago -->
       <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST">
         <input type="hidden" name="pref_id" value="PREFERENCE_ID_CAMISETA">
-        <button type="submit">Comprar con MercadoPago</button>
+        <button type="submit" class="mp-btn">Comprar con MercadoPago</button>
       </form>
     </section>
 
@@ -55,7 +58,7 @@
       </button>
       <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST">
         <input type="hidden" name="pref_id" value="PREFERENCE_ID_BUZO">
-        <button type="submit">Comprar con MercadoPago</button>
+        <button type="submit" class="mp-btn">Comprar con MercadoPago</button>
       </form>
     </section>
   </main>
