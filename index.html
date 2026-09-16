@@ -5,99 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estilo Bakano - Indumentaria Urbana</title>
   
-  <!-- Tipografía moderna (Poppins / Montserrat) -->
+  <!-- Tipografía Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <!-- Enlace al archivo CSS corregido -->
+  <!-- Estilos CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Snipcart (Carrito de Compras) -->
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
-  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
-  <div hidden id="snipcart" data-api-key="TU_API_KEY_DE_SNIPCART"></div>
 </head>
 <body>
 
-  <!-- Barra superior / Header -->
+  <!-- Header / Marcas de la página -->
   <header>
     <div class="top-nav">
       <div class="logos-chicos">
-        <img src="images/estilobakano.jpg" alt="Personaje Estilo Bakano" class="logo-pequeno">
+        <img src="images/estilobakano.jpg" alt="Personaje Bakano" class="logo-pequeno">
         <img src="images/estilobakanobk.jpg" alt="Logo BK" class="logo-pequeno">
       </div>
       
-      <button class="snipcart-checkout btn-cart">
-        🛒 <span class="cart-text">Carrito</span>
+      <button class="btn-cart" id="cart-toggle-btn" onclick="toggleCart()">
+        🛒 Carrito <span id="cart-count">0</span>
       </button>
     </div>
 
-    <!-- Banner principal con título de la marca -->
     <div class="banner-container">
-      <img src="images/estilobakanotitulo.jpeg" alt="Estilo Bakano Título" class="banner">
+      <img src="images/estilobakanotitulo.jpeg" alt="Estilo Bakano" class="banner">
     </div>
   </header>
 
-  <!-- Sección principal de productos -->
+  <!-- Catálogo de productos -->
   <main>
-    <h2 class="titulo-seccion">Catálogo Urbano</h2>
+    <h2 class="titulo-seccion">Colección Urbana</h2>
     
     <div class="catalogo">
       
-      <!-- Producto 1 -->
+      <!-- Producto 1: Remera Lisa -->
       <article class="producto">
         <div class="img-container">
-          <!-- Si no tenés camiseta.jpg aún, podés usar una imagen temporal o subirla a la carpeta images -->
-          <img src="images/estilobakano.jpg" alt="Camiseta Oversize">
+          <img src="images/remera-lisa.jpg" alt="Remera Lisa Bakano">
         </div>
         <div class="producto-info">
-          <h3>Camiseta Oversize</h3>
+          <h3>Remera Lisa Street</h3>
           <p class="precio">$4.500</p>
           
+          <div class="selector-talle">
+            <label for="talle-lisa">Talle:</label>
+            <select id="talle-lisa">
+              <option value="S">S</option>
+              <option value="M" selected>M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
+
           <div class="acciones">
-            <button 
-              class="snipcart-add-item btn-secundario"
-              data-item-id="camiseta-oversize"
-              data-item-name="Camiseta Oversize"
-              data-item-price="4500"
-              data-item-url="/"
-              data-item-description="Camiseta estilo urbano oversize">
+            <button class="btn-secundario" onclick="addToCart('Remera Lisa Street', 4500, 'talle-lisa')">
               + Agregar al carrito
             </button>
-            
-            <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST" target="_blank">
-              <input type="hidden" name="pref_id" value="PREFERENCE_ID_CAMISETA">
-              <button type="submit" class="mp-btn">💳 Pagar con Mercado Pago</button>
-            </form>
+            <a href="https://wa.me/549383XXXXXXX?text=Hola!%20Quiero%20comprar%20la%20Remera%20Lisa%20Street" target="_blank" class="mp-btn-link">
+              💳 Pagar con Mercado Pago
+            </a>
           </div>
         </div>
       </article>
 
-      <!-- Producto 2 -->
+      <!-- Producto 2: Remera Overside -->
       <article class="producto">
         <div class="img-container">
-          <img src="images/estilobakanobk.jpg" alt="Buzo Hoodie">
+          <img src="images/remera-overside.jpg" alt="Remera Overside Bakano">
         </div>
         <div class="producto-info">
-          <h3>Buzo Hoodie</h3>
-          <p class="precio">$8.500</p>
+          <h3>Remera Overside Street</h3>
+          <p class="precio">$5.200</p>
+
+          <div class="selector-talle">
+            <label for="talle-overside">Talle:</label>
+            <select id="talle-overside">
+              <option value="S">S</option>
+              <option value="M" selected>M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
           
           <div class="acciones">
-            <button 
-              class="snipcart-add-item btn-secundario"
-              data-item-id="buzo-hoodie"
-              data-item-name="Buzo Hoodie"
-              data-item-price="8500"
-              data-item-url="/"
-              data-item-description="Buzo urbano con capucha">
+            <button class="btn-secundario" onclick="addToCart('Remera Overside Street', 5200, 'talle-overside')">
               + Agregar al carrito
             </button>
-            
-            <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST" target="_blank">
-              <input type="hidden" name="pref_id" value="PREFERENCE_ID_BUZO">
-              <button type="submit" class="mp-btn">💳 Pagar con Mercado Pago</button>
-            </form>
+            <a href="https://wa.me/549383XXXXXXX?text=Hola!%20Quiero%20comprar%20la%20Remera%20Overside%20Street" target="_blank" class="mp-btn-link">
+              💳 Pagar con Mercado Pago
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Producto 3: Remera Marrón -->
+      <article class="producto">
+        <div class="img-container">
+          <img src="images/remera-marron.jpg" alt="Remera Marrón Bakano">
+        </div>
+        <div class="producto-info">
+          <h3>Remera Marrón Urban</h3>
+          <p class="precio">$4.800</p>
+
+          <div class="selector-talle">
+            <label for="talle-marron">Talle:</label>
+            <select id="talle-marron">
+              <option value="S">S</option>
+              <option value="M" selected>M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
+          
+          <div class="acciones">
+            <button class="btn-secundario" onclick="addToCart('Remera Marrón Urban', 4800, 'talle-marron')">
+              + Agregar al carrito
+            </button>
+            <a href="https://wa.me/549383XXXXXXX?text=Hola!%20Quiero%20comprar%20la%20Remera%20Marr%C3%B3n%20Urban" target="_blank" class="mp-btn-link">
+              💳 Pagar con Mercado Pago
+            </a>
           </div>
         </div>
       </article>
@@ -105,7 +132,28 @@
     </div>
   </main>
 
-  <!-- Footer / Pie de página -->
+  <!-- Panel Lateral del Carrito -->
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-header">
+      <h3>Tu Carrito</h3>
+      <button class="cart-close-btn" onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items">
+      <p class="cart-empty-text">El carrito está vacío</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total-price">$0</span>
+      </div>
+      <button class="cart-checkout-btn" onclick="checkoutWhatsApp()">
+        Finalizar Pedido por WhatsApp 📲
+      </button>
+    </div>
+  </div>
+  <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+  <!-- Footer / Redes -->
   <footer>
     <p class="footer-title">Seguinos en nuestras redes</p>
     <div class="redes">
@@ -115,7 +163,6 @@
       <a href="https://instagram.com/TuPagina" target="_blank" title="Instagram">
         <img src="images/instagram.png" alt="Instagram" class="icono-red">
       </a>
-      <!-- Corregido el nombre a watsapp.png tal como figura en tu carpeta -->
       <a href="https://wa.me/549383XXXXXXX" target="_blank" title="WhatsApp">
         <img src="images/watsapp.png" alt="WhatsApp" class="icono-red">
       </a>
@@ -127,5 +174,89 @@
     <p class="copyright">&copy; 2026 Estilo Bakano - Todos los derechos reservados</p>
   </footer>
 
+  <!-- Script del Carrito -->
+  <script>
+    let cart = [];
+
+    function toggleCart() {
+      document.getElementById('cart-drawer').classList.toggle('active');
+      document.getElementById('cart-overlay').classList.toggle('active');
+    }
+
+    function addToCart(title, price, selectId) {
+      const size = document.getElementById(selectId).value;
+      const itemKey = `${title} (${size})`;
+      
+      const existing = cart.find(item => item.key === itemKey);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ key: itemKey, title, price, size, quantity: 1 });
+      }
+
+      updateCartUI();
+      document.getElementById('cart-drawer').classList.add('active');
+      document.getElementById('cart-overlay').classList.add('active');
+    }
+
+    function removeFromCart(key) {
+      cart = cart.filter(item => item.key !== key);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartCountEl = document.getElementById('cart-count');
+      const cartTotalPriceEl = document.getElementById('cart-total-price');
+
+      let totalCount = 0;
+      let totalPrice = 0;
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p class="cart-empty-text">El carrito está vacío</p>';
+      } else {
+        cartItemsContainer.innerHTML = '';
+        cart.forEach(item => {
+          totalCount += item.quantity;
+          totalPrice += item.price * item.quantity;
+
+          const itemEl = document.createElement('div');
+          itemEl.className = 'cart-item';
+          itemEl.innerHTML = `
+            <div>
+              <strong>${item.title}</strong>
+              <div class="cart-item-details">Talle: ${item.size} | $${item.price.toLocaleString('es-AR')} x ${item.quantity}</div>
+            </div>
+            <button class="remove-btn" onclick="removeFromCart('${item.key}')">Eliminar</button>
+          `;
+          cartItemsContainer.appendChild(itemEl);
+        });
+      }
+
+      cartCountEl.textContent = totalCount;
+      cartTotalPriceEl.textContent = '$' + totalPrice.toLocaleString('es-AR');
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Tu carrito está vacío.');
+        return;
+      }
+
+      let message = "Hola! Quiero realizar el siguiente pedido en Estilo Bakano:\n\n";
+      let total = 0;
+
+      cart.forEach(item => {
+        message += `• ${item.title} - Talle: ${item.size} (x${item.quantity}) = $${(item.price * item.quantity).toLocaleString('es-AR')}\n`;
+        total += item.price * item.quantity;
+      });
+
+      message += `\n*Total a pagar: $${total.toLocaleString('es-AR')}*`;
+      message += "\n\n¿Cómo coordinamos el pago por Mercado Pago y la entrega?";
+
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/549383XXXXXXX?text=${encodedMessage}`, '_blank');
+    }
+  </script>
 </body>
 </html>
