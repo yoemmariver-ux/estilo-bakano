@@ -71,35 +71,43 @@
 
   </main>
 
-  <!-- Modal Emergente Selección de Modelo y Talle -->
+  <!-- Modal Emergente con Vista Previa Grande -->
   <div id="modal-producto" class="modal-overlay">
-    <div class="modal-content">
+    <div class="modal-content modal-grande">
       <button class="modal-close" onclick="cerrarModal()">✕</button>
       
-      <h3 id="modal-titulo">Seleccionar Modelo</h3>
-      <p id="modal-precio" class="precio-modal"></p>
-
-      <div class="seccion-modal">
-        <label class="modal-label">1. Seleccioná el Modelo:</label>
-        <div class="modelos-grid" id="modal-modelos-list"></div>
+      <!-- Vista Previa Ampliada -->
+      <div class="modal-preview-container">
+        <img id="modal-img-principal" src="" alt="Vista previa del conjunto">
       </div>
 
-      <div class="seccion-modal opciones-inline">
-        <div class="selector-item">
-          <label for="modal-talle">Talle:</label>
-          <select id="modal-talle" onchange="actualizarStockModal()"></select>
+      <!-- Opciones y Galería de Selección -->
+      <div class="modal-info-col">
+        <h3 id="modal-titulo">Seleccionar Modelo</h3>
+        <p id="modal-precio" class="precio-modal"></p>
+
+        <div class="seccion-modal">
+          <label class="modal-label">Modelos disponibles (toca para ampliar):</label>
+          <div class="modelos-grid-grande" id="modal-modelos-list"></div>
         </div>
-        <div class="selector-item">
-          <label for="modal-cant">Cantidad:</label>
-          <input type="number" id="modal-cant" value="1" min="1" max="10">
+
+        <div class="seccion-modal opciones-inline">
+          <div class="selector-item">
+            <label for="modal-talle">Talle:</label>
+            <select id="modal-talle" onchange="actualizarStockModal()"></select>
+          </div>
+          <div class="selector-item">
+            <label for="modal-cant">Cantidad:</label>
+            <input type="number" id="modal-cant" value="1" min="1" max="10">
+          </div>
         </div>
+
+        <p class="stock-tag" id="modal-stock-status">Stock disponible: <span class="cant-stock">1</span></p>
+
+        <button class="cart-checkout-btn" id="btn-modal-add" onclick="agregarAlCarritoDesdeModal()">
+          + Agregar al Carrito
+        </button>
       </div>
-
-      <p class="stock-tag" id="modal-stock-status">Stock disponible: <span class="cant-stock">1</span></p>
-
-      <button class="cart-checkout-btn" id="btn-modal-add" onclick="agregarAlCarritoDesdeModal()">
-        + Agregar al Carrito
-      </button>
     </div>
   </div>
 

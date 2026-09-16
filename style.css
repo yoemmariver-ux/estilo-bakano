@@ -81,7 +81,7 @@ header {
   object-fit: contain;
 }
 
-/* Barra de Categorías */
+/* Categorías */
 .categorias-bar {
   display: flex;
   gap: 10px;
@@ -110,7 +110,7 @@ header {
   border-color: #009ee3;
 }
 
-/* Grilla de productos */
+/* Catálogo */
 main.catalogo-grid {
   max-width: 1200px;
   width: 100%;
@@ -209,78 +209,112 @@ main.catalogo-grid {
   cursor: pointer;
 }
 
-.btn-elegir:hover {
-  background: #20bd5a;
-}
+.btn-elegir:hover { background: #20bd5a; }
 
-/* Modal Emergente */
+/* Modal Ampliado con Vista Previa Grande */
 .modal-overlay {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 300;
+  padding: 10px;
 }
 
 .modal-overlay.active { display: flex; }
 
-.modal-content {
+.modal-content.modal-grande {
   background: #181818;
   padding: 20px;
-  border-radius: 8px;
-  max-width: 440px;
-  width: 92%;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 95%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.modal-preview-container {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: #0a0a0a;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+}
+
+.modal-preview-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-info-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .modal-close {
   position: absolute;
   top: 12px; right: 12px;
-  background: none; border: none;
-  color: #fff; font-size: 20px; cursor: pointer;
+  background: #222; border: none;
+  color: #fff; font-size: 18px; cursor: pointer;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  z-index: 10;
 }
 
 .seccion-modal { margin-bottom: 12px; }
 .modal-label { font-size: 0.8rem; color: #aaa; margin-bottom: 8px; display: block; }
 
-.modelos-grid {
+.modelos-grid-grande {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  max-height: 200px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-height: 220px;
   overflow-y: auto;
+  padding-right: 4px;
 }
 
 .modelo-option {
   border: 2px solid #333;
-  border-radius: 6px;
-  padding: 4px;
+  border-radius: 8px;
+  padding: 6px;
   text-align: center;
   cursor: pointer;
   background: #111;
+  transition: transform 0.15s ease, border-color 0.15s ease;
 }
+
+.modelo-option:hover { transform: scale(1.02); }
 
 .modelo-option img {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .modelo-option span {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   display: block;
-  margin-top: 4px;
+  margin-top: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.modelo-option.selected { border-color: #25d366; }
+.modelo-option.selected { 
+  border-color: #25d366; 
+  background-color: #1a2e22;
+}
 
 .opciones-inline { display: flex; gap: 12px; }
 
@@ -378,3 +412,15 @@ footer {
 .icono-red { width: 22px; height: 22px; object-fit: contain; opacity: 0.8; }
 .atencion-wa { font-size: 0.8rem; color: #aaa; margin-bottom: 6px; }
 .copyright { font-size: 0.7rem; color: #555; }
+
+/* Media Queries para Pantallas Chicas */
+@media (max-width: 650px) {
+  .modal-content.modal-grande {
+    grid-template-columns: 1fr;
+    max-height: 85vh;
+  }
+
+  .modal-preview-container {
+    max-height: 280px;
+  }
+}

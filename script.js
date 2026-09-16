@@ -56,9 +56,16 @@ function abrirModal(productoKey) {
 function seleccionarModelo(index) {
   modeloSeleccionadoActual = productoSeleccionadoActual.modelos[index];
   
+  // Actualizar la imagen principal del modal a tamaño completo
+  const imgPrincipal = document.getElementById('modal-img-principal');
+  imgPrincipal.src = modeloSeleccionadoActual.img;
+  imgPrincipal.alt = modeloSeleccionadoActual.nombre;
+
+  // Actualizar la selección de miniaturas
   const options = document.querySelectorAll('.modelo-option');
   options.forEach((opt, i) => opt.classList.toggle('selected', i === index));
 
+  // Cargar talles disponibles
   const selectTalle = document.getElementById('modal-talle');
   selectTalle.innerHTML = '';
   
@@ -101,7 +108,7 @@ function cerrarModal() {
   document.getElementById('modal-producto').classList.remove('active');
 }
 
-// Agregar al Carrito desatando descuento en inventario
+// Agregar al Carrito y descontar stock
 function agregarAlCarritoDesdeModal() {
   const talleSel = document.getElementById('modal-talle').value;
   const inputCant = document.getElementById('modal-cant');
@@ -113,7 +120,7 @@ function agregarAlCarritoDesdeModal() {
     return;
   }
 
-  // Descontar stock
+  // Descontar del stock local
   modeloSeleccionadoActual.stock[talleSel] -= cantidadPedida;
 
   const itemKey = `${modeloSeleccionadoActual.nombre} (${talleSel})`;
@@ -137,7 +144,7 @@ function agregarAlCarritoDesdeModal() {
   toggleCart();
 }
 
-// Quitar ítem del carrito y devolver stock
+// Eliminar ítem del carrito y reponer stock
 function removeFromCart(key) {
   const item = cart.find(i => i.key === key);
   if (item) {
@@ -147,7 +154,7 @@ function removeFromCart(key) {
   updateCartUI();
 }
 
-// UI del Carrito
+// Drawer del Carrito
 function toggleCart() {
   document.getElementById('cart-drawer').classList.toggle('active');
   document.getElementById('cart-overlay').classList.toggle('active');
@@ -186,7 +193,7 @@ function updateCartUI() {
   cartTotalPriceEl.textContent = '$' + totalPrice.toLocaleString('es-AR');
 }
 
-// Filtro de Pestañas Categorías
+// Filtro de Pestañas
 function filtrarCategoria(categoria, event) {
   const cards = document.querySelectorAll('.producto-card');
   document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('active'));
