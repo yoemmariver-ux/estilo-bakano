@@ -2,86 +2,130 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Estilo Bakano</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estilo Bakano - Indumentaria Urbana</title>
+  
+  <!-- Tipografía moderna (Poppins / Montserrat) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <!-- Snipcart -->
+  <!-- Enlace al archivo CSS corregido -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Snipcart (Carrito de Compras) -->
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
   <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
   <div hidden id="snipcart" data-api-key="TU_API_KEY_DE_SNIPCART"></div>
 </head>
 <body>
-  <!-- Banner principal -->
+
+  <!-- Barra superior / Header -->
   <header>
-    <img src="images/estilobakanotitulo.jpeg" alt="Estilo Bakano" class="banner">
-    <div class="logos-chicos">
-      <img src="images/estilobakano.jpg" alt="Logo Estilo Bakano" class="logo-pequeno">
-      <img src="images/estilobakanobk.jpg" alt="BK Logo" class="logo-pequeno">
+    <div class="top-nav">
+      <div class="logos-chicos">
+        <img src="images/estilobakano.jpg" alt="Personaje Estilo Bakano" class="logo-pequeno">
+        <img src="images/estilobakanobk.jpg" alt="Logo BK" class="logo-pequeno">
+      </div>
+      
+      <button class="snipcart-checkout btn-cart">
+        🛒 <span class="cart-text">Carrito</span>
+      </button>
     </div>
-    <button class="snipcart-checkout">🛒 Carrito</button>
+
+    <!-- Banner principal con título de la marca -->
+    <div class="banner-container">
+      <img src="images/estilobakanotitulo.jpeg" alt="Estilo Bakano Título" class="banner">
+    </div>
   </header>
 
-  <!-- Sección de productos -->
+  <!-- Sección principal de productos -->
   <main>
-    <h2>Prendas disponibles</h2>
+    <h2 class="titulo-seccion">Catálogo Urbano</h2>
+    
     <div class="catalogo">
-      <section class="producto">
-        <img src="images/camiseta.jpg" alt="Camiseta Oversize">
-        <h3>Camiseta Oversize</h3>
-        <p>$4500</p>
-        <button 
-          class="snipcart-add-item"
-          data-item-id="camiseta-oversize"
-          data-item-name="Camiseta Oversize"
-          data-item-price="4500"
-          data-item-url="/"
-          data-item-description="Camiseta estilo urbano oversize">
-          Agregar al carrito
-        </button>
-        <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST">
-          <input type="hidden" name="pref_id" value="PREFERENCE_ID_CAMISETA">
-          <button type="submit" class="mp-btn">💳 Pagar con MercadoPago</button>
-        </form>
-      </section>
+      
+      <!-- Producto 1 -->
+      <article class="producto">
+        <div class="img-container">
+          <!-- Si no tenés camiseta.jpg aún, podés usar una imagen temporal o subirla a la carpeta images -->
+          <img src="images/estilobakano.jpg" alt="Camiseta Oversize">
+        </div>
+        <div class="producto-info">
+          <h3>Camiseta Oversize</h3>
+          <p class="precio">$4.500</p>
+          
+          <div class="acciones">
+            <button 
+              class="snipcart-add-item btn-secundario"
+              data-item-id="camiseta-oversize"
+              data-item-name="Camiseta Oversize"
+              data-item-price="4500"
+              data-item-url="/"
+              data-item-description="Camiseta estilo urbano oversize">
+              + Agregar al carrito
+            </button>
+            
+            <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST" target="_blank">
+              <input type="hidden" name="pref_id" value="PREFERENCE_ID_CAMISETA">
+              <button type="submit" class="mp-btn">💳 Pagar con Mercado Pago</button>
+            </form>
+          </div>
+        </div>
+      </article>
 
-      <section class="producto">
-        <img src="images/buzo.jpg" alt="Buzo Hoodie">
-        <h3>Buzo Hoodie</h3>
-        <p>$8500</p>
-        <button 
-          class="snipcart-add-item"
-          data-item-id="buzo-hoodie"
-          data-item-name="Buzo Hoodie"
-          data-item-price="8500"
-          data-item-url="/"
-          data-item-description="Buzo urbano con capucha">
-          Agregar al carrito
-        </button>
-        <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST">
-          <input type="hidden" name="pref_id" value="PREFERENCE_ID_BUZO">
-          <button type="submit" class="mp-btn">💳 Pagar con MercadoPago</button>
-        </form>
-      </section>
+      <!-- Producto 2 -->
+      <article class="producto">
+        <div class="img-container">
+          <img src="images/estilobakanobk.jpg" alt="Buzo Hoodie">
+        </div>
+        <div class="producto-info">
+          <h3>Buzo Hoodie</h3>
+          <p class="precio">$8.500</p>
+          
+          <div class="acciones">
+            <button 
+              class="snipcart-add-item btn-secundario"
+              data-item-id="buzo-hoodie"
+              data-item-name="Buzo Hoodie"
+              data-item-price="8500"
+              data-item-url="/"
+              data-item-description="Buzo urbano con capucha">
+              + Agregar al carrito
+            </button>
+            
+            <form action="https://www.mercadopago.com.ar/checkout/v1/redirect" method="POST" target="_blank">
+              <input type="hidden" name="pref_id" value="PREFERENCE_ID_BUZO">
+              <button type="submit" class="mp-btn">💳 Pagar con Mercado Pago</button>
+            </form>
+          </div>
+        </div>
+      </article>
+
     </div>
   </main>
 
-  <!-- Footer con redes -->
+  <!-- Footer / Pie de página -->
   <footer>
+    <p class="footer-title">Seguinos en nuestras redes</p>
     <div class="redes">
-      <a href="https://facebook.com/TuPagina" target="_blank">
+      <a href="https://facebook.com/TuPagina" target="_blank" title="Facebook">
         <img src="images/facebook.png" alt="Facebook" class="icono-red">
       </a>
-      <a href="https://instagram.com/TuPagina" target="_blank">
+      <a href="https://instagram.com/TuPagina" target="_blank" title="Instagram">
         <img src="images/instagram.png" alt="Instagram" class="icono-red">
       </a>
-      <a href="https://wa.me/549383XXXXXXX" target="_blank">
+      <!-- Corregido el nombre a watsapp.png tal como figura en tu carpeta -->
+      <a href="https://wa.me/549383XXXXXXX" target="_blank" title="WhatsApp">
         <img src="images/watsapp.png" alt="WhatsApp" class="icono-red">
       </a>
-      <a href="https://maps.google.com/?q=TuUbicacion" target="_blank">
+      <a href="https://maps.google.com/?q=TuUbicacion" target="_blank" title="Ubicación">
         <img src="images/ubicacion.png" alt="Ubicación" class="icono-red">
       </a>
     </div>
-    <p>📲 Atención personalizada por WhatsApp</p>
+    <p class="atencion-wa">📲 Atención personalizada por WhatsApp</p>
+    <p class="copyright">&copy; 2026 Estilo Bakano - Todos los derechos reservados</p>
   </footer>
+
 </body>
 </html>

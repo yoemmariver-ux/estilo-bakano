@@ -1,60 +1,236 @@
-/* Banner principal */
-.banner {
-  width: 100%;
-  max-width: 350px;   /* nunca más grande que 350px */
-  height: auto;
-  display: block;
+/* Reset general y tipografía */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f0f0f; /* Estilo urbano oscuro */
+  color: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header & Navegación superior */
+header {
+  background-color: #181818;
+  border-bottom: 2px solid #222;
+  padding-bottom: 15px;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Logos secundarios */
 .logos-chicos {
   display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 5px;
+  align-items: center;
+  gap: 12px;
 }
+
 .logo-pequeno {
-  width: 40px;        /* tamaño fijo chico */
-  height: auto;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
 }
 
-/* Productos */
-.producto {
-  background: #fff;
-  margin: 0.5rem auto;
-  padding: 0.5rem;
-  border-radius: 8px;
+.logo-pequeno:hover {
+  transform: scale(1.08);
+}
+
+.btn-cart {
+  background-color: #ffd700; /* Dorado u oro estilo urbano */
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-cart:hover {
+  background-color: #e6c200;
+}
+
+/* Banner Principal */
+.banner-container {
   text-align: center;
-  max-width: 250px;   /* cada producto ocupa un bloque compacto */
-}
-.producto img {
-  width: 100%;
-  max-width: 150px;   /* límite máximo */
-  height: auto;
-  margin: 0 auto;
+  padding: 10px;
 }
 
-/* Botones */
-button, .mp-btn {
-  font-size: 12px;
-  padding: 6px 10px;
-  margin-top: 6px;
+.banner {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
-.mp-btn {
-  background: #009EE3;
+
+/* Sección de productos */
+main {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+.titulo-seccion {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.producto {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.img-container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.producto img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.producto h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
   color: #fff;
 }
 
-/* Footer */
+.precio {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #00e676; /* Verde destacado */
+  margin-bottom: 12px;
+}
+
+/* Botones de acción */
+.acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+button {
+  font-family: inherit;
+  font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.btn-secundario {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.mp-btn {
+  width: 100%;
+  background: #009EE3; /* Azul oficial Mercado Pago */
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Footer con redes */
 footer {
   text-align: center;
-  padding: 0.5rem;
-  background: #111;
-  color: #fff;
+  padding: 25px 15px;
+  background: #0a0a0a;
+  border-top: 1px solid #222;
+  margin-top: 40px;
 }
+
+.footer-title {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.redes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
 .icono-red {
-  width: 16px;        /* íconos bien pequeños */
-  height: auto;
-  margin: 0 4px;
+  width: 24px; /* Tamaño chico, claro y proporcionado */
+  height: 24px;
+  object-fit: contain;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.icono-red:hover {
+  transform: scale(1.2);
+}
+
+.atencion-wa {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+.copyright {
+  font-size: 0.75rem;
+  color: #555;
 }
