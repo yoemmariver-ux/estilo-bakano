@@ -28,16 +28,25 @@
       </button>
     </div>
 
+    <!-- Banner con la marca más grande -->
     <div class="banner-container">
       <img src="images/estilobakanotitulo.jpeg" alt="Estilo Bakano" class="banner">
     </div>
   </header>
 
-  <!-- Catálogo de productos -->
+  <!-- Catálogo / Carrusel de productos -->
   <main>
-    <h2 class="titulo-seccion">Colección Urbana</h2>
+    <div class="seccion-header">
+      <h2 class="titulo-seccion">Colección Urbana</h2>
+      <!-- Controles de navegación en PC -->
+      <div class="carrusel-controles">
+        <button class="btn-flecha" onclick="scrollCarrusel(-1)">❮</button>
+        <button class="btn-flecha" onclick="scrollCarrusel(1)">❯</button>
+      </div>
+    </div>
     
-    <div class="catalogo">
+    <!-- Carrusel de Productos -->
+    <div class="carrusel-container" id="carrusel">
       
       <!-- Producto 1: Remera Lisa -->
       <article class="producto">
@@ -47,7 +56,7 @@
         <div class="producto-info">
           <h3>Remera Lisa Street</h3>
           <p class="precio">$4.500</p>
-          
+
           <div class="selector-talle">
             <label for="talle-lisa">Talle:</label>
             <select id="talle-lisa">
@@ -57,7 +66,7 @@
               <option value="XL">XL</option>
             </select>
           </div>
-
+          
           <div class="acciones">
             <button class="btn-secundario" onclick="addToCart('Remera Lisa Street', 4500, 'talle-lisa')">
               + Agregar al carrito
@@ -129,6 +138,96 @@
         </div>
       </article>
 
+      <!-- Producto 4 (Espacio vacío para nueva prenda) -->
+      <article class="producto">
+        <div class="img-container img-placeholder">
+          <span>Próximamente</span>
+        </div>
+        <div class="producto-info">
+          <h3>Buzo Hoodie Street</h3>
+          <p class="precio">$0.000</p>
+
+          <div class="selector-talle">
+            <label for="talle-p4">Talle:</label>
+            <select id="talle-p4">
+              <option value="S">S</option>
+              <option value="M" selected>M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
+          
+          <div class="acciones">
+            <button class="btn-secundario" disabled>
+              Agotado
+            </button>
+            <a href="#" class="mp-btn-link disabled">
+              💳 Sin Stock
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Producto 5 (Espacio vacío para nueva prenda) -->
+      <article class="producto">
+        <div class="img-container img-placeholder">
+          <span>Próximamente</span>
+        </div>
+        <div class="producto-info">
+          <h3>Pantalón Jogger Cargo</h3>
+          <p class="precio">$0.000</p>
+
+          <div class="selector-talle">
+            <label for="talle-p5">Talle:</label>
+            <select id="talle-p5">
+              <option value="S">S</option>
+              <option value="M" selected>M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
+          
+          <div class="acciones">
+            <button class="btn-secundario" disabled>
+              Agotado
+            </button>
+            <a href="#" class="mp-btn-link disabled">
+              💳 Sin Stock
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Producto 6 (Espacio vacío para nueva prenda) -->
+      <article class="producto">
+        <div class="img-container img-placeholder">
+          <span>Próximamente</span>
+        </div>
+        <div class="producto-info">
+          <h3>Campera Street BK</h3>
+          <p class="precio">$0.000</p>
+
+          <div class="selector-talle">
+            <label for="talle-p6">Talle:</label>
+            <select id="talle-p6">
+              <option value="S">S</option>
+              <option value="M" selected>M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
+          
+          <div class="acciones">
+            <button class="btn-secundario" disabled>
+              Agotado
+            </button>
+            <a href="#" class="mp-btn-link disabled">
+              💳 Sin Stock
+            </a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </main>
 
@@ -174,10 +273,21 @@
     <p class="copyright">&copy; 2026 Estilo Bakano - Todos los derechos reservados</p>
   </footer>
 
-  <!-- Script del Carrito -->
+  <!-- Scripts -->
   <script>
     let cart = [];
 
+    // Función para desplazar el carrusel con flechas
+    function scrollCarrusel(direccion) {
+      const carrusel = document.getElementById('carrusel');
+      const desplazamiento = 280; // Ancho de tarjeta + gap
+      carrusel.scrollBy({
+        left: direccion * desplazamiento,
+        behavior: 'smooth'
+      });
+    }
+
+    // Carrito Logic
     function toggleCart() {
       document.getElementById('cart-drawer').classList.toggle('active');
       document.getElementById('cart-overlay').classList.toggle('active');

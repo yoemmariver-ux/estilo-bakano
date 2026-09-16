@@ -39,8 +39,8 @@ header {
 }
 
 .logo-pequeno {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
   border-radius: 4px;
 }
@@ -70,19 +70,20 @@ header {
 .banner-container {
   background-color: #0a0a0a;
   text-align: center;
-  padding: 12px 10px;
+  padding: 18px 10px;
   border-bottom: 1px solid #1f1f1f;
 }
 
+/* Marca agrandada de forma prominente */
 .banner {
   width: 100%;
-  max-width: 260px;
+  max-width: 380px; 
   height: auto;
-  max-height: 90px;
+  max-height: 140px;
   object-fit: contain;
 }
 
-/* Catálogo */
+/* Catálogo & Carrusel deslizable */
 main {
   max-width: 1200px;
   width: 100%;
@@ -91,23 +92,70 @@ main {
   flex: 1;
 }
 
+.seccion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .titulo-seccion {
-  text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 25px;
   color: #ffffff;
 }
 
-.catalogo {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
+/* Flechas de navegación del carrusel */
+.carrusel-controles {
+  display: flex;
+  gap: 8px;
 }
 
+.btn-flecha {
+  background-color: #222222;
+  color: #ffffff;
+  border: 1px solid #333333;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.btn-flecha:hover {
+  background-color: #444444;
+}
+
+/* Contenedor del Carrusel con scroll suave */
+.carrusel-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 15px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ocultar barra de scroll antiestética pero mantener funcionalidad */
+.carrusel-container::-webkit-scrollbar {
+  height: 6px;
+}
+.carrusel-container::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+/* Tarjeta individual del producto dentro del carrusel */
 .producto {
+  flex: 0 0 250px; /* Ancho fijo para cada tarjeta en la lista deslizable */
+  scroll-snap-align: start;
   background-color: #1a1a1a;
   border: 1px solid #262626;
   border-radius: 8px;
@@ -124,6 +172,15 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Placeholder para futuros productos */
+.img-placeholder {
+  color: #555555;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px dashed #2a2a2a;
 }
 
 .producto img {
@@ -194,8 +251,13 @@ main {
   cursor: pointer;
 }
 
-.btn-secundario:hover {
+.btn-secundario:hover:not(:disabled) {
   background-color: #3a3a3a;
+}
+
+.btn-secundario:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .mp-btn-link {
@@ -208,6 +270,12 @@ main {
   border-radius: 4px;
   font-size: 12px;
   font-weight: 700;
+}
+
+.mp-btn-link.disabled {
+  background-color: #333;
+  color: #777;
+  pointer-events: none;
 }
 
 /* Drawer / Sidebar del Carrito */
