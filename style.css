@@ -13,13 +13,12 @@ body {
   flex-direction: column;
 }
 
-/* Header */
+/* Header (Se removió la propiedad sticky para que fluya con el scroll) */
 header {
   background-color: #000000;
   border-bottom: 1px solid #222222;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: relative;
+  width: 100%;
 }
 
 .top-nav {
