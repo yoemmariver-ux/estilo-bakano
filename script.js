@@ -4,7 +4,7 @@ const clickAudio = new Audio('sounds/click.mp3');
 function reproducirClic() {
   clickAudio.currentTime = 0;
   clickAudio.play().catch(e => {
-    // Maneja bloqueo automático de audio en navegadores si ocurre antes de una interacción
+    // Evita excepciones si el usuario no interactuó previamente
   });
 }
 

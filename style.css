@@ -69,7 +69,7 @@ header {
 .banner-container {
   background-color: #0a0a0a;
   text-align: center;
-  padding: 15px 10px;
+  padding: 15px 10px 20px;
   border-bottom: 1px solid #1f1f1f;
 }
 
@@ -79,6 +79,36 @@ header {
   height: auto;
   max-height: 140px;
   object-fit: contain;
+  margin-bottom: 8px;
+}
+
+/* Bio del Header */
+.bio-header {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.bio-destacado {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.bio-sub {
+  font-size: 0.85rem;
+  color: #25d366;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.bio-tag {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-bottom: 2px;
 }
 
 /* Categorías */
@@ -409,7 +439,8 @@ footer {
 
 .footer-title { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
 .redes { display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 12px; }
-.icono-red { width: 22px; height: 22px; object-fit: contain; opacity: 0.8; }
+.icono-red { width: 22px; height: 22px; object-fit: contain; opacity: 0.8; transition: opacity 0.2s; }
+.icono-red:hover { opacity: 1; }
 .atencion-wa { font-size: 0.8rem; color: #aaa; margin-bottom: 6px; }
 .copyright { font-size: 0.7rem; color: #555; }
 
