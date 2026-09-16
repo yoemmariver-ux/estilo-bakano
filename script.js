@@ -268,3 +268,20 @@ function checkoutWhatsApp() {
 
   window.open(`https://wa.me/5493834287709?text=${encodeURIComponent(message)}`, '_blank');
 }
+// Efecto de Zoom interactivo en la vista previa del Modal
+const previewContainer = document.querySelector('.modal-preview-container');
+const previewImg = document.querySelector('.modal-preview-container img');
+
+if (previewContainer && previewImg) {
+  previewContainer.addEventListener('mousemove', (e) => {
+    const { left, top, width, height } = previewContainer.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+
+    previewImg.style.transformOrigin = `${x}% ${y}%`;
+  });
+
+  previewContainer.addEventListener('mouseleave', () => {
+    previewImg.style.transformOrigin = 'center center';
+  });
+}
