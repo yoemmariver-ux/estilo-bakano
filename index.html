@@ -4,51 +4,63 @@
   <meta charset="UTF-8">
   <title>Tienda Urbana</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Snipcart -->
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
-  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
-  <div hidden id="snipcart" data-api-key="TU_API_KEY_DE_SNIPCART"></div>
 </head>
 <body>
   <header>
     <h1>Ropa Urbana</h1>
-    <button class="snipcart-checkout">🛒 Carrito</button>
   </header>
 
   <main>
+    <!-- Producto 1 -->
     <section class="producto">
-      <img src="camiseta.jpg" alt="Camiseta urbana">
+      <img src="camiseta.jpg" alt="Camiseta Oversize">
       <h2>Camiseta Oversize</h2>
       <p>$4500</p>
-      <button 
-        class="snipcart-add-item"
-        data-item-id="camiseta-oversize"
-        data-item-name="Camiseta Oversize"
-        data-item-price="4500"
-        data-item-url="/"
-        data-item-description="Camiseta estilo urbano oversize">
-        Agregar al carrito
-      </button>
+      <div id="walletBrick_camiseta"></div>
     </section>
 
+    <!-- Producto 2 -->
     <section class="producto">
-      <img src="buzo.jpg" alt="Buzo urbano">
+      <img src="buzo.jpg" alt="Buzo Hoodie">
       <h2>Buzo Hoodie</h2>
       <p>$8500</p>
-      <button 
-        class="snipcart-add-item"
-        data-item-id="buzo-hoodie"
-        data-item-name="Buzo Hoodie"
-        data-item-price="8500"
-        data-item-url="/"
-        data-item-description="Buzo urbano con capucha">
-        Agregar al carrito
-      </button>
+      <div id="walletBrick_buzo"></div>
+    </section>
+
+    <!-- Producto 3 -->
+    <section class="producto">
+      <img src="cargo.jpg" alt="Pantalón Cargo">
+      <h2>Pantalón Cargo</h2>
+      <p>$6500</p>
+      <div id="walletBrick_cargo"></div>
     </section>
   </main>
 
   <footer>
-    <p>📲 <a href="https://wa.me/549XXXXXXXXXX">Contactanos por WhatsApp</a></p>
+    <p>📲 <a href="https://wa.me/549383XXXXXXX">Contactanos por WhatsApp</a></p>
   </footer>
+
+  <!-- SDK MercadoPago -->
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <script>
+    // Configura tu Public Key de MercadoPago
+    const mp = new MercadoPago("TU_PUBLIC_KEY");
+
+    const bricksBuilder = mp.bricks();
+
+    // Renderizar botones de pago para cada producto
+    const renderWalletBrick = async (id, preferenceId) => {
+      await bricksBuilder.create("wallet", id, {
+        initialization: {
+          preferenceId: preferenceId
+        }
+      });
+    };
+
+    // Reemplaza con los preferenceId que generes desde tu backend
+    renderWalletBrick("walletBrick_camiseta", "PREFERENCE_ID_CAMISETA");
+    renderWalletBrick("walletBrick_buzo", "PREFERENCE_ID_BUZO");
+    renderWalletBrick("walletBrick_cargo", "PREFERENCE_ID_CARGO");
+  </script>
 </body>
 </html>
