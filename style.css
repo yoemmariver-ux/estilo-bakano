@@ -74,7 +74,6 @@ header {
   border-bottom: 1px solid #1f1f1f;
 }
 
-/* Marca agrandada de forma prominente */
 .banner {
   width: 100%;
   max-width: 380px; 
@@ -83,7 +82,7 @@ header {
   object-fit: contain;
 }
 
-/* Catálogo & Carrusel deslizable */
+/* Catálogo & Carrusel */
 main {
   max-width: 1200px;
   width: 100%;
@@ -107,7 +106,6 @@ main {
   color: #ffffff;
 }
 
-/* Flechas de navegación del carrusel */
 .carrusel-controles {
   display: flex;
   gap: 8px;
@@ -132,7 +130,6 @@ main {
   background-color: #444444;
 }
 
-/* Contenedor del Carrusel con scroll suave */
 .carrusel-container {
   display: flex;
   gap: 20px;
@@ -143,7 +140,6 @@ main {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Ocultar barra de scroll antiestética pero mantener funcionalidad */
 .carrusel-container::-webkit-scrollbar {
   height: 6px;
 }
@@ -152,9 +148,8 @@ main {
   border-radius: 4px;
 }
 
-/* Tarjeta individual del producto dentro del carrusel */
 .producto {
-  flex: 0 0 250px; /* Ancho fijo para cada tarjeta en la lista deslizable */
+  flex: 0 0 250px;
   scroll-snap-align: start;
   background-color: #1a1a1a;
   border: 1px solid #262626;
@@ -174,7 +169,6 @@ main {
   justify-content: center;
 }
 
-/* Placeholder para futuros productos */
 .img-placeholder {
   color: #555555;
   font-size: 0.85rem;
@@ -211,26 +205,36 @@ main {
   margin-bottom: 12px;
 }
 
-/* Selector de Talles */
-.selector-talle {
+/* Opciones de Talle y Cantidad alineadas */
+.opciones-producto {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.selector-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 12px;
-  font-size: 0.85rem;
+  gap: 6px;
+  font-size: 0.8rem;
   color: #ccc;
 }
 
-.selector-talle select {
+.selector-item select, 
+.selector-item input {
   background-color: #262626;
   color: #fff;
   border: 1px solid #444;
-  padding: 4px 8px;
+  padding: 4px 6px;
   border-radius: 4px;
   font-size: 0.85rem;
-  cursor: pointer;
   outline: none;
+}
+
+.selector-item input[type="number"] {
+  width: 50px;
+  text-align: center;
 }
 
 .acciones {

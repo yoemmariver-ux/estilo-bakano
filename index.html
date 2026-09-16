@@ -28,7 +28,7 @@
       </button>
     </div>
 
-    <!-- Banner con la marca más grande -->
+    <!-- Banner con la marca -->
     <div class="banner-container">
       <img src="images/estilobakanotitulo.jpeg" alt="Estilo Bakano" class="banner">
     </div>
@@ -57,21 +57,27 @@
           <h3>Remera Lisa Street</h3>
           <p class="precio">$4.500</p>
 
-          <div class="selector-talle">
-            <label for="talle-lisa">Talle:</label>
-            <select id="talle-lisa">
-              <option value="S">S</option>
-              <option value="M" selected>M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
+          <div class="opciones-producto">
+            <div class="selector-item">
+              <label for="talle-lisa">Talle:</label>
+              <select id="talle-lisa">
+                <option value="S">S</option>
+                <option value="M" selected>M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+            </div>
+            <div class="selector-item">
+              <label for="cant-lisa">Cant:</label>
+              <input type="number" id="cant-lisa" value="1" min="1" max="10">
+            </div>
           </div>
           
           <div class="acciones">
-            <button class="btn-secundario" onclick="addToCart('Remera Lisa Street', 4500, 'talle-lisa')">
+            <button class="btn-secundario" onclick="addToCart('Remera Lisa Street', 4500, 'talle-lisa', 'cant-lisa')">
               + Agregar al carrito
             </button>
-            <a href="https://wa.me/549383XXXXXXX?text=Hola!%20Quiero%20comprar%20la%20Remera%20Lisa%20Street" target="_blank" class="mp-btn-link">
+            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Lisa%20Street" target="_blank" class="mp-btn-link">
               💳 Pagar con Mercado Pago
             </a>
           </div>
@@ -87,21 +93,27 @@
           <h3>Remera Overside Street</h3>
           <p class="precio">$5.200</p>
 
-          <div class="selector-talle">
-            <label for="talle-overside">Talle:</label>
-            <select id="talle-overside">
-              <option value="S">S</option>
-              <option value="M" selected>M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
+          <div class="opciones-producto">
+            <div class="selector-item">
+              <label for="talle-overside">Talle:</label>
+              <select id="talle-overside">
+                <option value="S">S</option>
+                <option value="M" selected>M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+            </div>
+            <div class="selector-item">
+              <label for="cant-overside">Cant:</label>
+              <input type="number" id="cant-overside" value="1" min="1" max="10">
+            </div>
           </div>
           
           <div class="acciones">
-            <button class="btn-secundario" onclick="addToCart('Remera Overside Street', 5200, 'talle-overside')">
+            <button class="btn-secundario" onclick="addToCart('Remera Overside Street', 5200, 'talle-overside', 'cant-overside')">
               + Agregar al carrito
             </button>
-            <a href="https://wa.me/549383XXXXXXX?text=Hola!%20Quiero%20comprar%20la%20Remera%20Overside%20Street" target="_blank" class="mp-btn-link">
+            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Overside%20Street" target="_blank" class="mp-btn-link">
               💳 Pagar con Mercado Pago
             </a>
           </div>
@@ -117,28 +129,34 @@
           <h3>Remera Marrón Urban</h3>
           <p class="precio">$4.800</p>
 
-          <div class="selector-talle">
-            <label for="talle-marron">Talle:</label>
-            <select id="talle-marron">
-              <option value="S">S</option>
-              <option value="M" selected>M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
+          <div class="opciones-producto">
+            <div class="selector-item">
+              <label for="talle-marron">Talle:</label>
+              <select id="talle-marron">
+                <option value="S">S</option>
+                <option value="M" selected>M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+            </div>
+            <div class="selector-item">
+              <label for="cant-marron">Cant:</label>
+              <input type="number" id="cant-marron" value="1" min="1" max="10">
+            </div>
           </div>
           
           <div class="acciones">
-            <button class="btn-secundario" onclick="addToCart('Remera Marrón Urban', 4800, 'talle-marron')">
+            <button class="btn-secundario" onclick="addToCart('Remera Marrón Urban', 4800, 'talle-marron', 'cant-marron')">
               + Agregar al carrito
             </button>
-            <a href="https://wa.me/549383XXXXXXX?text=Hola!%20Quiero%20comprar%20la%20Remera%20Marr%C3%B3n%20Urban" target="_blank" class="mp-btn-link">
+            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Marr%C3%B3n%20Urban" target="_blank" class="mp-btn-link">
               💳 Pagar con Mercado Pago
             </a>
           </div>
         </div>
       </article>
 
-      <!-- Producto 4 (Espacio vacío para nueva prenda) -->
+      <!-- Producto 4 (Espacio vacío) -->
       <article class="producto">
         <div class="img-container img-placeholder">
           <span>Próximamente</span>
@@ -147,28 +165,28 @@
           <h3>Buzo Hoodie Street</h3>
           <p class="precio">$0.000</p>
 
-          <div class="selector-talle">
-            <label for="talle-p4">Talle:</label>
-            <select id="talle-p4">
-              <option value="S">S</option>
-              <option value="M" selected>M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
+          <div class="opciones-producto">
+            <div class="selector-item">
+              <label for="talle-p4">Talle:</label>
+              <select id="talle-p4" disabled>
+                <option value="S">S</option>
+                <option value="M">M</option>
+              </select>
+            </div>
+            <div class="selector-item">
+              <label for="cant-p4">Cant:</label>
+              <input type="number" id="cant-p4" value="1" disabled>
+            </div>
           </div>
           
           <div class="acciones">
-            <button class="btn-secundario" disabled>
-              Agotado
-            </button>
-            <a href="#" class="mp-btn-link disabled">
-              💳 Sin Stock
-            </a>
+            <button class="btn-secundario" disabled>Agotado</button>
+            <a href="#" class="mp-btn-link disabled">💳 Sin Stock</a>
           </div>
         </div>
       </article>
 
-      <!-- Producto 5 (Espacio vacío para nueva prenda) -->
+      <!-- Producto 5 (Espacio vacío) -->
       <article class="producto">
         <div class="img-container img-placeholder">
           <span>Próximamente</span>
@@ -177,28 +195,28 @@
           <h3>Pantalón Jogger Cargo</h3>
           <p class="precio">$0.000</p>
 
-          <div class="selector-talle">
-            <label for="talle-p5">Talle:</label>
-            <select id="talle-p5">
-              <option value="S">S</option>
-              <option value="M" selected>M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
+          <div class="opciones-producto">
+            <div class="selector-item">
+              <label for="talle-p5">Talle:</label>
+              <select id="talle-p5" disabled>
+                <option value="S">S</option>
+                <option value="M">M</option>
+              </select>
+            </div>
+            <div class="selector-item">
+              <label for="cant-p5">Cant:</label>
+              <input type="number" id="cant-p5" value="1" disabled>
+            </div>
           </div>
           
           <div class="acciones">
-            <button class="btn-secundario" disabled>
-              Agotado
-            </button>
-            <a href="#" class="mp-btn-link disabled">
-              💳 Sin Stock
-            </a>
+            <button class="btn-secundario" disabled>Agotado</button>
+            <a href="#" class="mp-btn-link disabled">💳 Sin Stock</a>
           </div>
         </div>
       </article>
 
-      <!-- Producto 6 (Espacio vacío para nueva prenda) -->
+      <!-- Producto 6 (Espacio vacío) -->
       <article class="producto">
         <div class="img-container img-placeholder">
           <span>Próximamente</span>
@@ -207,23 +225,23 @@
           <h3>Campera Street BK</h3>
           <p class="precio">$0.000</p>
 
-          <div class="selector-talle">
-            <label for="talle-p6">Talle:</label>
-            <select id="talle-p6">
-              <option value="S">S</option>
-              <option value="M" selected>M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
+          <div class="opciones-producto">
+            <div class="selector-item">
+              <label for="talle-p6">Talle:</label>
+              <select id="talle-p6" disabled>
+                <option value="S">S</option>
+                <option value="M">M</option>
+              </select>
+            </div>
+            <div class="selector-item">
+              <label for="cant-p6">Cant:</label>
+              <input type="number" id="cant-p6" value="1" disabled>
+            </div>
           </div>
           
           <div class="acciones">
-            <button class="btn-secundario" disabled>
-              Agotado
-            </button>
-            <a href="#" class="mp-btn-link disabled">
-              💳 Sin Stock
-            </a>
+            <button class="btn-secundario" disabled>Agotado</button>
+            <a href="#" class="mp-btn-link disabled">💳 Sin Stock</a>
           </div>
         </div>
       </article>
@@ -262,14 +280,14 @@
       <a href="https://instagram.com/TuPagina" target="_blank" title="Instagram">
         <img src="images/instagram.png" alt="Instagram" class="icono-red">
       </a>
-      <a href="https://wa.me/549383XXXXXXX" target="_blank" title="WhatsApp">
+      <a href="https://wa.me/5493834287709" target="_blank" title="WhatsApp">
         <img src="images/watsapp.png" alt="WhatsApp" class="icono-red">
       </a>
       <a href="https://maps.google.com/?q=TuUbicacion" target="_blank" title="Ubicación">
         <img src="images/ubicacion.png" alt="Ubicación" class="icono-red">
       </a>
     </div>
-    <p class="atencion-wa">📲 Atención personalizada por WhatsApp</p>
+    <p class="atencion-wa">📲 Atención personalizada por WhatsApp (+54 9 3834 28-7709)</p>
     <p class="copyright">&copy; 2026 Estilo Bakano - Todos los derechos reservados</p>
   </footer>
 
@@ -277,10 +295,10 @@
   <script>
     let cart = [];
 
-    // Función para desplazar el carrusel con flechas
+    // Desplazamiento del carrusel
     function scrollCarrusel(direccion) {
       const carrusel = document.getElementById('carrusel');
-      const desplazamiento = 280; // Ancho de tarjeta + gap
+      const desplazamiento = 280;
       carrusel.scrollBy({
         left: direccion * desplazamiento,
         behavior: 'smooth'
@@ -293,15 +311,16 @@
       document.getElementById('cart-overlay').classList.toggle('active');
     }
 
-    function addToCart(title, price, selectId) {
-      const size = document.getElementById(selectId).value;
+    function addToCart(title, price, selectTalleId, inputCantId) {
+      const size = document.getElementById(selectTalleId).value;
+      const quantityToAdd = parseInt(document.getElementById(inputCantId).value) || 1;
       const itemKey = `${title} (${size})`;
       
       const existing = cart.find(item => item.key === itemKey);
       if (existing) {
-        existing.quantity += 1;
+        existing.quantity += quantityToAdd;
       } else {
-        cart.push({ key: itemKey, title, price, size, quantity: 1 });
+        cart.push({ key: itemKey, title, price, size, quantity: quantityToAdd });
       }
 
       updateCartUI();
@@ -365,7 +384,7 @@
       message += "\n\n¿Cómo coordinamos el pago por Mercado Pago y la entrega?";
 
       const encodedMessage = encodeURIComponent(message);
-      window.open(`https://wa.me/549383XXXXXXX?text=${encodedMessage}`, '_blank');
+      window.open(`https://wa.me/5493834287709?text=${encodedMessage}`, '_blank');
     }
   </script>
 </body>
