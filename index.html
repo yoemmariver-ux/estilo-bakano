@@ -5,21 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estilo Bakano - Indumentaria Urbana</title>
   
-  <!-- Tipografía Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-  <!-- Estilos CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header / Marcas de la página -->
+  <!-- Header -->
   <header>
     <div class="top-nav">
       <div class="logos-chicos">
-        <img src="images/estilobakano.jpg" alt="Personaje Bakano" class="logo-pequeno">
+        <img src="images/estilobakano.jpg" alt="Bakano Logo" class="logo-pequeno">
         <img src="images/estilobakanobk.jpg" alt="Logo BK" class="logo-pequeno">
       </div>
       
@@ -28,247 +25,85 @@
       </button>
     </div>
 
-    <!-- Banner con la marca principal -->
     <div class="banner-container">
       <img src="images/estilobakanotitulo.jpeg" alt="Estilo Bakano" class="banner">
     </div>
   </header>
 
-  <!-- Catálogo / Carrusel de productos -->
-  <main>
-    <div class="seccion-header">
-      <h2 class="titulo-seccion">Colección Urbana</h2>
-      <!-- Controles de navegación en PC -->
-      <div class="carrusel-controles">
-        <button class="btn-flecha" onclick="scrollCarrusel(-1)">❮</button>
-        <button class="btn-flecha" onclick="scrollCarrusel(1)">❯</button>
-      </div>
-    </div>
+  <!-- Categorías de Navegación -->
+  <nav class="categorias-bar">
+    <button class="btn-cat active" onclick="filtrarCategoria('todos', event)">Todos</button>
+    <button class="btn-cat" onclick="filtrarCategoria('conjuntos-deportivos', event)">Conjuntos Deportivos</button>
+    <button class="btn-cat" onclick="filtrarCategoria('remeras', event)">Remeras</button>
+    <button class="btn-cat" onclick="filtrarCategoria('pantalones', event)">Pantalones</button>
+    <button class="btn-cat" onclick="filtrarCategoria('gorras', event)">Gorras</button>
+  </nav>
+
+  <!-- Grilla Principal del Catálogo -->
+  <main class="catalogo-grid" id="catalogo">
     
-    <!-- Carrusel de Productos -->
-    <div class="carrusel-container" id="carrusel">
-      
-      <!-- Producto 1: Remera Lisa -->
-      <article class="producto" id="prod-lisa">
-        <div class="img-container">
-          <img src="images/remera-lisa.jpg" alt="Remera Lisa Bakano">
-        </div>
-        <div class="producto-info">
-          <h3>Remera Lisa Street</h3>
-          <p class="precio">$4.500</p>
+    <!-- Tarjeta Agrupada: Conjuntos Deportivos -->
+    <article class="producto-card" data-categoria="conjuntos-deportivos">
+      <div class="badge-modelos">8 Modelos</div>
+      <div class="img-container">
+        <img src="images/conjuntos deportivos/conjunto-realmadrid.jpg" alt="Conjuntos Deportivos de Fútbol">
+      </div>
+      <div class="prod-detalles">
+        <h3>Conjuntos Deportivos</h3>
+        <p class="precio">$45.000</p>
+        <div class="medios-pago-info">💳 Tarjetas de Crédito / Débito en cuotas</div>
+        <button class="btn-elegir" onclick="abrirModal('conjuntos-deportivos')">Ver Modelos y Talles ➔</button>
+      </div>
+    </article>
 
-          <!-- Control de Stock en Tiempo Real -->
-          <p class="stock-tag" id="stock-lisa">Stock disponible: <span class="cant-stock">--</span></p>
+    <!-- Tarjeta Ejemplo: Remeras -->
+    <article class="producto-card" data-categoria="remeras">
+      <div class="img-container">
+        <img src="images/remera-lisa.jpg" alt="Remera Lisa Street">
+      </div>
+      <div class="prod-detalles">
+        <h3>Remera Lisa Street</h3>
+        <p class="precio">$4.500</p>
+        <div class="medios-pago-info">💳 Tarjetas de Crédito / Débito</div>
+        <button class="btn-elegir" onclick="abrirModal('remera-lisa')">Ver Talles ➔</button>
+      </div>
+    </article>
 
-          <div class="opciones-producto">
-            <div class="selector-item">
-              <label for="talle-lisa">Talle:</label>
-              <select id="talle-lisa" onchange="actualizarStockVista('lisa')">
-                <option value="S">S</option>
-                <option value="M" selected>M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-              </select>
-            </div>
-            <div class="selector-item">
-              <label for="cant-lisa">Cant:</label>
-              <input type="number" id="cant-lisa" value="1" min="1" max="10">
-            </div>
-          </div>
-          
-          <div class="medios-pago-info">
-            💳 Aceptamos Tarjetas de Crédito y Débito
-          </div>
-
-          <div class="acciones">
-            <button class="btn-secundario" id="btn-add-lisa" onclick="addToCartConStock('lisa', 'Remera Lisa Street', 4500)">
-              + Agregar al carrito
-            </button>
-            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Lisa%20Street" target="_blank" class="mp-btn-link" id="btn-mp-lisa">
-              💳 Pagar con Mercado Pago
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Producto 2: Remera Overside -->
-      <article class="producto" id="prod-overside">
-        <div class="img-container">
-          <img src="images/remera-overside.jpg" alt="Remera Overside Bakano">
-        </div>
-        <div class="producto-info">
-          <h3>Remera Overside Street</h3>
-          <p class="precio">$5.200</p>
-
-          <p class="stock-tag" id="stock-overside">Stock disponible: <span class="cant-stock">--</span></p>
-
-          <div class="opciones-producto">
-            <div class="selector-item">
-              <label for="talle-overside">Talle:</label>
-              <select id="talle-overside" onchange="actualizarStockVista('overside')">
-                <option value="S">S</option>
-                <option value="M" selected>M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-              </select>
-            </div>
-            <div class="selector-item">
-              <label for="cant-overside">Cant:</label>
-              <input type="number" id="cant-overside" value="1" min="1" max="10">
-            </div>
-          </div>
-          
-          <div class="medios-pago-info">
-            💳 Aceptamos Tarjetas de Crédito y Débito
-          </div>
-
-          <div class="acciones">
-            <button class="btn-secundario" id="btn-add-overside" onclick="addToCartConStock('overside', 'Remera Overside Street', 5200)">
-              + Agregar al carrito
-            </button>
-            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Overside%20Street" target="_blank" class="mp-btn-link" id="btn-mp-overside">
-              💳 Pagar con Mercado Pago
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Producto 3: Remera Marrón -->
-      <article class="producto" id="prod-marron">
-        <div class="img-container">
-          <img src="images/remera-marron.jpg" alt="Remera Marrón Bakano">
-        </div>
-        <div class="producto-info">
-          <h3>Remera Marrón Urban</h3>
-          <p class="precio">$4.800</p>
-
-          <p class="stock-tag" id="stock-marron">Stock disponible: <span class="cant-stock">--</span></p>
-
-          <div class="opciones-producto">
-            <div class="selector-item">
-              <label for="talle-marron">Talle:</label>
-              <select id="talle-marron" onchange="actualizarStockVista('marron')">
-                <option value="S">S</option>
-                <option value="M" selected>M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-              </select>
-            </div>
-            <div class="selector-item">
-              <label for="cant-marron">Cant:</label>
-              <input type="number" id="cant-marron" value="1" min="1" max="10">
-            </div>
-          </div>
-          
-          <div class="medios-pago-info">
-            💳 Aceptamos Tarjetas de Crédito y Débito
-          </div>
-
-          <div class="acciones">
-            <button class="btn-secundario" id="btn-add-marron" onclick="addToCartConStock('marron', 'Remera Marrón Urban', 4800)">
-              + Agregar al carrito
-            </button>
-            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Marr%C3%B3n%20Urban" target="_blank" class="mp-btn-link" id="btn-mp-marron">
-              💳 Pagar con Mercado Pago
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Producto 4 (Espacio vacío) -->
-      <article class="producto">
-        <div class="img-container img-placeholder">
-          <span>Próximamente</span>
-        </div>
-        <div class="producto-info">
-          <h3>Buzo Hoodie Street</h3>
-          <p class="precio">$0.000</p>
-          <p class="stock-tag sin-stock">Sin Stock</p>
-
-          <div class="opciones-producto">
-            <div class="selector-item">
-              <label for="talle-p4">Talle:</label>
-              <select id="talle-p4" disabled>
-                <option value="S">S</option>
-              </select>
-            </div>
-            <div class="selector-item">
-              <label for="cant-p4">Cant:</label>
-              <input type="number" id="cant-p4" value="1" disabled>
-            </div>
-          </div>
-          
-          <div class="acciones">
-            <button class="btn-secundario" disabled>Agotado</button>
-            <a href="#" class="mp-btn-link disabled">💳 Sin Stock</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Producto 5 (Espacio vacío) -->
-      <article class="producto">
-        <div class="img-container img-placeholder">
-          <span>Próximamente</span>
-        </div>
-        <div class="producto-info">
-          <h3>Pantalón Jogger Cargo</h3>
-          <p class="precio">$0.000</p>
-          <p class="stock-tag sin-stock">Sin Stock</p>
-
-          <div class="opciones-producto">
-            <div class="selector-item">
-              <label for="talle-p5">Talle:</label>
-              <select id="talle-p5" disabled>
-                <option value="S">S</option>
-              </select>
-            </div>
-            <div class="selector-item">
-              <label for="cant-p5">Cant:</label>
-              <input type="number" id="cant-p5" value="1" disabled>
-            </div>
-          </div>
-          
-          <div class="acciones">
-            <button class="btn-secundario" disabled>Agotado</button>
-            <a href="#" class="mp-btn-link disabled">💳 Sin Stock</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Producto 6 (Espacio vacío) -->
-      <article class="producto">
-        <div class="img-container img-placeholder">
-          <span>Próximamente</span>
-        </div>
-        <div class="producto-info">
-          <h3>Campera Street BK</h3>
-          <p class="precio">$0.000</p>
-          <p class="stock-tag sin-stock">Sin Stock</p>
-
-          <div class="opciones-producto">
-            <div class="selector-item">
-              <label for="talle-p6">Talle:</label>
-              <select id="talle-p6" disabled>
-                <option value="S">S</option>
-              </select>
-            </div>
-            <div class="selector-item">
-              <label for="cant-p6">Cant:</label>
-              <input type="number" id="cant-p6" value="1" disabled>
-            </div>
-          </div>
-          
-          <div class="acciones">
-            <button class="btn-secundario" disabled>Agotado</button>
-            <a href="#" class="mp-btn-link disabled">💳 Sin Stock</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
   </main>
 
-  <!-- Panel Lateral del Carrito -->
+  <!-- Modal Emergente Selección de Modelo y Talle -->
+  <div id="modal-producto" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="cerrarModal()">✕</button>
+      
+      <h3 id="modal-titulo">Seleccionar Modelo</h3>
+      <p id="modal-precio" class="precio-modal"></p>
+
+      <div class="seccion-modal">
+        <label class="modal-label">1. Seleccioná el Modelo:</label>
+        <div class="modelos-grid" id="modal-modelos-list"></div>
+      </div>
+
+      <div class="seccion-modal opciones-inline">
+        <div class="selector-item">
+          <label for="modal-talle">Talle:</label>
+          <select id="modal-talle" onchange="actualizarStockModal()"></select>
+        </div>
+        <div class="selector-item">
+          <label for="modal-cant">Cantidad:</label>
+          <input type="number" id="modal-cant" value="1" min="1" max="10">
+        </div>
+      </div>
+
+      <p class="stock-tag" id="modal-stock-status">Stock disponible: <span class="cant-stock">1</span></p>
+
+      <button class="cart-checkout-btn" id="btn-modal-add" onclick="agregarAlCarritoDesdeModal()">
+        + Agregar al Carrito
+      </button>
+    </div>
+  </div>
+
+  <!-- Drawer Lateral del Carrito -->
   <div id="cart-drawer" class="cart-drawer">
     <div class="cart-header">
       <h3>Tu Carrito</h3>
@@ -292,186 +127,19 @@
   </div>
   <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
 
-  <!-- Footer / Redes -->
+  <!-- Footer -->
   <footer>
     <p class="footer-title">Seguinos en nuestras redes</p>
     <div class="redes">
-      <a href="https://facebook.com/TuPagina" target="_blank" title="Facebook">
-        <img src="images/facebook.png" alt="Facebook" class="icono-red">
-      </a>
-      <a href="https://instagram.com/TuPagina" target="_blank" title="Instagram">
-        <img src="images/instagram.png" alt="Instagram" class="icono-red">
-      </a>
-      <a href="https://wa.me/5493834287709" target="_blank" title="WhatsApp">
-        <img src="images/watsapp.png" alt="WhatsApp" class="icono-red">
-      </a>
-      <a href="https://maps.google.com/?q=TuUbicacion" target="_blank" title="Ubicación">
-        <img src="images/ubicacion.png" alt="Ubicación" class="icono-red">
-      </a>
+      <a href="https://facebook.com/TuPagina" target="_blank"><img src="images/facebook.png" alt="Facebook" class="icono-red"></a>
+      <a href="https://instagram.com/TuPagina" target="_blank"><img src="images/instagram.png" alt="Instagram" class="icono-red"></a>
+      <a href="https://wa.me/5493834287709" target="_blank"><img src="images/watsapp.png" alt="WhatsApp" class="icono-red"></a>
+      <a href="https://maps.google.com/?q=TuUbicacion" target="_blank"><img src="images/ubicacion.png" alt="Ubicación" class="icono-red"></a>
     </div>
     <p class="atencion-wa">📲 Atención personalizada por WhatsApp (+54 9 3834 28-7709)</p>
     <p class="copyright">&copy; 2026 Estilo Bakano - Todos los derechos reservados</p>
   </footer>
 
-  <!-- Lógica de Control de Stock y Carrito -->
-  <script>
-    // Inventario configurable por talle
-    const inventario = {
-      lisa: { S: 3, M: 5, L: 2, XL: 4 },
-      overside: { S: 2, M: 6, L: 0, XL: 2 },
-      marron: { S: 1, M: 4, L: 3, XL: 1 }
-    };
-
-    let cart = [];
-
-    // Desplazamiento del carrusel con botones
-    function scrollCarrusel(direccion) {
-      const carrusel = document.getElementById('carrusel');
-      const desplazamiento = 280;
-      carrusel.scrollBy({
-        left: direccion * desplazamiento,
-        behavior: 'smooth'
-      });
-    }
-
-    // Mostrar/Ocultar Carrito
-    function toggleCart() {
-      document.getElementById('cart-drawer').classList.toggle('active');
-      document.getElementById('cart-overlay').classList.toggle('active');
-    }
-
-    // Actualizar indicador visual de stock
-    function actualizarStockVista(prodId) {
-      const talleSel = document.getElementById(`talle-${prodId}`).value;
-      const stockDisponible = inventario[prodId][talleSel];
-      
-      const stockTag = document.getElementById(`stock-${prodId}`);
-      const btnAdd = document.getElementById(`btn-add-${prodId}`);
-      const btnMp = document.getElementById(`btn-mp-${prodId}`);
-      const inputCant = document.getElementById(`cant-${prodId}`);
-
-      if (stockDisponible > 0) {
-        stockTag.innerHTML = `Stock disponible: <span class="cant-stock">${stockDisponible}</span>`;
-        stockTag.classList.remove('sin-stock');
-        btnAdd.disabled = false;
-        btnAdd.textContent = "+ Agregar al carrito";
-        btnMp.classList.remove('disabled');
-        inputCant.disabled = false;
-        inputCant.max = stockDisponible;
-      } else {
-        stockTag.innerHTML = `<span class="cant-stock">Agotado en Talle ${talleSel}</span>`;
-        stockTag.classList.add('sin-stock');
-        btnAdd.disabled = true;
-        btnAdd.textContent = "Agotado";
-        btnMp.classList.add('disabled');
-        inputCant.disabled = true;
-        inputCant.value = 1;
-      }
-    }
-
-    // Agregar al carrito con validación y descuento de stock
-    function addToCartConStock(prodId, title, price) {
-      const size = document.getElementById(`talle-${prodId}`).value;
-      const inputCant = document.getElementById(`cant-${prodId}`);
-      const quantityToAdd = parseInt(inputCant.value) || 1;
-      const stockDisponible = inventario[prodId][size];
-
-      if (quantityToAdd > stockDisponible) {
-        alert(`Solo quedan ${stockDisponible} unidades disponibles en talle ${size}.`);
-        return;
-      }
-
-      // Descontar del inventario
-      inventario[prodId][size] -= quantityToAdd;
-
-      const itemKey = `${title} (${size})`;
-      const existing = cart.find(item => item.key === itemKey);
-      
-      if (existing) {
-        existing.quantity += quantityToAdd;
-      } else {
-        cart.push({ key: itemKey, prodId, title, price, size, quantity: quantityToAdd });
-      }
-
-      actualizarStockVista(prodId);
-      updateCartUI();
-      toggleCart();
-    }
-
-    // Eliminar ítem y devolver stock
-    function removeFromCart(key) {
-      const item = cart.find(i => i.key === key);
-      if (item && inventario[item.prodId]) {
-        inventario[item.prodId][item.size] += item.quantity;
-        actualizarStockVista(item.prodId);
-      }
-      
-      cart = cart.filter(i => i.key !== key);
-      updateCartUI();
-    }
-
-    // Actualizar vista del carrito
-    function updateCartUI() {
-      const cartItemsContainer = document.getElementById('cart-items');
-      const cartCountEl = document.getElementById('cart-count');
-      const cartTotalPriceEl = document.getElementById('cart-total-price');
-
-      let totalCount = 0;
-      let totalPrice = 0;
-
-      if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p class="cart-empty-text">El carrito está vacío</p>';
-      } else {
-        cartItemsContainer.innerHTML = '';
-        cart.forEach(item => {
-          totalCount += item.quantity;
-          totalPrice += item.price * item.quantity;
-
-          const itemEl = document.createElement('div');
-          itemEl.className = 'cart-item';
-          itemEl.innerHTML = `
-            <div>
-              <strong>${item.title}</strong>
-              <div class="cart-item-details">Talle: ${item.size} | $${item.price.toLocaleString('es-AR')} x ${item.quantity}</div>
-            </div>
-            <button class="remove-btn" onclick="removeFromCart('${item.key}')">Eliminar</button>
-          `;
-          cartItemsContainer.appendChild(itemEl);
-        });
-      }
-
-      cartCountEl.textContent = totalCount;
-      cartTotalPriceEl.textContent = '$' + totalPrice.toLocaleString('es-AR');
-    }
-
-    // Checkout directo a WhatsApp
-    function checkoutWhatsApp() {
-      if (cart.length === 0) {
-        alert('Tu carrito está vacío.');
-        return;
-      }
-
-      let message = "Hola! Quiero realizar el siguiente pedido en Estilo Bakano:\n\n";
-      let total = 0;
-
-      cart.forEach(item => {
-        message += `• ${item.title} - Talle: ${item.size} (x${item.quantity}) = $${(item.price * item.quantity).toLocaleString('es-AR')}\n`;
-        total += item.price * item.quantity;
-      });
-
-      message += `\n*Total a pagar: $${total.toLocaleString('es-AR')}*`;
-      message += "\n\n¿Me podrías enviar el link de Mercado Pago para abonar con Tarjeta de Crédito/Débito?";
-
-      const encodedMessage = encodeURIComponent(message);
-      window.open(`https://wa.me/5493834287709?text=${encodedMessage}`, '_blank');
-    }
-
-    // Inicialización al cargar la página
-    document.addEventListener("DOMContentLoaded", () => {
-      actualizarStockVista('lisa');
-      actualizarStockVista('overside');
-      actualizarStockVista('marron');
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
