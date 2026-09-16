@@ -9,6 +9,11 @@ header {
   padding: 1rem;
   text-align: center;
 }
+.banner {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
 .producto {
   background: #fff;
   margin: 1rem;
@@ -25,6 +30,7 @@ button {
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  margin-top: 10px;
 }
 button:hover {
   background: #333;
@@ -34,4 +40,12 @@ footer {
   padding: 1rem;
   background: #111;
   color: #fff;
+}
+.icono-red {
+  width: 40px;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+.icono-red:hover {
+  transform: scale(1.2);
 }
