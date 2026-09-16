@@ -11,8 +11,8 @@ header {
 }
 .titulo-central {
   width: 100%;
-  max-height: 180px;
-  object-fit: cover;
+  max-height: 150px;
+  object-fit: contain;
 }
 .logos-chicos {
   display: flex;
@@ -21,7 +21,7 @@ header {
   margin-top: 10px;
 }
 .logo-pequeno {
-  width: 80px;
+  width: 60px;
 }
 .producto {
   background: #fff;
@@ -49,6 +49,7 @@ button:hover {
 .mp-btn {
   background: #009EE3;
   margin-top: 8px;
+  font-size: 14px;
 }
 footer {
   text-align: center;
@@ -57,7 +58,7 @@ footer {
   color: #fff;
 }
 .icono-red {
-  width: 25px;
+  width: 20px;   /* tamaño pequeño para móviles */
   margin: 0 5px;
   transition: transform 0.3s;
 }
