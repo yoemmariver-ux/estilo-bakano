@@ -1,3 +1,23 @@
+// Carga del sonido de clic
+const clickAudio = new Audio('sounds/click.mp3');
+
+function reproducirClic() {
+  clickAudio.currentTime = 0;
+  clickAudio.play().catch(e => {
+    // Maneja bloqueo automático de audio en navegadores si ocurre antes de una interacción
+  });
+}
+
+// Activar sonido global en todos los botones y elementos interactivos
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.addEventListener('click', (e) => {
+    const esInteractivo = e.target.closest('button, a, .modelo-option, .btn-cat, .producto-card');
+    if (esInteractivo) {
+      reproducirClic();
+    }
+  });
+});
+
 // Catálogo centralizado con stock de 1 unidad por variante
 const catalogoData = {
   "conjuntos-deportivos": {
@@ -12,6 +32,26 @@ const catalogoData = {
       { id: "mancity", nombre: "Manchester City", img: "images/conjuntos deportivos/conjunto-mancity.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } },
       { id: "manutd", nombre: "Manchester United", img: "images/conjuntos deportivos/conjunto-manutd.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } },
       { id: "realmadrid", nombre: "Real Madrid", img: "images/conjuntos deportivos/conjunto-realmadrid.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } }
+    ]
+  },
+  "gafas": {
+    titulo: "Gafas Deportivas",
+    precio: 8500,
+    modelos: [
+      { id: "gafas-1", nombre: "Gafas Modelo 1", img: "images/gafas/gafas-1.jpg", stock: { "Único": 1 } },
+      { id: "gafas-2", nombre: "Gafas Modelo 2", img: "images/gafas/gafas-2.jpg", stock: { "Único": 1 } },
+      { id: "gafas-3", nombre: "Gafas Modelo 3", img: "images/gafas/gafas-3.jpg", stock: { "Único": 1 } },
+      { id: "gafas-4", nombre: "Gafas Modelo 4", img: "images/gafas/gafas-4.jpg", stock: { "Único": 1 } },
+      { id: "gafas-5", nombre: "Gafas Modelo 5", img: "images/gafas/gafas-5.jpg", stock: { "Único": 1 } }
+    ]
+  },
+  "auriculares-smartwatch": {
+    titulo: "Auriculares & Smartwatch",
+    precio: 15000,
+    modelos: [
+      { id: "smartwatch", nombre: "Smartwatch Deportivo", img: "images/auriculares y smartwatch/smartwatch.jpg", stock: { "Único": 1 } },
+      { id: "auricular-2", nombre: "Auriculares Pro", img: "images/auriculares y smartwatch/auricular-2.jpg", stock: { "Único": 1 } },
+      { id: "auricular-tws", nombre: "Auriculares TWS Green", img: "images/auriculares y smartwatch/auricular-tws.jpg", stock: { "Único": 1 } }
     ]
   },
   "remera-lisa": {
@@ -65,7 +105,7 @@ function seleccionarModelo(index) {
   const options = document.querySelectorAll('.modelo-option');
   options.forEach((opt, i) => opt.classList.toggle('selected', i === index));
 
-  // Cargar talles disponibles
+  // Cargar talles/variantes disponibles
   const selectTalle = document.getElementById('modal-talle');
   selectTalle.innerHTML = '';
   
@@ -96,10 +136,10 @@ function actualizarStockModal() {
     inputCant.max = stockDisponible;
     inputCant.value = 1;
   } else {
-    stockStatus.innerHTML = `<span class="cant-stock">Agotado en Talle ${talleSel}</span>`;
+    stockStatus.innerHTML = `<span class="cant-stock">Agotado en esta opción</span>`;
     stockStatus.classList.add('sin-stock');
     btnAdd.disabled = true;
-    btnAdd.textContent = "Agotado en este talle";
+    btnAdd.textContent = "Agotado";
     inputCant.disabled = true;
   }
 }
@@ -116,7 +156,7 @@ function agregarAlCarritoDesdeModal() {
   const stockDisponible = modeloSeleccionadoActual.stock[talleSel];
 
   if (cantidadPedida > stockDisponible) {
-    alert(`Solo queda ${stockDisponible} unidad disponible en talle ${talleSel}.`);
+    alert(`Solo queda ${stockDisponible} unidad disponible.`);
     return;
   }
 
@@ -181,7 +221,7 @@ function updateCartUI() {
       itemEl.innerHTML = `
         <div>
           <strong>${item.nombre}</strong>
-          <div class="cart-item-details">Talle: ${item.talle} | $${item.precio.toLocaleString('es-AR')} x ${item.quantity}</div>
+          <div class="cart-item-details">Variante: ${item.talle} | $${item.precio.toLocaleString('es-AR')} x ${item.quantity}</div>
         </div>
         <button class="remove-btn" onclick="removeFromCart('${item.key}')">Eliminar</button>
       `;
@@ -219,7 +259,7 @@ function checkoutWhatsApp() {
   let total = 0;
 
   cart.forEach(item => {
-    message += `• ${item.nombre} - Talle ${item.talle} (x${item.quantity}) = $${(item.precio * item.quantity).toLocaleString('es-AR')}\n`;
+    message += `• ${item.nombre} - Variante/Talle ${item.talle} (x${item.quantity}) = $${(item.precio * item.quantity).toLocaleString('es-AR')}\n`;
     total += item.precio * item.quantity;
   });
 

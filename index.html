@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estilo Bakano - Indumentaria Urbana</title>
+  <title>Estilo Bakano - Indumentaria y Accesorios Urbano</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +34,8 @@
   <nav class="categorias-bar">
     <button class="btn-cat active" onclick="filtrarCategoria('todos', event)">Todos</button>
     <button class="btn-cat" onclick="filtrarCategoria('conjuntos-deportivos', event)">Conjuntos Deportivos</button>
+    <button class="btn-cat" onclick="filtrarCategoria('gafas', event)">Gafas</button>
+    <button class="btn-cat" onclick="filtrarCategoria('auriculares-smartwatch', event)">Auriculares y Smartwatch</button>
     <button class="btn-cat" onclick="filtrarCategoria('remeras', event)">Remeras</button>
     <button class="btn-cat" onclick="filtrarCategoria('pantalones', event)">Pantalones</button>
     <button class="btn-cat" onclick="filtrarCategoria('gorras', event)">Gorras</button>
@@ -53,6 +55,34 @@
         <p class="precio">$45.000</p>
         <div class="medios-pago-info">💳 Tarjetas de Crédito / Débito en cuotas</div>
         <button class="btn-elegir" onclick="abrirModal('conjuntos-deportivos')">Ver Modelos y Talles ➔</button>
+      </div>
+    </article>
+
+    <!-- Tarjeta Agrupada: Gafas Deportivas -->
+    <article class="producto-card" data-categoria="gafas">
+      <div class="badge-modelos">5 Modelos</div>
+      <div class="img-container">
+        <img src="images/gafas/gafas-1.jpg" alt="Gafas Deportivas">
+      </div>
+      <div class="prod-detalles">
+        <h3>Gafas Deportivas</h3>
+        <p class="precio">$8.500</p>
+        <div class="medios-pago-info">💳 Tarjetas de Crédito / Débito</div>
+        <button class="btn-elegir" onclick="abrirModal('gafas')">Ver Modelos y Colores ➔</button>
+      </div>
+    </article>
+
+    <!-- Tarjeta Agrupada: Auriculares y Smartwatch -->
+    <article class="producto-card" data-categoria="auriculares-smartwatch">
+      <div class="badge-modelos">3 Modelos</div>
+      <div class="img-container">
+        <img src="images/auriculares y smartwatch/smartwatch.jpg" alt="Auriculares y Smartwatch">
+      </div>
+      <div class="prod-detalles">
+        <h3>Auriculares & Smartwatch</h3>
+        <p class="precio">$15.000</p>
+        <div class="medios-pago-info">💳 Tarjetas de Crédito / Débito</div>
+        <button class="btn-elegir" onclick="abrirModal('auriculares-smartwatch')">Ver Modelos ➔</button>
       </div>
     </article>
 
@@ -78,7 +108,7 @@
       
       <!-- Vista Previa Ampliada -->
       <div class="modal-preview-container">
-        <img id="modal-img-principal" src="" alt="Vista previa del conjunto">
+        <img id="modal-img-principal" src="" alt="Vista previa del producto">
       </div>
 
       <!-- Opciones y Galería de Selección -->
@@ -93,7 +123,7 @@
 
         <div class="seccion-modal opciones-inline">
           <div class="selector-item">
-            <label for="modal-talle">Talle:</label>
+            <label for="modal-talle">Variante / Talle:</label>
             <select id="modal-talle" onchange="actualizarStockModal()"></select>
           </div>
           <div class="selector-item">
