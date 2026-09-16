@@ -28,7 +28,7 @@
       </button>
     </div>
 
-    <!-- Banner con la marca -->
+    <!-- Banner con la marca principal -->
     <div class="banner-container">
       <img src="images/estilobakanotitulo.jpeg" alt="Estilo Bakano" class="banner">
     </div>
@@ -49,7 +49,7 @@
     <div class="carrusel-container" id="carrusel">
       
       <!-- Producto 1: Remera Lisa -->
-      <article class="producto">
+      <article class="producto" id="prod-lisa">
         <div class="img-container">
           <img src="images/remera-lisa.jpg" alt="Remera Lisa Bakano">
         </div>
@@ -57,10 +57,13 @@
           <h3>Remera Lisa Street</h3>
           <p class="precio">$4.500</p>
 
+          <!-- Control de Stock en Tiempo Real -->
+          <p class="stock-tag" id="stock-lisa">Stock disponible: <span class="cant-stock">--</span></p>
+
           <div class="opciones-producto">
             <div class="selector-item">
               <label for="talle-lisa">Talle:</label>
-              <select id="talle-lisa">
+              <select id="talle-lisa" onchange="actualizarStockVista('lisa')">
                 <option value="S">S</option>
                 <option value="M" selected>M</option>
                 <option value="L">L</option>
@@ -73,11 +76,15 @@
             </div>
           </div>
           
+          <div class="medios-pago-info">
+            💳 Aceptamos Tarjetas de Crédito y Débito
+          </div>
+
           <div class="acciones">
-            <button class="btn-secundario" onclick="addToCart('Remera Lisa Street', 4500, 'talle-lisa', 'cant-lisa')">
+            <button class="btn-secundario" id="btn-add-lisa" onclick="addToCartConStock('lisa', 'Remera Lisa Street', 4500)">
               + Agregar al carrito
             </button>
-            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Lisa%20Street" target="_blank" class="mp-btn-link">
+            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Lisa%20Street" target="_blank" class="mp-btn-link" id="btn-mp-lisa">
               💳 Pagar con Mercado Pago
             </a>
           </div>
@@ -85,7 +92,7 @@
       </article>
 
       <!-- Producto 2: Remera Overside -->
-      <article class="producto">
+      <article class="producto" id="prod-overside">
         <div class="img-container">
           <img src="images/remera-overside.jpg" alt="Remera Overside Bakano">
         </div>
@@ -93,10 +100,12 @@
           <h3>Remera Overside Street</h3>
           <p class="precio">$5.200</p>
 
+          <p class="stock-tag" id="stock-overside">Stock disponible: <span class="cant-stock">--</span></p>
+
           <div class="opciones-producto">
             <div class="selector-item">
               <label for="talle-overside">Talle:</label>
-              <select id="talle-overside">
+              <select id="talle-overside" onchange="actualizarStockVista('overside')">
                 <option value="S">S</option>
                 <option value="M" selected>M</option>
                 <option value="L">L</option>
@@ -109,11 +118,15 @@
             </div>
           </div>
           
+          <div class="medios-pago-info">
+            💳 Aceptamos Tarjetas de Crédito y Débito
+          </div>
+
           <div class="acciones">
-            <button class="btn-secundario" onclick="addToCart('Remera Overside Street', 5200, 'talle-overside', 'cant-overside')">
+            <button class="btn-secundario" id="btn-add-overside" onclick="addToCartConStock('overside', 'Remera Overside Street', 5200)">
               + Agregar al carrito
             </button>
-            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Overside%20Street" target="_blank" class="mp-btn-link">
+            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Overside%20Street" target="_blank" class="mp-btn-link" id="btn-mp-overside">
               💳 Pagar con Mercado Pago
             </a>
           </div>
@@ -121,7 +134,7 @@
       </article>
 
       <!-- Producto 3: Remera Marrón -->
-      <article class="producto">
+      <article class="producto" id="prod-marron">
         <div class="img-container">
           <img src="images/remera-marron.jpg" alt="Remera Marrón Bakano">
         </div>
@@ -129,10 +142,12 @@
           <h3>Remera Marrón Urban</h3>
           <p class="precio">$4.800</p>
 
+          <p class="stock-tag" id="stock-marron">Stock disponible: <span class="cant-stock">--</span></p>
+
           <div class="opciones-producto">
             <div class="selector-item">
               <label for="talle-marron">Talle:</label>
-              <select id="talle-marron">
+              <select id="talle-marron" onchange="actualizarStockVista('marron')">
                 <option value="S">S</option>
                 <option value="M" selected>M</option>
                 <option value="L">L</option>
@@ -145,11 +160,15 @@
             </div>
           </div>
           
+          <div class="medios-pago-info">
+            💳 Aceptamos Tarjetas de Crédito y Débito
+          </div>
+
           <div class="acciones">
-            <button class="btn-secundario" onclick="addToCart('Remera Marrón Urban', 4800, 'talle-marron', 'cant-marron')">
+            <button class="btn-secundario" id="btn-add-marron" onclick="addToCartConStock('marron', 'Remera Marrón Urban', 4800)">
               + Agregar al carrito
             </button>
-            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Marr%C3%B3n%20Urban" target="_blank" class="mp-btn-link">
+            <a href="https://wa.me/5493834287709?text=Hola!%20Quiero%20comprar%20la%20Remera%20Marr%C3%B3n%20Urban" target="_blank" class="mp-btn-link" id="btn-mp-marron">
               💳 Pagar con Mercado Pago
             </a>
           </div>
@@ -164,13 +183,13 @@
         <div class="producto-info">
           <h3>Buzo Hoodie Street</h3>
           <p class="precio">$0.000</p>
+          <p class="stock-tag sin-stock">Sin Stock</p>
 
           <div class="opciones-producto">
             <div class="selector-item">
               <label for="talle-p4">Talle:</label>
               <select id="talle-p4" disabled>
                 <option value="S">S</option>
-                <option value="M">M</option>
               </select>
             </div>
             <div class="selector-item">
@@ -194,13 +213,13 @@
         <div class="producto-info">
           <h3>Pantalón Jogger Cargo</h3>
           <p class="precio">$0.000</p>
+          <p class="stock-tag sin-stock">Sin Stock</p>
 
           <div class="opciones-producto">
             <div class="selector-item">
               <label for="talle-p5">Talle:</label>
               <select id="talle-p5" disabled>
                 <option value="S">S</option>
-                <option value="M">M</option>
               </select>
             </div>
             <div class="selector-item">
@@ -224,13 +243,13 @@
         <div class="producto-info">
           <h3>Campera Street BK</h3>
           <p class="precio">$0.000</p>
+          <p class="stock-tag sin-stock">Sin Stock</p>
 
           <div class="opciones-producto">
             <div class="selector-item">
               <label for="talle-p6">Talle:</label>
               <select id="talle-p6" disabled>
                 <option value="S">S</option>
-                <option value="M">M</option>
               </select>
             </div>
             <div class="selector-item">
@@ -266,6 +285,9 @@
       <button class="cart-checkout-btn" onclick="checkoutWhatsApp()">
         Finalizar Pedido por WhatsApp 📲
       </button>
+      <p class="cart-tarjetas-notice">
+        💳 ¡Aceptamos tarjetas de crédito! Te enviamos el link de Mercado Pago por WhatsApp para pagar en cuotas.
+      </p>
     </div>
   </div>
   <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
@@ -291,11 +313,18 @@
     <p class="copyright">&copy; 2026 Estilo Bakano - Todos los derechos reservados</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Lógica de Control de Stock y Carrito -->
   <script>
+    // Inventario configurable por talle
+    const inventario = {
+      lisa: { S: 3, M: 5, L: 2, XL: 4 },
+      overside: { S: 2, M: 6, L: 0, XL: 2 },
+      marron: { S: 1, M: 4, L: 3, XL: 1 }
+    };
+
     let cart = [];
 
-    // Desplazamiento del carrusel
+    // Desplazamiento del carrusel con botones
     function scrollCarrusel(direccion) {
       const carrusel = document.getElementById('carrusel');
       const desplazamiento = 280;
@@ -305,34 +334,83 @@
       });
     }
 
-    // Carrito Logic
+    // Mostrar/Ocultar Carrito
     function toggleCart() {
       document.getElementById('cart-drawer').classList.toggle('active');
       document.getElementById('cart-overlay').classList.toggle('active');
     }
 
-    function addToCart(title, price, selectTalleId, inputCantId) {
-      const size = document.getElementById(selectTalleId).value;
-      const quantityToAdd = parseInt(document.getElementById(inputCantId).value) || 1;
-      const itemKey = `${title} (${size})`;
+    // Actualizar indicador visual de stock
+    function actualizarStockVista(prodId) {
+      const talleSel = document.getElementById(`talle-${prodId}`).value;
+      const stockDisponible = inventario[prodId][talleSel];
       
+      const stockTag = document.getElementById(`stock-${prodId}`);
+      const btnAdd = document.getElementById(`btn-add-${prodId}`);
+      const btnMp = document.getElementById(`btn-mp-${prodId}`);
+      const inputCant = document.getElementById(`cant-${prodId}`);
+
+      if (stockDisponible > 0) {
+        stockTag.innerHTML = `Stock disponible: <span class="cant-stock">${stockDisponible}</span>`;
+        stockTag.classList.remove('sin-stock');
+        btnAdd.disabled = false;
+        btnAdd.textContent = "+ Agregar al carrito";
+        btnMp.classList.remove('disabled');
+        inputCant.disabled = false;
+        inputCant.max = stockDisponible;
+      } else {
+        stockTag.innerHTML = `<span class="cant-stock">Agotado en Talle ${talleSel}</span>`;
+        stockTag.classList.add('sin-stock');
+        btnAdd.disabled = true;
+        btnAdd.textContent = "Agotado";
+        btnMp.classList.add('disabled');
+        inputCant.disabled = true;
+        inputCant.value = 1;
+      }
+    }
+
+    // Agregar al carrito con validación y descuento de stock
+    function addToCartConStock(prodId, title, price) {
+      const size = document.getElementById(`talle-${prodId}`).value;
+      const inputCant = document.getElementById(`cant-${prodId}`);
+      const quantityToAdd = parseInt(inputCant.value) || 1;
+      const stockDisponible = inventario[prodId][size];
+
+      if (quantityToAdd > stockDisponible) {
+        alert(`Solo quedan ${stockDisponible} unidades disponibles en talle ${size}.`);
+        return;
+      }
+
+      // Descontar del inventario
+      inventario[prodId][size] -= quantityToAdd;
+
+      const itemKey = `${title} (${size})`;
       const existing = cart.find(item => item.key === itemKey);
+      
       if (existing) {
         existing.quantity += quantityToAdd;
       } else {
-        cart.push({ key: itemKey, title, price, size, quantity: quantityToAdd });
+        cart.push({ key: itemKey, prodId, title, price, size, quantity: quantityToAdd });
       }
 
+      actualizarStockVista(prodId);
       updateCartUI();
-      document.getElementById('cart-drawer').classList.add('active');
-      document.getElementById('cart-overlay').classList.add('active');
+      toggleCart();
     }
 
+    // Eliminar ítem y devolver stock
     function removeFromCart(key) {
-      cart = cart.filter(item => item.key !== key);
+      const item = cart.find(i => i.key === key);
+      if (item && inventario[item.prodId]) {
+        inventario[item.prodId][item.size] += item.quantity;
+        actualizarStockVista(item.prodId);
+      }
+      
+      cart = cart.filter(i => i.key !== key);
       updateCartUI();
     }
 
+    // Actualizar vista del carrito
     function updateCartUI() {
       const cartItemsContainer = document.getElementById('cart-items');
       const cartCountEl = document.getElementById('cart-count');
@@ -366,6 +444,7 @@
       cartTotalPriceEl.textContent = '$' + totalPrice.toLocaleString('es-AR');
     }
 
+    // Checkout directo a WhatsApp
     function checkoutWhatsApp() {
       if (cart.length === 0) {
         alert('Tu carrito está vacío.');
@@ -381,11 +460,18 @@
       });
 
       message += `\n*Total a pagar: $${total.toLocaleString('es-AR')}*`;
-      message += "\n\n¿Cómo coordinamos el pago por Mercado Pago y la entrega?";
+      message += "\n\n¿Me podrías enviar el link de Mercado Pago para abonar con Tarjeta de Crédito/Débito?";
 
       const encodedMessage = encodeURIComponent(message);
       window.open(`https://wa.me/5493834287709?text=${encodedMessage}`, '_blank');
     }
+
+    // Inicialización al cargar la página
+    document.addEventListener("DOMContentLoaded", () => {
+      actualizarStockVista('lisa');
+      actualizarStockVista('overside');
+      actualizarStockVista('marron');
+    });
   </script>
 </body>
 </html>
