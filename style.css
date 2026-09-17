@@ -386,3 +386,35 @@ footer { background-color: #080808; border-top: 1px solid #1c1c1c; padding: 25px
 @media (max-width: 768px) {
   .modal-content.modal-grande { grid-template-columns: 1fr; }
 }
+/* Estilos para los items dentro del carrito lateral */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+}
+
+/* Forzar que las miniaturas del carrito tengan un tamaño controlado */
+.cart-item img {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-details h4 {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+}
+
+.cart-item-details p {
+  margin: 2px 0;
+  font-size: 0.85rem;
+  color: #ccc;
+}
