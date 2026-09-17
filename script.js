@@ -15,51 +15,51 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Catálogo centralizado
+// Catálogo centralizado con precios actualizados
 const catalogoData = {
   "conjuntos-deportivos": {
     titulo: "Conjuntos Deportivos de Fútbol",
     precio: 45000,
     modelos: [
-      { id: "arsenal", nombre: "Arsenal FC", img: "images/conjuntos deportivos/conjunto-arsenal.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } },
-      { id: "barsa", nombre: "FC Barcelona", img: "images/conjuntos deportivos/conjunto-barsa.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } },
-      { id: "flamengo", nombre: "Flamengo", img: "images/conjuntos deportivos/conjunto-flamengo.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } },
-      { id: "francia", nombre: "Selección Francia", img: "images/conjuntos deportivos/conjunto-francia.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } },
-      { id: "italia", nombre: "Selección Italia", img: "images/conjuntos deportivos/conjunto-italia.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } },
-      { id: "mancity", nombre: "Manchester City", img: "images/conjuntos deportivos/conjunto-mancity.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } },
-      { id: "manutd", nombre: "Manchester United", img: "images/conjuntos deportivos/conjunto-manutd.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } },
-      { id: "realmadrid", nombre: "Real Madrid", img: "images/conjuntos deportivos/conjunto-realmadrid.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } }
+      { id: "arsenal", nombre: "Arsenal FC", img: "images/conjuntos deportivos/conjunto-arsenal.jpg", precio: 45000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "barsa", nombre: "FC Barcelona", img: "images/conjuntos deportivos/conjunto-barsa.jpg", precio: 45000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "flamengo", nombre: "Flamengo", img: "images/conjuntos deportivos/conjunto-flamengo.jpg", precio: 45000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "francia", nombre: "Selección Francia", img: "images/conjuntos deportivos/conjunto-francia.jpg", precio: 45000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "italia", nombre: "Selección Italia", img: "images/conjuntos deportivos/conjunto-italia.jpg", precio: 45000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "mancity", nombre: "Manchester City", img: "images/conjuntos deportivos/conjunto-mancity.jpg", precio: 45000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "manutd", nombre: "Manchester United", img: "images/conjuntos deportivos/conjunto-manutd.jpg", precio: 45000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "realmadrid", nombre: "Real Madrid", img: "images/conjuntos deportivos/conjunto-realmadrid.jpg", precio: 45000, stock: { S: 1, M: 1, L: 1, XL: 1 } }
     ]
   },
   "gafas": {
     titulo: "Gafas Deportivas",
     precio: 8500,
     modelos: [
-      { id: "gafas-1", nombre: "Gafas Modelo 1", img: "images/gafas/gafas-1.jpg", stock: { "Único": 1 } },
-      { id: "gafas-2", nombre: "Gafas Modelo 2", img: "images/gafas/gafas-2.jpg", stock: { "Único": 1 } },
-      { id: "gafas-3", nombre: "Gafas Modelo 3", img: "images/gafas/gafas-3.jpg", stock: { "Único": 1 } },
-      { id: "gafas-4", nombre: "Gafas Modelo 4", img: "images/gafas/gafas-4.jpg", stock: { "Único": 1 } },
-      { id: "gafas-5", nombre: "Gafas Modelo 5", img: "images/gafas/gafas-5.jpg", stock: { "Único": 1 } }
+      { id: "gafas-1", nombre: "Gafas Modelo 1", img: "images/gafas/gafas-1.jpg", precio: 8500, stock: { "Único": 1 } },
+      { id: "gafas-2", nombre: "Gafas Modelo 2", img: "images/gafas/gafas-2.jpg", precio: 8500, stock: { "Único": 1 } },
+      { id: "gafas-3", nombre: "Gafas Modelo 3", img: "images/gafas/gafas-3.jpg", precio: 8500, stock: { "Único": 1 } },
+      { id: "gafas-4", nombre: "Gafas Modelo 4", img: "images/gafas/gafas-4.jpg", precio: 8500, stock: { "Único": 1 } },
+      { id: "gafas-5", nombre: "Gafas Modelo 5", img: "images/gafas/gafas-5.jpg", precio: 8500, stock: { "Único": 1 } }
     ]
   },
   "auriculares-smartwatch": {
     titulo: "Auriculares & Smartwatch",
-    precio: 15000,
+    precioBase: 15000,
     modelos: [
-      { id: "smartwatch", nombre: "Smartwatch Deportivo", img: "images/auriculares y smartwatch/smartwatch.jpg", stock: { "Único": 1 } },
-      { id: "auricular-2", nombre: "Auriculares Pro", img: "images/auriculares y smartwatch/auricular-2.jpg", stock: { "Único": 1 } },
-      { id: "auricular-tws", nombre: "Auriculares TWS Green", img: "images/auriculares y smartwatch/auricular-tws.jpg", stock: { "Único": 1 } }
+      { id: "smartwatch", nombre: "Smartwatch Deportivo", img: "images/auriculares y smartwatch/smartwatch.jpg", precio: 20000, stock: { "Único": 1 } },
+      { id: "auricular-2", nombre: "Auriculares Pro", img: "images/auriculares y smartwatch/auricular-2.jpg", precio: 15000, stock: { "Único": 1 } },
+      { id: "auricular-tws", nombre: "Auriculares TWS Green", img: "images/auriculares y smartwatch/auricular-tws.jpg", precio: 15000, stock: { "Único": 1 } }
     ]
   },
   "boxers": {
     titulo: "Packs de Boxers Seleccionados",
-    precio: 18000,
+    precio: 12000,
     modelos: [
-      { id: "boxers-1", nombre: "Pack 1 - Azul/Blanco/Negro", img: "images/boxers/boxers-1.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "boxers-2", nombre: "Pack 2 - Negro/Gris/Azul", img: "images/boxers/boxers-2.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "boxers-3", nombre: "Pack 3 - Azul Claro/Negro", img: "images/boxers/boxers-3.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "boxers-4", nombre: "Pack 4 - Jordan/Nike", img: "images/boxers/boxers-4.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "boxers-5", nombre: "Pack 5 - Calvin Klein", img: "images/boxers/boxers-5.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } }
+      { id: "boxers-1", nombre: "Pack 1 - Azul/Blanco/Negro", img: "images/boxers/boxers-1.jpg", precio: 12000, stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "boxers-2", nombre: "Pack 2 - Negro/Gris/Azul", img: "images/boxers/boxers-2.jpg", precio: 12000, stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "boxers-3", nombre: "Pack 3 - Azul Claro/Negro", img: "images/boxers/boxers-3.jpg", precio: 12000, stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "boxers-4", nombre: "Pack 4 - Jordan/Nike", img: "images/boxers/boxers-4.jpg", precio: 12000, stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "boxers-5", nombre: "Pack 5 - Calvin Klein", img: "images/boxers/boxers-5.jpg", precio: 12000, stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } }
     ]
   },
   "gorras": {
@@ -69,16 +69,18 @@ const catalogoData = {
       id: `gorras-${i + 1}`,
       nombre: `Gorra Modelo ${i + 1}`,
       img: `images/gorras/gorras-${i + 1}.jpg`,
+      precio: 15000,
       stock: { "Único": 1 }
     }))
   },
   "remeras": {
     titulo: "Remeras Streetwear Variadas",
-    precio: 22000,
+    precio: 20000,
     modelos: Array.from({ length: 17 }, (_, i) => ({
       id: `remeras-${i + 1}`,
       nombre: `Remera Modelo ${i + 1}`,
       img: `images/remeras/remeras-${i + 1}.jpg`,
+      precio: 20000,
       stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 }
     }))
   }
@@ -95,7 +97,6 @@ function abrirVisorCategoria(categoriaKey) {
   indexModeloActual = 0;
   
   document.getElementById('modal-titulo').textContent = categoriaActual.titulo;
-  document.getElementById('modal-precio').textContent = `$${categoriaActual.precio.toLocaleString('es-AR')}`;
 
   const selectModelo = document.getElementById('modal-modelo-select');
   selectModelo.innerHTML = '';
@@ -161,6 +162,9 @@ function actualizarVisor() {
   const modelo = categoriaActual.modelos[indexModeloActual];
   
   document.getElementById('modal-modelo-nombre').textContent = modelo.nombre;
+  
+  const precioMostrar = modelo.precio || categoriaActual.precio;
+  document.getElementById('modal-precio').textContent = `$${precioMostrar.toLocaleString('es-AR')}`;
 
   const selectTalle = document.getElementById('modal-talle');
   selectTalle.innerHTML = '';
@@ -216,6 +220,7 @@ function agregarAlCarritoDesdeModal() {
   const inputCant = document.getElementById('modal-cant');
   const cantidadPedida = parseInt(inputCant.value) || 1;
   const stockDisponible = modelo.stock[talleSel];
+  const precioUnitario = modelo.precio || categoriaActual.precio;
 
   if (cantidadPedida > stockDisponible) {
     alert(`Solo queda ${stockDisponible} unidad disponible.`);
@@ -233,7 +238,7 @@ function agregarAlCarritoDesdeModal() {
     cart.push({
       key: itemKey,
       nombre: modelo.nombre,
-      precio: categoriaActual.precio,
+      precio: precioUnitario,
       talle: talleSel,
       quantity: cantidadPedida,
       modeloRef: modelo
