@@ -52,10 +52,10 @@
     <button class="btn-cat" onclick="filtrarCategoria('auriculares-smartwatch', event)">Auriculares y Smartwatch</button>
   </nav>
 
-  <!-- Grilla de Tarjetas Genéricas por Categoria -->
+  <!-- Grilla de Catálogo (Renderizada dinámicamente o por tarjetas) -->
   <main class="catalogo-grid" id="catalogo">
     
-    <!-- Categoría Liquidación (Destacada) -->
+    <!-- Categoría Liquidación -->
     <article class="producto-card card-liquidacion" data-categoria="liquidacion" onclick="abrirVisorCategoria('liquidacion')">
       <div class="badge-modelos badge-liq">25 Modelos</div>
       <div class="img-container">
@@ -64,10 +64,11 @@
       <div class="prod-detalles">
         <h3>🔥 LIQUIDACIÓN OPORTUNIDAD 🔥</h3>
         <p class="precio precio-liq">Desde $15.000</p>
-        <button class="btn-elegir btn-elegir-liq">Ver Ofertas ➔</button>
+        <button class="btn-elegir btn-elegir-liq">Ver Catálogo Completo ➔</button>
       </div>
     </article>
 
+    <!-- Conjuntos -->
     <article class="producto-card" data-categoria="conjuntos-deportivos" onclick="abrirVisorCategoria('conjuntos-deportivos')">
       <div class="badge-modelos">8 Modelos</div>
       <div class="img-container">
@@ -80,6 +81,7 @@
       </div>
     </article>
 
+    <!-- Remeras -->
     <article class="producto-card" data-categoria="remeras" onclick="abrirVisorCategoria('remeras')">
       <div class="badge-modelos">17 Modelos</div>
       <div class="img-container">
@@ -92,6 +94,7 @@
       </div>
     </article>
 
+    <!-- Gorras -->
     <article class="producto-card" data-categoria="gorras" onclick="abrirVisorCategoria('gorras')">
       <div class="badge-modelos">22 Modelos</div>
       <div class="img-container">
@@ -104,6 +107,7 @@
       </div>
     </article>
 
+    <!-- Boxers -->
     <article class="producto-card" data-categoria="boxers" onclick="abrirVisorCategoria('boxers')">
       <div class="badge-modelos">5 Modelos</div>
       <div class="img-container">
@@ -116,6 +120,7 @@
       </div>
     </article>
 
+    <!-- Gafas -->
     <article class="producto-card" data-categoria="gafas" onclick="abrirVisorCategoria('gafas')">
       <div class="badge-modelos">5 Modelos</div>
       <div class="img-container">
@@ -128,6 +133,7 @@
       </div>
     </article>
 
+    <!-- Smartwatch -->
     <article class="producto-card" data-categoria="auriculares-smartwatch" onclick="abrirVisorCategoria('auriculares-smartwatch')">
       <div class="badge-modelos">3 Modelos</div>
       <div class="img-container">
@@ -142,15 +148,15 @@
 
   </main>
 
-  <!-- Modal Visor de Imágenes en Scroll Continuo -->
+  <!-- Modal Visor de Producto (Comprar por WhatsApp) -->
   <div id="modal-producto" class="modal-overlay">
     <div class="modal-content modal-grande">
       <button class="modal-close" onclick="cerrarModal()">✕</button>
       
-      <!-- Columna Izquierda: Feed Scroll Continuo -->
+      <!-- Columna Izquierda: Vista previa de imagen -->
       <div class="modal-img-col">
         <div class="modal-feed-scroll" id="modal-feed-imagenes">
-          <!-- Las imágenes del catálogo cargan aquí automáticamente -->
+          <!-- La imagen seleccionada se renderiza aquí -->
         </div>
         
         <div class="frase-urbana">
@@ -159,7 +165,7 @@
         </div>
       </div>
 
-      <!-- Panel de Detalles y Compra -->
+      <!-- Panel de Opciones y Compra por WhatsApp -->
       <div class="modal-info-col">
         <h3 id="modal-titulo">Categoría</h3>
         <h4 id="modal-modelo-nombre" class="modelo-nombre-destacado">Selecciona una opción</h4>
@@ -180,9 +186,13 @@
           </div>
         </div>
 
-        <p class="stock-tag" id="modal-stock-status">Stock disponible: <span class="cant-stock">1</span></p>
+        <p class="stock-tag" id="modal-stock-status">Stock disponible: <span class="cant-stock">1 un.</span></p>
 
-        <button class="cart-checkout-btn" id="btn-modal-add" onclick="agregarAlCarritoDesdeModal()">
+        <!-- Botones Directos -->
+        <button class="btn-wsp-directo" onclick="comprarModalWhatsApp()">
+          📲 Comprar por WhatsApp
+        </button>
+        <button class="cart-checkout-btn btn-secundario" id="btn-modal-add" onclick="agregarAlCarritoDesdeModal()">
           + Agregar al Carrito
         </button>
       </div>
