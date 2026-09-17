@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estilo Bakano</title>
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
-  <!-- Header con logos de marca -->
+  <!-- Header -->
   <header>
     <div class="logo-container">
-      <img src="images/logo1.png" alt="Estilo Bakano Logo">
-      <img src="images/logo2.png" alt="BK Logo">
+      <img src="images/logo1.png" alt="Estilo Bakano" class="header-logo">
+      <img src="images/logo2.png" alt="BK" class="header-logo">
     </div>
     <div class="cart-icon-container" onclick="toggleCart()">
       🛒 <span id="cart-count" class="cart-badge">0</span>
@@ -21,28 +21,61 @@
 
   <!-- Filtro de Categorías -->
   <nav class="categories-nav">
-    <button class="btn-cat active">Todos</button>
-    <button class="btn-cat">Camperas</button>
-    <button class="btn-cat">Joggers</button>
-    <button class="btn-cat">Accesorios</button>
+    <button class="btn-cat active" onclick="filtrarCategoria('Todos')">Todos</button>
+    <button class="btn-cat" onclick="filtrarCategoria('Camperas')">Camperas</button>
+    <button class="btn-cat" onclick="filtrarCategoria('Joggers')">Joggers</button>
+    <button class="btn-cat" onclick="filtrarCategoria('Accesorios')">Accesorios</button>
   </nav>
 
-  <!-- Catálogo de Productos -->
+  <!-- Catálogo Principal -->
   <main>
-    <section id="catalogo" class="catalogo-grid">
-      <!-- Los productos se cargan dinámicamente o podés maquetarlos manualmente -->
-    </section>
+    <div id="catalogo" class="catalogo-grid">
+      <!-- Se puebla dinámicamente desde script.js -->
+    </div>
   </main>
 
-  <!-- Drawer / Carrito Lateral -->
+  <!-- Modal Detalle de Producto -->
+  <div id="modal-producto" class="modal-overlay">
+    <div class="modal-content">
+      <button class="btn-close-modal" onclick="cerrarModal()">✕</button>
+      <div class="modal-body">
+        <div class="modal-feed">
+          <img id="modal-img" src="" alt="Producto">
+        </div>
+        <div class="modal-info">
+          <h2 id="modal-titulo">Nombre Producto</h2>
+          <p id="modal-precio" class="precio">$0</p>
+          
+          <div class="form-group">
+            <label for="modal-talle">Talle / Variante:</label>
+            <select id="modal-talle">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="modal-cantidad">Cantidad:</label>
+            <input type="number" id="modal-cantidad" value="1" min="1">
+          </div>
+
+          <button class="btn-add-cart" onclick="agregarAlCarritoDesdeModal()">Agregar al Carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carrito Lateral (Drawer) -->
   <div id="cart-overlay" class="cart-drawer-overlay" onclick="toggleCart()"></div>
   <aside id="cart-drawer" class="cart-drawer">
     <div class="cart-header">
       <h2>Tu Carrito</h2>
-      <button onclick="toggleCart()" style="background:none; border:none; color:#fff; font-size:1.2rem; cursor:pointer;">✕</button>
+      <button onclick="toggleCart()" class="btn-close-drawer">✕</button>
     </div>
     <div id="cart-body" class="cart-body">
-      <!-- Items agregados -->
+      <!-- Items agregados se generan vía JS -->
     </div>
     <div class="cart-footer">
       <div class="cart-total">
@@ -55,7 +88,7 @@
     </div>
   </aside>
 
-  <!-- Footer / Redes Sociales -->
+  <!-- Footer con Redes Sociales -->
   <footer>
     <div class="social-icons">
       <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
