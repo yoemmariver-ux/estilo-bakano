@@ -73,7 +73,6 @@ header {
   width: 100%;
 }
 
-/* Logo duplicado en tamaño */
 .banner-titulo {
   width: 100%;
   max-width: 1000px;
@@ -160,6 +159,27 @@ header {
   border-color: #009ee3;
 }
 
+/* Estilos de Destacado para Botón Liquidación */
+.btn-cat.btn-liquidacion {
+  background: linear-gradient(45deg, #ff0055, #ff5500);
+  color: #ffffff;
+  border: 1px solid #ff5500;
+  font-weight: 800;
+  box-shadow: 0 0 10px rgba(255, 85, 0, 0.5);
+  animation: pulse-liq 1.8s infinite alternate;
+}
+
+.btn-cat.btn-liquidacion.active {
+  background: linear-gradient(45deg, #e60000, #ff2200);
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+@keyframes pulse-liq {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
 /* Catálogo con Perspectiva 3D */
 main.catalogo-grid {
   max-width: 1200px;
@@ -192,6 +212,17 @@ main.catalogo-grid {
   border-color: #25d366;
 }
 
+/* Estilos de Destacado para la Tarjeta Liquidación */
+.producto-card.card-liquidacion {
+  border: 2px solid #ff3300;
+  box-shadow: 0 0 15px rgba(255, 51, 0, 0.3);
+}
+
+.producto-card.card-liquidacion:hover {
+  border-color: #ff0055;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 0, 85, 0.6);
+}
+
 .badge-modelos {
   position: absolute;
   top: 12px;
@@ -204,6 +235,11 @@ main.catalogo-grid {
   border-radius: 12px;
   z-index: 3;
   transform: translateZ(20px);
+}
+
+.badge-modelos.badge-liq {
+  background: linear-gradient(45deg, #ff0000, #ff6600);
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
 }
 
 .img-container {
@@ -251,6 +287,11 @@ main.catalogo-grid {
   margin-bottom: 8px;
 }
 
+.precio.precio-liq {
+  color: #ff3300;
+  text-shadow: 0 0 8px rgba(255, 51, 0, 0.4);
+}
+
 .btn-elegir {
   width: 100%;
   background: #25d366;
@@ -267,6 +308,15 @@ main.catalogo-grid {
 .btn-elegir:hover { 
   background: #20bd5a; 
   transform: translateZ(15px);
+}
+
+.btn-elegir.btn-elegir-liq {
+  background: linear-gradient(45deg, #ff0055, #ff5500);
+  color: #ffffff;
+}
+
+.btn-elegir.btn-elegir-liq:hover {
+  background: linear-gradient(45deg, #e60000, #ff2200);
 }
 
 /* --- MODAL / VISOR FEED SCROLL CONTINUO --- */

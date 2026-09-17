@@ -17,6 +17,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Catálogo centralizado con precios actualizados
 const catalogoData = {
+  "liquidacion": {
+    titulo: "🔥 LIQUIDACIÓN OPORTUNIDAD 🔥",
+    precioBase: 15000,
+    modelos: [
+      { id: "buzo-1", nombre: "Buzo Liquidación 1", img: "images/liquidacion/buzo-1.jpg", precio: 15000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-1", nombre: "Campera Liquidación 1", img: "images/liquidacion/campera-1.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-1-modelo", nombre: "Campera Modelo Liquidación 1", img: "images/liquidacion/campera-1-modelo.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-2", nombre: "Campera Liquidación 2", img: "images/liquidacion/campera-2.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-2-modelo", nombre: "Campera Modelo Liquidación 2", img: "images/liquidacion/campera-2-modelo.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-3", nombre: "Campera Liquidación 3", img: "images/liquidacion/campera-3.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-4", nombre: "Campera Liquidación 4", img: "images/liquidacion/campera-4.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-5", nombre: "Campera Liquidación 5", img: "images/liquidacion/campera-5.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-6", nombre: "Campera Liquidación 6", img: "images/liquidacion/campera-6.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-7", nombre: "Campera Liquidación 7", img: "images/liquidacion/campera-7.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-8", nombre: "Campera Liquidación 8", img: "images/liquidacion/campera-8.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-9", nombre: "Campera Liquidación 9", img: "images/liquidacion/campera-9.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-10", nombre: "Campera Liquidación 10", img: "images/liquidacion/campera-10.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-11", nombre: "Campera Liquidación 11", img: "images/liquidacion/campera-11.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-12", nombre: "Campera Liquidación 12", img: "images/liquidacion/campera-12.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "campera-13", nombre: "Campera Liquidación 13", img: "images/liquidacion/campera-13.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "chaleco-1", nombre: "Chaleco Liquidación 1", img: "images/liquidacion/chaleco-1.jpg", precio: 20000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "chaleco-2", nombre: "Chaleco Liquidación 2", img: "images/liquidacion/chaleco-2.jpg", precio: 20000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "chaleco-3", nombre: "Chaleco Liquidación 3", img: "images/liquidacion/chaleco-3.jpg", precio: 20000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "chaleco-4", nombre: "Chaleco Liquidación 4", img: "images/liquidacion/chaleco-4.jpg", precio: 20000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "conjunto-1", nombre: "Conjunto Liquidación 1", img: "images/liquidacion/conjunto-1.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "conjunto-2", nombre: "Conjunto Liquidación 2", img: "images/liquidacion/conjunto-2.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "conjunto-3", nombre: "Conjunto Liquidación 3", img: "images/liquidacion/conjunto-3.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "conjunto-4", nombre: "Conjunto Liquidación 4", img: "images/liquidacion/conjunto-4.jpg", precio: 40000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "pantalon-1", nombre: "Pantalón Liquidación 1", img: "images/liquidacion/pantalon-1.jpg", precio: 20000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "pantalon-2", nombre: "Pantalón Liquidación 2", img: "images/liquidacion/pantalon-2.jpg", precio: 20000, stock: { S: 1, M: 1, L: 1, XL: 1 } },
+      { id: "remera-seleccion-malvinas", nombre: "Remera Selección Malvinas", img: "images/liquidacion/remera-seleccion-malvinas.jpg", precio: 20000, stock: { S: 1, M: 1, L: 1, XL: 1 } }
+    ]
+  },
   "conjuntos-deportivos": {
     titulo: "Conjuntos Deportivos de Fútbol",
     precio: 45000,

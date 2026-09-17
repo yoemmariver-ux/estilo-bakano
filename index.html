@@ -43,6 +43,7 @@
   <!-- Categorías de Navegación -->
   <nav class="categorias-bar">
     <button class="btn-cat active" onclick="filtrarCategoria('todos', event)">Todos</button>
+    <button class="btn-cat btn-liquidacion" onclick="filtrarCategoria('liquidacion', event)">🔥 LIQUIDACIÓN 🔥</button>
     <button class="btn-cat" onclick="filtrarCategoria('conjuntos-deportivos', event)">Conjuntos</button>
     <button class="btn-cat" onclick="filtrarCategoria('remeras', event)">Remeras</button>
     <button class="btn-cat" onclick="filtrarCategoria('gorras', event)">Gorras</button>
@@ -54,6 +55,19 @@
   <!-- Grilla de Tarjetas Genéricas por Categoria -->
   <main class="catalogo-grid" id="catalogo">
     
+    <!-- Categoría Liquidación (Destacada) -->
+    <article class="producto-card card-liquidacion" data-categoria="liquidacion" onclick="abrirVisorCategoria('liquidacion')">
+      <div class="badge-modelos badge-liq">25 Modelos</div>
+      <div class="img-container">
+        <img src="images/liquidacion/campera-1.jpg" alt="Liquidación">
+      </div>
+      <div class="prod-detalles">
+        <h3>🔥 LIQUIDACIÓN OPORTUNIDAD 🔥</h3>
+        <p class="precio precio-liq">Desde $15.000</p>
+        <button class="btn-elegir btn-elegir-liq">Ver Ofertas ➔</button>
+      </div>
+    </article>
+
     <article class="producto-card" data-categoria="conjuntos-deportivos" onclick="abrirVisorCategoria('conjuntos-deportivos')">
       <div class="badge-modelos">8 Modelos</div>
       <div class="img-container">
