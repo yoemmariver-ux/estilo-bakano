@@ -54,11 +54,66 @@ const catalogoData = {
       { id: "auricular-tws", nombre: "Auriculares TWS Green", img: "images/auriculares y smartwatch/auricular-tws.jpg", stock: { "Único": 1 } }
     ]
   },
-  "remera-lisa": {
-    titulo: "Remera Lisa Street",
-    precio: 4500,
+  "boxers": {
+    titulo: "Packs de Boxers Seleccionados",
+    precio: 18000,
     modelos: [
-      { id: "lisa-negra", nombre: "Remera Lisa Street", img: "images/remera-lisa.jpg", stock: { S: 1, M: 1, L: 1, XL: 1 } }
+      { id: "boxers-1", nombre: "Pack 1 - Azul/Blanco/Negro", img: "images/boxers/boxers-1.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "boxers-2", nombre: "Pack 2 - Negro/Gris/Azul", img: "images/boxers/boxers-2.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "boxers-3", nombre: "Pack 3 - Azul Claro/Negro", img: "images/boxers/boxers-3.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "boxers-4", nombre: "Pack 4 - Jordan/Nike", img: "images/boxers/boxers-4.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "boxers-5", nombre: "Pack 5 - Calvin Klein", img: "images/boxers/boxers-5.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } }
+    ]
+  },
+  "gorras": {
+    titulo: "Gorras Urbanas Premium",
+    precio: 15000,
+    modelos: [
+      { id: "gorras-1", nombre: "Gorra 1 - NY Negra", img: "images/gorras/gorras-1.jpg", stock: { "Único": 1 } },
+      { id: "gorras-2", nombre: "Gorra 2 - NY Roja", img: "images/gorras/gorras-2.jpg", stock: { "Único": 1 } },
+      { id: "gorras-3", nombre: "Gorra 3 - LA Negra", img: "images/gorras/gorras-3.jpg", stock: { "Único": 1 } },
+      { id: "gorras-4", nombre: "Gorra 4 - Patch Gris", img: "images/gorras/gorras-4.jpg", stock: { "Único": 1 } },
+      { id: "gorras-5", nombre: "Gorra 5 - Urban Black", img: "images/gorras/gorras-5.jpg", stock: { "Único": 1 } },
+      { id: "gorras-6", nombre: "Gorra 6 - FTX", img: "images/gorras/gorras-6.jpg", stock: { "Único": 1 } },
+      { id: "gorras-7", nombre: "Gorra 7 - NY Beige", img: "images/gorras/gorras-7.jpg", stock: { "Único": 1 } },
+      { id: "gorras-8", nombre: "Gorra 8 - NY Verde", img: "images/gorras/gorras-8.jpg", stock: { "Único": 1 } },
+      { id: "gorras-9", nombre: "Gorra 9 - Warriors", img: "images/gorras/gorras-9.jpg", stock: { "Único": 1 } },
+      { id: "gorras-10", nombre: "Gorra 10 - NY Marrón", img: "images/gorras/gorras-10.jpg", stock: { "Único": 1 } },
+      { id: "gorras-11", nombre: "Gorra 11 - Bordo", img: "images/gorras/gorras-11.jpg", stock: { "Único": 1 } },
+      { id: "gorras-12", nombre: "Gorra 12 - Jordan Roja", img: "images/gorras/gorras-12.jpg", stock: { "Único": 1 } },
+      { id: "gorras-13", nombre: "Gorra 13 - Nets Blanca", img: "images/gorras/gorras-13.jpg", stock: { "Único": 1 } },
+      { id: "gorras-14", nombre: "Gorra 14 - NY White", img: "images/gorras/gorras-14.jpg", stock: { "Único": 1 } },
+      { id: "gorras-15", nombre: "Gorra 15 - Bordo Classic", img: "images/gorras/gorras-15.jpg", stock: { "Único": 1 } },
+      { id: "gorras-16", nombre: "Gorra 16 - NY Naranja", img: "images/gorras/gorras-16.jpg", stock: { "Único": 1 } },
+      { id: "gorras-17", nombre: "Gorra 17 - LA Dark", img: "images/gorras/gorras-17.jpg", stock: { "Único": 1 } },
+      { id: "gorras-18", nombre: "Gorra 18 - Pro Grey", img: "images/gorras/gorras-18.jpg", stock: { "Único": 1 } },
+      { id: "gorras-19", nombre: "Gorra 19 - All Black", img: "images/gorras/gorras-19.jpg", stock: { "Único": 1 } },
+      { id: "gorras-20", nombre: "Gorra 20 - Raptors", img: "images/gorras/gorras-20.jpg", stock: { "Único": 1 } },
+      { id: "gorras-21", nombre: "Gorra 21 - NY Camel", img: "images/gorras/gorras-21.jpg", stock: { "Único": 1 } },
+      { id: "gorras-22", nombre: "Gorra 22 - NY Beige/Blue", img: "images/gorras/gorras-22.jpg", stock: { "Único": 1 } }
+    ]
+  },
+  "remeras": {
+    titulo: "Remeras Streetwear Variadas",
+    precio: 22000,
+    modelos: [
+      { id: "remeras-1", nombre: "Remera 1 - BAPE / Stussy", img: "images/remeras/remeras-1.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-2", nombre: "Remera 2 - White Edition", img: "images/remeras/remeras-2.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-3", nombre: "Remera 3 - Stussy Negra", img: "images/remeras/remeras-3.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-4", nombre: "Remera 4 - Minimal Black", img: "images/remeras/remeras-4.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-5", nombre: "Remera 5 - Graphic Tee", img: "images/remeras/remeras-5.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-6", nombre: "Remera 6 - Dark Style", img: "images/remeras/remeras-6.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-7", nombre: "Remera 7 - Hooters Black", img: "images/remeras/remeras-7.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-8", nombre: "Remera 8 - White Urban", img: "images/remeras/remeras-8.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-9", nombre: "Remera 9 - Central Logo", img: "images/remeras/remeras-9.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-10", nombre: "Remera 10 - Jordan Black", img: "images/remeras/remeras-10.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-11", nombre: "Remera 11 - A Bathing Ape", img: "images/remeras/remeras-11.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-12", nombre: "Remera 12 - Honda Racing", img: "images/remeras/remeras-12.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-13", nombre: "Remera 13 - Pocket Tee", img: "images/remeras/remeras-13.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-14", nombre: "Remera 14 - White Clean", img: "images/remeras/remeras-14.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-15", nombre: "Remera 15 - Red Box Logo", img: "images/remeras/remeras-15.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-16", nombre: "Remera 16 - Stussy White", img: "images/remeras/remeras-16.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
+      { id: "remeras-17", nombre: "Remera 17 - Honda Wing", img: "images/remeras/remeras-17.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } }
     ]
   }
 };
@@ -96,7 +151,7 @@ function abrirModal(productoKey) {
 function seleccionarModelo(index) {
   modeloSeleccionadoActual = productoSeleccionadoActual.modelos[index];
   
-  // Actualizar la imagen principal del modal a tamaño completo
+  // Actualizar la imagen principal del modal
   const imgPrincipal = document.getElementById('modal-img-principal');
   imgPrincipal.src = modeloSeleccionadoActual.img;
   imgPrincipal.alt = modeloSeleccionadoActual.nombre;
@@ -268,20 +323,23 @@ function checkoutWhatsApp() {
 
   window.open(`https://wa.me/5493834287709?text=${encodeURIComponent(message)}`, '_blank');
 }
+
 // Efecto de Zoom interactivo en la vista previa del Modal
-const previewContainer = document.querySelector('.modal-preview-container');
-const previewImg = document.querySelector('.modal-preview-container img');
+document.addEventListener('DOMContentLoaded', () => {
+  const previewContainer = document.querySelector('.modal-preview-container');
+  const previewImg = document.querySelector('#modal-img-principal');
 
-if (previewContainer && previewImg) {
-  previewContainer.addEventListener('mousemove', (e) => {
-    const { left, top, width, height } = previewContainer.getBoundingClientRect();
-    const x = ((e.clientX - left) / width) * 100;
-    const y = ((e.clientY - top) / height) * 100;
+  if (previewContainer && previewImg) {
+    previewContainer.addEventListener('mousemove', (e) => {
+      const { left, top, width, height } = previewContainer.getBoundingClientRect();
+      const x = ((e.clientX - left) / width) * 100;
+      const y = ((e.clientY - top) / height) * 100;
 
-    previewImg.style.transformOrigin = `${x}% ${y}%`;
-  });
+      previewImg.style.transformOrigin = `${x}% ${y}%`;
+    });
 
-  previewContainer.addEventListener('mouseleave', () => {
-    previewImg.style.transformOrigin = 'center center';
-  });
-}
+    previewContainer.addEventListener('mouseleave', () => {
+      previewImg.style.transformOrigin = 'center center';
+    });
+  }
+});
