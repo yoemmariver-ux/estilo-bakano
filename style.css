@@ -549,3 +549,33 @@ footer {
   color: #222;
   margin: 4px 0 10px 0;
 }
+/* Corrección de color de texto para fondos oscuros */
+.modal-info-col h3,
+.modal-info-col label {
+  color: #ffffff !important;
+}
+
+.modelo-nombre-destacado {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #e0e0e0 !important;
+  margin: 6px 0 12px 0;
+  display: block;
+}
+
+/* Control del Zoom por Clic */
+#modal-img-principal {
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+#modal-img-principal.zoomed {
+  transform: scale(1.6);
+  cursor: zoom-out;
+  z-index: 5;
+}
+
+/* Asegurar aislamiento de las flechas para que no gatillen zoom */
+.nav-arrow {
+  z-index: 10;
+}

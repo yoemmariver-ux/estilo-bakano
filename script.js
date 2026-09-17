@@ -16,6 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
       reproducirClic();
     }
   });
+
+  // Toggle de Zoom al hacer clic sobre la imagen principal
+  const imgPrincipal = document.getElementById('modal-img-principal');
+  if (imgPrincipal) {
+    imgPrincipal.addEventListener('click', (e) => {
+      e.stopPropagation(); // Evitar comportamientos no deseados
+      imgPrincipal.classList.toggle('zoomed');
+    });
+  }
 });
 
 // Catálogo centralizado
@@ -91,7 +100,6 @@ let cart = [];
 let categoriaActual = null;
 let indexModeloActual = 0;
 
-// Abrir el visor emergente de imágenes
 function abrirVisorCategoria(categoriaKey) {
   categoriaActual = catalogoData[categoriaKey];
   if (!categoriaActual || !categoriaActual.modelos.length) return;
@@ -106,8 +114,14 @@ function abrirVisorCategoria(categoriaKey) {
   document.addEventListener('keydown', manejarTeclasNavegacion);
 }
 
-function cambiarImagen(direccion) {
+function cambiarImagen(direccion, event) {
+  if (event) event.stopPropagation(); // Evita gatillar el clic de zoom
   if (!categoriaActual) return;
+  
+  // Quitar el zoom si la imagen cambia
+  const imgPrincipal = document.getElementById('modal-img-principal');
+  if (imgPrincipal) imgPrincipal.classList.remove('zoomed');
+
   const total = categoriaActual.modelos.length;
   indexModeloActual = (indexModeloActual + direccion + total) % total;
   actualizarVisor();
@@ -116,7 +130,6 @@ function cambiarImagen(direccion) {
 function actualizarVisor() {
   const modelo = categoriaActual.modelos[indexModeloActual];
   
-  // Actualizar imagen y contador
   const imgPrincipal = document.getElementById('modal-img-principal');
   imgPrincipal.src = modelo.img;
   imgPrincipal.alt = modelo.nombre;
@@ -124,7 +137,6 @@ function actualizarVisor() {
   document.getElementById('modal-modelo-nombre').textContent = modelo.nombre;
   document.getElementById('modal-counter').textContent = `${indexModeloActual + 1} / ${categoriaActual.modelos.length}`;
 
-  // Cargar talles/variantes del modelo activo
   const selectTalle = document.getElementById('modal-talle');
   selectTalle.innerHTML = '';
 
@@ -165,6 +177,8 @@ function actualizarStockModal() {
 }
 
 function cerrarModal() {
+  const imgPrincipal = document.getElementById('modal-img-principal');
+  if (imgPrincipal) imgPrincipal.classList.remove('zoomed');
   document.getElementById('modal-producto').classList.remove('active');
   document.removeEventListener('keydown', manejarTeclasNavegacion);
 }
@@ -175,7 +189,6 @@ function manejarTeclasNavegacion(e) {
   if (e.key === 'Escape') cerrarModal();
 }
 
-// Agregar al Carrito
 function agregarAlCarritoDesdeModal() {
   const modelo = categoriaActual.modelos[indexModeloActual];
   const talleSel = document.getElementById('modal-talle').value;
@@ -188,7 +201,6 @@ function agregarAlCarritoDesdeModal() {
     return;
   }
 
-  // Descontar stock local
   modelo.stock[talleSel] -= cantidadPedida;
 
   const itemKey = `${modelo.nombre} (${talleSel})`;
@@ -212,7 +224,6 @@ function agregarAlCarritoDesdeModal() {
   toggleCart();
 }
 
-// Carrito y Filtros
 function removeFromCart(key) {
   const item = cart.find(i => i.key === key);
   if (item) {
