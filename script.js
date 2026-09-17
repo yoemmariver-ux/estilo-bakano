@@ -11,14 +11,14 @@ function reproducirClic() {
 // Activar sonido global en todos los botones y elementos interactivos
 document.addEventListener('DOMContentLoaded', () => {
   document.body.addEventListener('click', (e) => {
-    const esInteractivo = e.target.closest('button, a, .modelo-option, .btn-cat, .producto-card');
+    const esInteractivo = e.target.closest('button, a, .modelo-option, .btn-cat, .producto-card, .nav-arrow');
     if (esInteractivo) {
       reproducirClic();
     }
   });
 });
 
-// Catálogo centralizado con stock de 1 unidad por variante
+// Catálogo centralizado
 const catalogoData = {
   "conjuntos-deportivos": {
     titulo: "Conjuntos Deportivos de Fútbol",
@@ -68,103 +68,67 @@ const catalogoData = {
   "gorras": {
     titulo: "Gorras Urbanas Premium",
     precio: 15000,
-    modelos: [
-      { id: "gorras-1", nombre: "Gorra 1 - NY Negra", img: "images/gorras/gorras-1.jpg", stock: { "Único": 1 } },
-      { id: "gorras-2", nombre: "Gorra 2 - NY Roja", img: "images/gorras/gorras-2.jpg", stock: { "Único": 1 } },
-      { id: "gorras-3", nombre: "Gorra 3 - LA Negra", img: "images/gorras/gorras-3.jpg", stock: { "Único": 1 } },
-      { id: "gorras-4", nombre: "Gorra 4 - Patch Gris", img: "images/gorras/gorras-4.jpg", stock: { "Único": 1 } },
-      { id: "gorras-5", nombre: "Gorra 5 - Urban Black", img: "images/gorras/gorras-5.jpg", stock: { "Único": 1 } },
-      { id: "gorras-6", nombre: "Gorra 6 - FTX", img: "images/gorras/gorras-6.jpg", stock: { "Único": 1 } },
-      { id: "gorras-7", nombre: "Gorra 7 - NY Beige", img: "images/gorras/gorras-7.jpg", stock: { "Único": 1 } },
-      { id: "gorras-8", nombre: "Gorra 8 - NY Verde", img: "images/gorras/gorras-8.jpg", stock: { "Único": 1 } },
-      { id: "gorras-9", nombre: "Gorra 9 - Warriors", img: "images/gorras/gorras-9.jpg", stock: { "Único": 1 } },
-      { id: "gorras-10", nombre: "Gorra 10 - NY Marrón", img: "images/gorras/gorras-10.jpg", stock: { "Único": 1 } },
-      { id: "gorras-11", nombre: "Gorra 11 - Bordo", img: "images/gorras/gorras-11.jpg", stock: { "Único": 1 } },
-      { id: "gorras-12", nombre: "Gorra 12 - Jordan Roja", img: "images/gorras/gorras-12.jpg", stock: { "Único": 1 } },
-      { id: "gorras-13", nombre: "Gorra 13 - Nets Blanca", img: "images/gorras/gorras-13.jpg", stock: { "Único": 1 } },
-      { id: "gorras-14", nombre: "Gorra 14 - NY White", img: "images/gorras/gorras-14.jpg", stock: { "Único": 1 } },
-      { id: "gorras-15", nombre: "Gorra 15 - Bordo Classic", img: "images/gorras/gorras-15.jpg", stock: { "Único": 1 } },
-      { id: "gorras-16", nombre: "Gorra 16 - NY Naranja", img: "images/gorras/gorras-16.jpg", stock: { "Único": 1 } },
-      { id: "gorras-17", nombre: "Gorra 17 - LA Dark", img: "images/gorras/gorras-17.jpg", stock: { "Único": 1 } },
-      { id: "gorras-18", nombre: "Gorra 18 - Pro Grey", img: "images/gorras/gorras-18.jpg", stock: { "Único": 1 } },
-      { id: "gorras-19", nombre: "Gorra 19 - All Black", img: "images/gorras/gorras-19.jpg", stock: { "Único": 1 } },
-      { id: "gorras-20", nombre: "Gorra 20 - Raptors", img: "images/gorras/gorras-20.jpg", stock: { "Único": 1 } },
-      { id: "gorras-21", nombre: "Gorra 21 - NY Camel", img: "images/gorras/gorras-21.jpg", stock: { "Único": 1 } },
-      { id: "gorras-22", nombre: "Gorra 22 - NY Beige/Blue", img: "images/gorras/gorras-22.jpg", stock: { "Único": 1 } }
-    ]
+    modelos: Array.from({ length: 22 }, (_, i) => ({
+      id: `gorras-${i + 1}`,
+      nombre: `Gorra Modelo ${i + 1}`,
+      img: `images/gorras/gorras-${i + 1}.jpg`,
+      stock: { "Único": 1 }
+    }))
   },
   "remeras": {
     titulo: "Remeras Streetwear Variadas",
     precio: 22000,
-    modelos: [
-      { id: "remeras-1", nombre: "Remera 1 - BAPE / Stussy", img: "images/remeras/remeras-1.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-2", nombre: "Remera 2 - White Edition", img: "images/remeras/remeras-2.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-3", nombre: "Remera 3 - Stussy Negra", img: "images/remeras/remeras-3.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-4", nombre: "Remera 4 - Minimal Black", img: "images/remeras/remeras-4.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-5", nombre: "Remera 5 - Graphic Tee", img: "images/remeras/remeras-5.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-6", nombre: "Remera 6 - Dark Style", img: "images/remeras/remeras-6.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-7", nombre: "Remera 7 - Hooters Black", img: "images/remeras/remeras-7.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-8", nombre: "Remera 8 - White Urban", img: "images/remeras/remeras-8.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-9", nombre: "Remera 9 - Central Logo", img: "images/remeras/remeras-9.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-10", nombre: "Remera 10 - Jordan Black", img: "images/remeras/remeras-10.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-11", nombre: "Remera 11 - A Bathing Ape", img: "images/remeras/remeras-11.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-12", nombre: "Remera 12 - Honda Racing", img: "images/remeras/remeras-12.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-13", nombre: "Remera 13 - Pocket Tee", img: "images/remeras/remeras-13.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-14", nombre: "Remera 14 - White Clean", img: "images/remeras/remeras-14.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-15", nombre: "Remera 15 - Red Box Logo", img: "images/remeras/remeras-15.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-16", nombre: "Remera 16 - Stussy White", img: "images/remeras/remeras-16.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } },
-      { id: "remeras-17", nombre: "Remera 17 - Honda Wing", img: "images/remeras/remeras-17.jpg", stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 } }
-    ]
+    modelos: Array.from({ length: 17 }, (_, i) => ({
+      id: `remeras-${i + 1}`,
+      nombre: `Remera Modelo ${i + 1}`,
+      img: `images/remeras/remeras-${i + 1}.jpg`,
+      stock: { S: 1, M: 1, L: 1, XL: 1, XXL: 1 }
+    }))
   }
 };
 
 let cart = [];
-let productoSeleccionadoActual = null;
-let modeloSeleccionadoActual = null;
+let categoriaActual = null;
+let indexModeloActual = 0;
 
-// Abrir Modal
-function abrirModal(productoKey) {
-  productoSeleccionadoActual = catalogoData[productoKey];
-  if (!productoSeleccionadoActual) return;
+// Abrir el visor emergente de imágenes
+function abrirVisorCategoria(categoriaKey) {
+  categoriaActual = catalogoData[categoriaKey];
+  if (!categoriaActual || !categoriaActual.modelos.length) return;
+
+  indexModeloActual = 0;
   
-  document.getElementById('modal-titulo').textContent = productoSeleccionadoActual.titulo;
-  document.getElementById('modal-precio').textContent = `$${productoSeleccionadoActual.precio.toLocaleString('es-AR')}`;
-  
-  const containerModelos = document.getElementById('modal-modelos-list');
-  containerModelos.innerHTML = '';
+  document.getElementById('modal-titulo').textContent = categoriaActual.titulo;
+  document.getElementById('modal-precio').textContent = `$${categoriaActual.precio.toLocaleString('es-AR')}`;
 
-  productoSeleccionadoActual.modelos.forEach((mod, index) => {
-    const item = document.createElement('div');
-    item.className = `modelo-option ${index === 0 ? 'selected' : ''}`;
-    item.onclick = () => seleccionarModelo(index);
-    item.innerHTML = `
-      <img src="${mod.img}" alt="${mod.nombre}">
-      <span>${mod.nombre}</span>
-    `;
-    containerModelos.appendChild(item);
-  });
-
-  seleccionarModelo(0);
+  actualizarVisor();
   document.getElementById('modal-producto').classList.add('active');
+  document.addEventListener('keydown', manejarTeclasNavegacion);
 }
 
-function seleccionarModelo(index) {
-  modeloSeleccionadoActual = productoSeleccionadoActual.modelos[index];
+function cambiarImagen(direccion) {
+  if (!categoriaActual) return;
+  const total = categoriaActual.modelos.length;
+  indexModeloActual = (indexModeloActual + direccion + total) % total;
+  actualizarVisor();
+}
+
+function actualizarVisor() {
+  const modelo = categoriaActual.modelos[indexModeloActual];
   
-  // Actualizar la imagen principal del modal
+  // Actualizar imagen y contador
   const imgPrincipal = document.getElementById('modal-img-principal');
-  imgPrincipal.src = modeloSeleccionadoActual.img;
-  imgPrincipal.alt = modeloSeleccionadoActual.nombre;
+  imgPrincipal.src = modelo.img;
+  imgPrincipal.alt = modelo.nombre;
 
-  // Actualizar la selección de miniaturas
-  const options = document.querySelectorAll('.modelo-option');
-  options.forEach((opt, i) => opt.classList.toggle('selected', i === index));
+  document.getElementById('modal-modelo-nombre').textContent = modelo.nombre;
+  document.getElementById('modal-counter').textContent = `${indexModeloActual + 1} / ${categoriaActual.modelos.length}`;
 
-  // Cargar talles/variantes disponibles
+  // Cargar talles/variantes del modelo activo
   const selectTalle = document.getElementById('modal-talle');
   selectTalle.innerHTML = '';
-  
-  for (const [talle, cant] of Object.entries(modeloSeleccionadoActual.stock)) {
+
+  for (const [talle, cant] of Object.entries(modelo.stock)) {
     const opt = document.createElement('option');
     opt.value = talle;
     opt.textContent = `${talle} ${cant === 0 ? '(Agotado)' : ''}`;
@@ -175,9 +139,10 @@ function seleccionarModelo(index) {
 }
 
 function actualizarStockModal() {
+  const modelo = categoriaActual.modelos[indexModeloActual];
   const talleSel = document.getElementById('modal-talle').value;
-  const stockDisponible = modeloSeleccionadoActual.stock[talleSel] || 0;
-  
+  const stockDisponible = modelo.stock[talleSel] || 0;
+
   const stockStatus = document.getElementById('modal-stock-status');
   const btnAdd = document.getElementById('btn-modal-add');
   const inputCant = document.getElementById('modal-cant');
@@ -201,24 +166,32 @@ function actualizarStockModal() {
 
 function cerrarModal() {
   document.getElementById('modal-producto').classList.remove('active');
+  document.removeEventListener('keydown', manejarTeclasNavegacion);
 }
 
-// Agregar al Carrito y descontar stock
+function manejarTeclasNavegacion(e) {
+  if (e.key === 'ArrowLeft') cambiarImagen(-1);
+  if (e.key === 'ArrowRight') cambiarImagen(1);
+  if (e.key === 'Escape') cerrarModal();
+}
+
+// Agregar al Carrito
 function agregarAlCarritoDesdeModal() {
+  const modelo = categoriaActual.modelos[indexModeloActual];
   const talleSel = document.getElementById('modal-talle').value;
   const inputCant = document.getElementById('modal-cant');
   const cantidadPedida = parseInt(inputCant.value) || 1;
-  const stockDisponible = modeloSeleccionadoActual.stock[talleSel];
+  const stockDisponible = modelo.stock[talleSel];
 
   if (cantidadPedida > stockDisponible) {
     alert(`Solo queda ${stockDisponible} unidad disponible.`);
     return;
   }
 
-  // Descontar del stock local
-  modeloSeleccionadoActual.stock[talleSel] -= cantidadPedida;
+  // Descontar stock local
+  modelo.stock[talleSel] -= cantidadPedida;
 
-  const itemKey = `${modeloSeleccionadoActual.nombre} (${talleSel})`;
+  const itemKey = `${modelo.nombre} (${talleSel})`;
   const itemExistente = cart.find(i => i.key === itemKey);
 
   if (itemExistente) {
@@ -226,20 +199,20 @@ function agregarAlCarritoDesdeModal() {
   } else {
     cart.push({
       key: itemKey,
-      nombre: modeloSeleccionadoActual.nombre,
-      precio: productoSeleccionadoActual.precio,
+      nombre: modelo.nombre,
+      precio: categoriaActual.precio,
       talle: talleSel,
       quantity: cantidadPedida,
-      modeloRef: modeloSeleccionadoActual
+      modeloRef: modelo
     });
   }
 
-  cerrarModal();
+  actualizarStockModal();
   updateCartUI();
   toggleCart();
 }
 
-// Eliminar ítem del carrito y reponer stock
+// Carrito y Filtros
 function removeFromCart(key) {
   const item = cart.find(i => i.key === key);
   if (item) {
@@ -247,9 +220,9 @@ function removeFromCart(key) {
   }
   cart = cart.filter(i => i.key !== key);
   updateCartUI();
+  if (categoriaActual) actualizarStockModal();
 }
 
-// Drawer del Carrito
 function toggleCart() {
   document.getElementById('cart-drawer').classList.toggle('active');
   document.getElementById('cart-overlay').classList.toggle('active');
@@ -288,22 +261,16 @@ function updateCartUI() {
   cartTotalPriceEl.textContent = '$' + totalPrice.toLocaleString('es-AR');
 }
 
-// Filtro de Pestañas
 function filtrarCategoria(categoria, event) {
   const cards = document.querySelectorAll('.producto-card');
   document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('active'));
-  if(event) event.target.classList.add('active');
+  if (event) event.target.classList.add('active');
 
   cards.forEach(card => {
-    if (categoria === 'todos' || card.dataset.categoria === categoria) {
-      card.style.display = 'flex';
-    } else {
-      card.style.display = 'none';
-    }
+    card.style.display = (categoria === 'todos' || card.dataset.categoria === categoria) ? 'flex' : 'none';
   });
 }
 
-// Envío a WhatsApp
 function checkoutWhatsApp() {
   if (cart.length === 0) {
     alert('Tu carrito está vacío.');
@@ -323,23 +290,3 @@ function checkoutWhatsApp() {
 
   window.open(`https://wa.me/5493834287709?text=${encodeURIComponent(message)}`, '_blank');
 }
-
-// Efecto de Zoom interactivo en la vista previa del Modal
-document.addEventListener('DOMContentLoaded', () => {
-  const previewContainer = document.querySelector('.modal-preview-container');
-  const previewImg = document.querySelector('#modal-img-principal');
-
-  if (previewContainer && previewImg) {
-    previewContainer.addEventListener('mousemove', (e) => {
-      const { left, top, width, height } = previewContainer.getBoundingClientRect();
-      const x = ((e.clientX - left) / width) * 100;
-      const y = ((e.clientY - top) / height) * 100;
-
-      previewImg.style.transformOrigin = `${x}% ${y}%`;
-    });
-
-    previewContainer.addEventListener('mouseleave', () => {
-      previewImg.style.transformOrigin = 'center center';
-    });
-  }
-});

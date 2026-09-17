@@ -28,7 +28,6 @@
     <div class="banner-container">
       <img src="images/estilobakanotitulo.jpeg" alt="Estilo Bakano" class="banner">
       
-      <!-- Presentación de la Marca -->
       <div class="bio-header">
         <p class="bio-destacado">No vendemos ropa. Vendemos presencia.</p>
         <p class="bio-sub">Streetwear | Gorras | Outfit completo</p>
@@ -41,7 +40,7 @@
   <!-- Categorías de Navegación -->
   <nav class="categorias-bar">
     <button class="btn-cat active" onclick="filtrarCategoria('todos', event)">Todos</button>
-    <button class="btn-cat" onclick="filtrarCategoria('conjuntos-deportivos', event)">Conjuntos Deportivos</button>
+    <button class="btn-cat" onclick="filtrarCategoria('conjuntos-deportivos', event)">Conjuntos</button>
     <button class="btn-cat" onclick="filtrarCategoria('remeras', event)">Remeras</button>
     <button class="btn-cat" onclick="filtrarCategoria('gorras', event)">Gorras</button>
     <button class="btn-cat" onclick="filtrarCategoria('boxers', event)">Boxers</button>
@@ -49,25 +48,22 @@
     <button class="btn-cat" onclick="filtrarCategoria('auriculares-smartwatch', event)">Auriculares y Smartwatch</button>
   </nav>
 
-  <!-- Grilla Principal del Catálogo -->
+  <!-- Grilla de Tarjetas Genéricas por Categoria -->
   <main class="catalogo-grid" id="catalogo">
     
-    <!-- Tarjeta Agrupada: Conjuntos Deportivos -->
-    <article class="producto-card" data-categoria="conjuntos-deportivos">
+    <article class="producto-card" data-categoria="conjuntos-deportivos" onclick="abrirVisorCategoria('conjuntos-deportivos')">
       <div class="badge-modelos">8 Modelos</div>
       <div class="img-container">
-        <img src="images/conjuntos deportivos/conjunto-realmadrid.jpg" alt="Conjuntos Deportivos de Fútbol">
+        <img src="images/conjuntos deportivos/conjunto-realmadrid.jpg" alt="Conjuntos Deportivos">
       </div>
       <div class="prod-detalles">
         <h3>Conjuntos Deportivos</h3>
         <p class="precio">$45.000</p>
-        <div class="medios-pago-info">💳 Tarjetas de Crédito / Débito en cuotas</div>
-        <button class="btn-elegir" onclick="abrirModal('conjuntos-deportivos')">Ver Modelos y Talles ➔</button>
+        <button class="btn-elegir">Ver Catálogo Completo ➔</button>
       </div>
     </article>
 
-    <!-- Tarjeta Agrupada: Remeras -->
-    <article class="producto-card" data-categoria="remeras">
+    <article class="producto-card" data-categoria="remeras" onclick="abrirVisorCategoria('remeras')">
       <div class="badge-modelos">17 Modelos</div>
       <div class="img-container">
         <img src="images/remeras/remeras-1.jpg" alt="Remeras Streetwear">
@@ -75,41 +71,35 @@
       <div class="prod-detalles">
         <h3>Remeras Streetwear</h3>
         <p class="precio">$22.000</p>
-        <div class="medios-pago-info">💳 Tarjetas de Crédito / Débito</div>
-        <button class="btn-elegir" onclick="abrirModal('remeras')">Ver Modelos y Talles ➔</button>
+        <button class="btn-elegir">Ver Catálogo Completo ➔</button>
       </div>
     </article>
 
-    <!-- Tarjeta Agrupada: Gorras -->
-    <article class="producto-card" data-categoria="gorras">
+    <article class="producto-card" data-categoria="gorras" onclick="abrirVisorCategoria('gorras')">
       <div class="badge-modelos">22 Modelos</div>
       <div class="img-container">
         <img src="images/gorras/gorras-1.jpg" alt="Gorras Urbanas">
       </div>
       <div class="prod-detalles">
-        <h3>Gorras Urbanas Premium</h3>
+        <h3>Gorras Urbanas</h3>
         <p class="precio">$15.000</p>
-        <div class="medios-pago-info">💳 Tarjetas de Crédito / Débito</div>
-        <button class="btn-elegir" onclick="abrirModal('gorras')">Ver Modelos ➔</button>
+        <button class="btn-elegir">Ver Catálogo Completo ➔</button>
       </div>
     </article>
 
-    <!-- Tarjeta Agrupada: Boxers -->
-    <article class="producto-card" data-categoria="boxers">
+    <article class="producto-card" data-categoria="boxers" onclick="abrirVisorCategoria('boxers')">
       <div class="badge-modelos">5 Modelos</div>
       <div class="img-container">
-        <img src="images/boxers/boxers-1.jpg" alt="Pack Boxers">
+        <img src="images/boxers/boxers-1.jpg" alt="Packs de Boxers">
       </div>
       <div class="prod-detalles">
         <h3>Packs de Boxers</h3>
         <p class="precio">$18.000</p>
-        <div class="medios-pago-info">💳 Tarjetas de Crédito / Débito</div>
-        <button class="btn-elegir" onclick="abrirModal('boxers')">Ver Modelos y Talles ➔</button>
+        <button class="btn-elegir">Ver Catálogo Completo ➔</button>
       </div>
     </article>
 
-    <!-- Tarjeta Agrupada: Gafas Deportivas -->
-    <article class="producto-card" data-categoria="gafas">
+    <article class="producto-card" data-categoria="gafas" onclick="abrirVisorCategoria('gafas')">
       <div class="badge-modelos">5 Modelos</div>
       <div class="img-container">
         <img src="images/gafas/gafas-1.jpg" alt="Gafas Deportivas">
@@ -117,13 +107,11 @@
       <div class="prod-detalles">
         <h3>Gafas Deportivas</h3>
         <p class="precio">$8.500</p>
-        <div class="medios-pago-info">💳 Tarjetas de Crédito / Débito</div>
-        <button class="btn-elegir" onclick="abrirModal('gafas')">Ver Modelos y Colores ➔</button>
+        <button class="btn-elegir">Ver Catálogo Completo ➔</button>
       </div>
     </article>
 
-    <!-- Tarjeta Agrupada: Auriculares y Smartwatch -->
-    <article class="producto-card" data-categoria="auriculares-smartwatch">
+    <article class="producto-card" data-categoria="auriculares-smartwatch" onclick="abrirVisorCategoria('auriculares-smartwatch')">
       <div class="badge-modelos">3 Modelos</div>
       <div class="img-container">
         <img src="images/auriculares y smartwatch/smartwatch.jpg" alt="Auriculares y Smartwatch">
@@ -131,36 +119,34 @@
       <div class="prod-detalles">
         <h3>Auriculares & Smartwatch</h3>
         <p class="precio">$15.000</p>
-        <div class="medios-pago-info">💳 Tarjetas de Crédito / Débito</div>
-        <button class="btn-elegir" onclick="abrirModal('auriculares-smartwatch')">Ver Modelos ➔</button>
+        <button class="btn-elegir">Ver Catálogo Completo ➔</button>
       </div>
     </article>
 
   </main>
 
-  <!-- Modal Emergente con Vista Previa Grande -->
+  <!-- Modal Visor de Imágenes Deslizante -->
   <div id="modal-producto" class="modal-overlay">
     <div class="modal-content modal-grande">
       <button class="modal-close" onclick="cerrarModal()">✕</button>
       
-      <!-- Vista Previa Ampliada -->
+      <!-- Contenedor con Flechas -->
       <div class="modal-preview-container">
-        <img id="modal-img-principal" src="" alt="Vista previa del producto">
+        <button class="nav-arrow prev-arrow" onclick="cambiarImagen(-1)">❮</button>
+        <img id="modal-img-principal" src="" alt="Vista previa">
+        <button class="nav-arrow next-arrow" onclick="cambiarImagen(1)">❯</button>
+        <span id="modal-counter" class="image-counter">1 / 1</span>
       </div>
 
-      <!-- Opciones y Galería de Selección -->
+      <!-- Panel de Detalles y Compra -->
       <div class="modal-info-col">
-        <h3 id="modal-titulo">Seleccionar Modelo</h3>
+        <h3 id="modal-titulo">Categoría</h3>
+        <h4 id="modal-modelo-nombre" class="modelo-nombre-destacado">Modelo</h4>
         <p id="modal-precio" class="precio-modal"></p>
-
-        <div class="seccion-modal">
-          <label class="modal-label">Modelos disponibles (toca para ampliar):</label>
-          <div class="modelos-grid-grande" id="modal-modelos-list"></div>
-        </div>
 
         <div class="seccion-modal opciones-inline">
           <div class="selector-item">
-            <label for="modal-talle">Variante / Talle:</label>
+            <label for="modal-talle">Talle / Variante:</label>
             <select id="modal-talle" onchange="actualizarStockModal()"></select>
           </div>
           <div class="selector-item">
@@ -195,9 +181,6 @@
       <button class="cart-checkout-btn" onclick="checkoutWhatsApp()">
         Finalizar Pedido por WhatsApp 📲
       </button>
-      <p class="cart-tarjetas-notice">
-        💳 ¡Aceptamos tarjetas de crédito! Te enviamos el link de Mercado Pago por WhatsApp para pagar en cuotas.
-      </p>
     </div>
   </div>
   <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
@@ -206,12 +189,11 @@
   <footer>
     <p class="footer-title">Seguinos en nuestras redes</p>
     <div class="redes">
-      <a href="https://facebook.com/TuPagina" target="_blank" rel="noopener noreferrer"><img src="images/facebook.png" alt="Facebook" class="icono-red"></a>
-      <a href="https://www.instagram.com/estilobakano.cta/" target="_blank" rel="noopener noreferrer"><img src="images/instagram.png" alt="Instagram" class="icono-red"></a>
-      <a href="https://wa.me/5493834287709" target="_blank" rel="noopener noreferrer"><img src="images/watsapp.png" alt="WhatsApp" class="icono-red"></a>
-      <a href="https://maps.app.goo.gl/4qBBeKGtxUMCvYgVA" target="_blank" rel="noopener noreferrer"><img src="images/ubicacion.png" alt="Ubicación" class="icono-red"></a>
+      <a href="https://facebook.com/TuPagina" target="_blank"><img src="images/facebook.png" alt="Facebook" class="icono-red"></a>
+      <a href="https://www.instagram.com/estilobakano.cta/" target="_blank"><img src="images/instagram.png" alt="Instagram" class="icono-red"></a>
+      <a href="https://wa.me/5493834287709" target="_blank"><img src="images/watsapp.png" alt="WhatsApp" class="icono-red"></a>
+      <a href="https://maps.app.goo.gl/4qBBeKGtxUMCvYgVA" target="_blank"><img src="images/ubicacion.png" alt="Ubicación" class="icono-red"></a>
     </div>
-    <p class="atencion-wa">📲 Atención personalizada por WhatsApp (+54 9 3834 28-7709)</p>
     <p class="copyright">&copy; 2026 Estilo Bakano - Todos los derechos reservados</p>
   </footer>
 

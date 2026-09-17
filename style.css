@@ -503,4 +503,49 @@ footer {
   .modal-preview-container {
     max-height: 300px;
   }
+}.modal-preview-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  font-size: 1.8rem;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+.nav-arrow:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.prev-arrow { left: 10px; }
+.next-arrow { right: 10px; }
+
+.image-counter {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.modelo-nombre-destacado {
+  font-size: 1.1rem;
+  color: #222;
+  margin: 4px 0 10px 0;
 }
