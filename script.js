@@ -1,4 +1,4 @@
-// Base de datos completa con precios actualizados por categoría
+// Base de datos completa con todos los archivos reales de las carpetas
 const productosDB = {
   "conjuntos-deportivos": [
     { id: "c1", nombre: "Conjunto Arsenal FC", precio: 45000, img: "images/conjuntos deportivos/conjunto-arsenal.jpg", talles: ["S", "M", "L", "XL"] },
@@ -43,31 +43,31 @@ const productosDB = {
     { id: "sw3", nombre: "Smartwatch Ultra", precio: 20000, img: "images/auriculares y smartwatch/smartwatch.jpg", talles: ["Negro", "Naranja"] }
   ],
   "liquidacion": [
-    { id: "l1", nombre: "Buzo Urban Off", precio: 20000, img: "images/liquidacion/buzo-1.jpg", talles: ["L", "XL"] },
-    { id: "l2", nombre: "Campera Black Edition 1", precio: 40000, img: "images/liquidacion/campera-1.jpg", talles: ["M", "L", "XL"] },
-    { id: "l3", nombre: "Campera Model 2", precio: 40000, img: "images/liquidacion/campera-2.jpg", talles: ["L", "XL"] },
-    { id: "l4", nombre: "Campera White-Black 3", precio: 40000, img: "images/liquidacion/campera-3.jpg", talles: ["M", "L"] },
-    { id: "l5", nombre: "Campera White 4", precio: 40000, img: "images/liquidacion/campera-4.jpg", talles: ["M", "L", "XL"] },
-    { id: "l6", nombre: "Campera Dark 5", precio: 40000, img: "images/liquidacion/campera-5.jpg", talles: ["S", "M"] },
-    { id: "l7", nombre: "Campera Navy 6", precio: 40000, img: "images/liquidacion/campera-6.jpg", talles: ["L", "XL"] },
-    { id: "l8", nombre: "Campera Olive 7", precio: 40000, img: "images/liquidacion/campera-7.jpg", talles: ["M", "L"] },
-    { id: "l9", nombre: "Campera Street 8", precio: 40000, img: "images/liquidacion/campera-8.jpg", talles: ["L", "XL"] },
-    { id: "l10", nombre: "Campera Matte Black 9", precio: 40000, img: "images/liquidacion/campera-9.jpg", talles: ["M", "L"] },
-    { id: "l11", nombre: "Campera Puffer 10", precio: 40000, img: "images/liquidacion/campera-10.jpg", talles: ["L", "XL"] },
-    { id: "l12", nombre: "Campera Red 11", precio: 40000, img: "images/liquidacion/campera-11.jpg", talles: ["S", "M", "L"] },
-    { id: "l13", nombre: "Campera College 12", precio: 40000, img: "images/liquidacion/campera-12.jpg", talles: ["M", "L"] },
-    { id: "l14", nombre: "Campera Dark 13", precio: 40000, img: "images/liquidacion/campera-13.jpg", talles: ["L", "XL"] },
-    { id: "l15", nombre: "Chaleco Neon Green 1", precio: 20000, img: "images/liquidacion/chaleco-1.jpg", talles: ["M", "L"] },
-    { id: "l16", nombre: "Chaleco Lime 2", precio: 20000, img: "images/liquidacion/chaleco-2.jpg", talles: ["M", "L", "XL"] },
-    { id: "l17", nombre: "Chaleco Bicolor 3", precio: 20000, img: "images/liquidacion/chaleco-3.jpg", talles: ["L", "XL"] },
-    { id: "l18", nombre: "Chaleco Dark Red 4", precio: 20000, img: "images/liquidacion/chaleco-4.jpg", talles: ["M", "L"] },
-    { id: "l19", nombre: "Conjunto Urban 1", precio: 45000, img: "images/liquidacion/conjunto-1.jpg", talles: ["S", "M", "L"] },
-    { id: "l20", nombre: "Conjunto Urban 2", precio: 45000, img: "images/liquidacion/conjunto-2.jpg", talles: ["M", "L"] },
-    { id: "l21", nombre: "Conjunto Urban 3", precio: 45000, img: "images/liquidacion/conjunto-3.jpg", talles: ["L", "XL"] },
-    { id: "l22", nombre: "Conjunto Urban 4", precio: 45000, img: "images/liquidacion/conjunto-4.jpg", talles: ["M", "L"] },
-    { id: "l23", nombre: "Pantalón Jogger 1", precio: 20000, img: "images/liquidacion/pantalon-1.jpg", talles: ["1", "2", "3", "4"] },
-    { id: "l24", nombre: "Pantalón Jogger Grey 2", precio: 20000, img: "images/liquidacion/pantalon-2.jpg", talles: ["1", "2", "3"] },
-    { id: "l25", nombre: "Remera Malvinas Selección", precio: 20000, img: "images/liquidacion/remera-seleccion-malvinas.jpg", talles: ["S", "M", "L", "XL"] }
+    { id: "l1", nombre: "Buzo Urban Off", precio: 15000, img: "images/liquidacion/buzo-1.jpg", talles: ["L", "XL"] },
+    { id: "l2", nombre: "Campera Black Edition 1", precio: 15000, img: "images/liquidacion/campera-1.jpg", talles: ["M", "L", "XL"] },
+    { id: "l3", nombre: "Campera Model 2", precio: 15000, img: "images/liquidacion/campera-2.jpg", talles: ["L", "XL"] },
+    { id: "l4", nombre: "Campera White-Black 3", precio: 15000, img: "images/liquidacion/campera-3.jpg", talles: ["M", "L"] },
+    { id: "l5", nombre: "Campera White 4", precio: 15000, img: "images/liquidacion/campera-4.jpg", talles: ["M", "L", "XL"] },
+    { id: "l6", nombre: "Campera Dark 5", precio: 15000, img: "images/liquidacion/campera-5.jpg", talles: ["S", "M"] },
+    { id: "l7", nombre: "Campera Navy 6", precio: 15000, img: "images/liquidacion/campera-6.jpg", talles: ["L", "XL"] },
+    { id: "l8", nombre: "Campera Olive 7", precio: 15000, img: "images/liquidacion/campera-7.jpg", talles: ["M", "L"] },
+    { id: "l9", nombre: "Campera Street 8", precio: 15000, img: "images/liquidacion/campera-8.jpg", talles: ["L", "XL"] },
+    { id: "l10", nombre: "Campera Matte Black 9", precio: 15000, img: "images/liquidacion/campera-9.jpg", talles: ["M", "L"] },
+    { id: "l11", nombre: "Campera Puffer 10", precio: 15000, img: "images/liquidacion/campera-10.jpg", talles: ["L", "XL"] },
+    { id: "l12", nombre: "Campera Red 11", precio: 15000, img: "images/liquidacion/campera-11.jpg", talles: ["S", "M", "L"] },
+    { id: "l13", nombre: "Campera College 12", precio: 15000, img: "images/liquidacion/campera-12.jpg", talles: ["M", "L"] },
+    { id: "l14", nombre: "Campera Dark 13", precio: 15000, img: "images/liquidacion/campera-13.jpg", talles: ["L", "XL"] },
+    { id: "l15", nombre: "Chaleco Neon Green 1", precio: 15000, img: "images/liquidacion/chaleco-1.jpg", talles: ["M", "L"] },
+    { id: "l16", nombre: "Chaleco Lime 2", precio: 15000, img: "images/liquidacion/chaleco-2.jpg", talles: ["M", "L", "XL"] },
+    { id: "l17", nombre: "Chaleco Bicolor 3", precio: 15000, img: "images/liquidacion/chaleco-3.jpg", talles: ["L", "XL"] },
+    { id: "l18", nombre: "Chaleco Dark Red 4", precio: 15000, img: "images/liquidacion/chaleco-4.jpg", talles: ["M", "L"] },
+    { id: "l19", nombre: "Conjunto Urban 1", precio: 18000, img: "images/liquidacion/conjunto-1.jpg", talles: ["S", "M", "L"] },
+    { id: "l20", nombre: "Conjunto Urban 2", precio: 18000, img: "images/liquidacion/conjunto-2.jpg", talles: ["M", "L"] },
+    { id: "l21", nombre: "Conjunto Urban 3", precio: 18000, img: "images/liquidacion/conjunto-3.jpg", talles: ["L", "XL"] },
+    { id: "l22", nombre: "Conjunto Urban 4", precio: 18000, img: "images/liquidacion/conjunto-4.jpg", talles: ["M", "L"] },
+    { id: "l23", nombre: "Pantalón Jogger 1", precio: 12000, img: "images/liquidacion/pantalon-1.jpg", talles: ["1", "2", "3", "4"] },
+    { id: "l24", nombre: "Pantalón Jogger Grey 2", precio: 12000, img: "images/liquidacion/pantalon-2.jpg", talles: ["1", "2", "3"] },
+    { id: "l25", nombre: "Remera Malvinas Selección", precio: 10000, img: "images/liquidacion/remera-seleccion-malvinas.jpg", talles: ["S", "M", "L", "XL"] }
   ]
 };
 
@@ -93,6 +93,7 @@ function filtrarCategoria(categoria, e) {
     productosAMostrar = productosDB[categoria];
   }
 
+  // Generar cada tarjeta individual directamente en pantalla
   productosAMostrar.forEach(prod => {
     const card = document.createElement('article');
     card.className = 'producto-card';
@@ -112,7 +113,7 @@ function filtrarCategoria(categoria, e) {
   });
 }
 
-// Abrir el modal con detalles del producto
+// Abrir el modal con la foto a la izquierda y la información + agregar al carrito al costado
 function abrirDetalleProducto(prod) {
   productoSeleccionado = prod;
 
