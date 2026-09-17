@@ -128,18 +128,15 @@
 
   </main>
 
-  <!-- Modal Visor de Imágenes Deslizante -->
+  <!-- Modal Visor de Imágenes en Scroll Continuo -->
   <div id="modal-producto" class="modal-overlay">
     <div class="modal-content modal-grande">
       <button class="modal-close" onclick="cerrarModal()">✕</button>
       
-      <!-- Columna Izquierda: Visor + Flechas + Eslogan Urbano -->
+      <!-- Columna Izquierda: Feed Scroll Continuo -->
       <div class="modal-img-col">
-        <div class="modal-preview-container">
-          <button class="nav-arrow prev-arrow" onclick="cambiarImagen(-1, event)">❮</button>
-          <img id="modal-img-principal" src="" alt="Vista previa">
-          <button class="nav-arrow next-arrow" onclick="cambiarImagen(1, event)">❯</button>
-          <span id="modal-counter" class="image-counter">1 / 1</span>
+        <div class="modal-feed-scroll" id="modal-feed-imagenes">
+          <!-- Las imágenes del catálogo cargan aquí automáticamente -->
         </div>
         
         <div class="frase-urbana">
@@ -151,10 +148,14 @@
       <!-- Panel de Detalles y Compra -->
       <div class="modal-info-col">
         <h3 id="modal-titulo">Categoría</h3>
-        <h4 id="modal-modelo-nombre" class="modelo-nombre-destacado">Modelo</h4>
+        <h4 id="modal-modelo-nombre" class="modelo-nombre-destacado">Selecciona una opción</h4>
         <p id="modal-precio" class="precio-modal"></p>
 
         <div class="seccion-modal opciones-inline">
+          <div class="selector-item">
+            <label for="modal-modelo-select">Modelo / Opción:</label>
+            <select id="modal-modelo-select" onchange="alCambiarModelo()"></select>
+          </div>
           <div class="selector-item">
             <label for="modal-talle">Talle / Variante:</label>
             <select id="modal-talle" onchange="actualizarStockModal()"></select>

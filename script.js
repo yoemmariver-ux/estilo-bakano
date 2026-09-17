@@ -8,20 +8,11 @@ function reproducirClic() {
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.addEventListener('click', (e) => {
-    const esInteractivo = e.target.closest('button, a, .modelo-option, .btn-cat, .producto-card, .nav-arrow');
+    const esInteractivo = e.target.closest('button, a, .modelo-option, .btn-cat, .producto-card');
     if (esInteractivo) {
       reproducirClic();
     }
   });
-
-  // Toggle de Zoom al hacer clic sobre la imagen principal
-  const imgPrincipal = document.getElementById('modal-img-principal');
-  if (imgPrincipal) {
-    imgPrincipal.addEventListener('click', (e) => {
-      e.stopPropagation();
-      imgPrincipal.classList.toggle('zoomed');
-    });
-  }
 });
 
 // Catálogo centralizado
@@ -106,32 +97,70 @@ function abrirVisorCategoria(categoriaKey) {
   document.getElementById('modal-titulo').textContent = categoriaActual.titulo;
   document.getElementById('modal-precio').textContent = `$${categoriaActual.precio.toLocaleString('es-AR')}`;
 
+  const selectModelo = document.getElementById('modal-modelo-select');
+  selectModelo.innerHTML = '';
+  categoriaActual.modelos.forEach((mod, idx) => {
+    const opt = document.createElement('option');
+    opt.value = idx;
+    opt.textContent = mod.nombre;
+    selectModelo.appendChild(opt);
+  });
+
+  const feedContainer = document.getElementById('modal-feed-imagenes');
+  feedContainer.innerHTML = '';
+
+  categoriaActual.modelos.forEach((modelo, index) => {
+    const imgEl = document.createElement('img');
+    imgEl.src = modelo.img;
+    imgEl.alt = modelo.nombre;
+    imgEl.dataset.index = index;
+    if (index === 0) imgEl.classList.add('img-seleccionada');
+
+    imgEl.addEventListener('click', () => {
+      seleccionarModeloPorIndice(index);
+    });
+
+    feedContainer.appendChild(imgEl);
+  });
+
+  feedContainer.scrollTop = 0;
+
   actualizarVisor();
   document.getElementById('modal-producto').classList.add('active');
   document.addEventListener('keydown', manejarTeclasNavegacion);
 }
 
-function cambiarImagen(direccion, event) {
-  if (event) event.stopPropagation();
-  if (!categoriaActual) return;
-  
-  const imgPrincipal = document.getElementById('modal-img-principal');
-  if (imgPrincipal) imgPrincipal.classList.remove('zoomed');
+function seleccionarModeloPorIndice(idx) {
+  indexModeloActual = idx;
+  document.getElementById('modal-modelo-select').value = idx;
 
-  const total = categoriaActual.modelos.length;
-  indexModeloActual = (indexModeloActual + direccion + total) % total;
+  const imagenes = document.querySelectorAll('#modal-feed-imagenes img');
+  imagenes.forEach((img, i) => {
+    if (i === idx) {
+      img.classList.add('img-seleccionada');
+    } else {
+      img.classList.remove('img-seleccionada');
+    }
+  });
+
   actualizarVisor();
+}
+
+function alCambiarModelo() {
+  const selectModelo = document.getElementById('modal-modelo-select');
+  const idx = parseInt(selectModelo.value);
+  seleccionarModeloPorIndice(idx);
+
+  const imagenes = document.querySelectorAll('#modal-feed-imagenes img');
+  if (imagenes[idx]) {
+    imagenes[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 }
 
 function actualizarVisor() {
   const modelo = categoriaActual.modelos[indexModeloActual];
   
-  const imgPrincipal = document.getElementById('modal-img-principal');
-  imgPrincipal.src = modelo.img;
-  imgPrincipal.alt = modelo.nombre;
-
   document.getElementById('modal-modelo-nombre').textContent = modelo.nombre;
-  document.getElementById('modal-counter').textContent = `${indexModeloActual + 1} / ${categoriaActual.modelos.length}`;
 
   const selectTalle = document.getElementById('modal-talle');
   selectTalle.innerHTML = '';
@@ -173,15 +202,11 @@ function actualizarStockModal() {
 }
 
 function cerrarModal() {
-  const imgPrincipal = document.getElementById('modal-img-principal');
-  if (imgPrincipal) imgPrincipal.classList.remove('zoomed');
   document.getElementById('modal-producto').classList.remove('active');
   document.removeEventListener('keydown', manejarTeclasNavegacion);
 }
 
 function manejarTeclasNavegacion(e) {
-  if (e.key === 'ArrowLeft') cambiarImagen(-1);
-  if (e.key === 'ArrowRight') cambiarImagen(1);
   if (e.key === 'Escape') cerrarModal();
 }
 
