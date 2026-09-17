@@ -12,9 +12,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Header & Navegación */
+/* Header & Logos */
 header {
   background-color: #1e1e1e;
   padding: 1rem 2rem;
@@ -27,10 +28,17 @@ header {
   border-bottom: 1px solid #333;
 }
 
-.logo-container h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 1px;
+/* Control estricto de logos en el Header */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-container img {
+  max-height: 50px;
+  width: auto;
+  object-fit: contain;
 }
 
 .cart-icon-container {
@@ -78,16 +86,20 @@ header {
   font-weight: bold;
 }
 
-/* Catálogo Grid */
+/* Catálogo Grid (Fuerza filas de tarjetas) */
 main {
   flex: 1;
   padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .catalogo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
+  width: 100%;
 }
 
 .producto-card {
@@ -364,7 +376,6 @@ main {
   border-bottom: 1px solid #333;
 }
 
-/* Miniaturas controladas para el carrito */
 .cart-item img {
   width: 65px;
   height: 65px;
@@ -394,6 +405,34 @@ main {
   color: #ff5555;
   cursor: pointer;
   font-size: 1.1rem;
+}
+
+/* Footer y Redes Sociales */
+footer {
+  background-color: #181818;
+  padding: 2rem;
+  border-top: 1px solid #2a2a2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.social-icons img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
 }
 
 /* Responsive */
