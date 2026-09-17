@@ -130,12 +130,19 @@
     <div class="modal-content modal-grande">
       <button class="modal-close" onclick="cerrarModal()">✕</button>
       
-      <!-- Contenedor con Flechas -->
-      <div class="modal-preview-container">
-        <button class="nav-arrow prev-arrow" onclick="cambiarImagen(-1)">❮</button>
-        <img id="modal-img-principal" src="" alt="Vista previa">
-        <button class="nav-arrow next-arrow" onclick="cambiarImagen(1)">❯</button>
-        <span id="modal-counter" class="image-counter">1 / 1</span>
+      <!-- Columna Izquierda: Visor + Flechas + Eslogan Urbano -->
+      <div class="modal-img-col">
+        <div class="modal-preview-container">
+          <button class="nav-arrow prev-arrow" onclick="cambiarImagen(-1, event)">❮</button>
+          <img id="modal-img-principal" src="" alt="Vista previa">
+          <button class="nav-arrow next-arrow" onclick="cambiarImagen(1, event)">❯</button>
+          <span id="modal-counter" class="image-counter">1 / 1</span>
+        </div>
+        
+        <div class="frase-urbana">
+          <span>NO VENDEMOS ROPA.</span>
+          <span class="highlight">VENDEMOS PRESENCIA.</span>
+        </div>
       </div>
 
       <!-- Panel de Detalles y Compra -->

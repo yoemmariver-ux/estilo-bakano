@@ -3,12 +3,9 @@ const clickAudio = new Audio('sounds/click.mp3');
 
 function reproducirClic() {
   clickAudio.currentTime = 0;
-  clickAudio.play().catch(e => {
-    // Evita excepciones si el usuario no interactuó previamente
-  });
+  clickAudio.play().catch(() => {});
 }
 
-// Activar sonido global en todos los botones y elementos interactivos
 document.addEventListener('DOMContentLoaded', () => {
   document.body.addEventListener('click', (e) => {
     const esInteractivo = e.target.closest('button, a, .modelo-option, .btn-cat, .producto-card, .nav-arrow');
@@ -21,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const imgPrincipal = document.getElementById('modal-img-principal');
   if (imgPrincipal) {
     imgPrincipal.addEventListener('click', (e) => {
-      e.stopPropagation(); // Evitar comportamientos no deseados
+      e.stopPropagation();
       imgPrincipal.classList.toggle('zoomed');
     });
   }
@@ -115,10 +112,9 @@ function abrirVisorCategoria(categoriaKey) {
 }
 
 function cambiarImagen(direccion, event) {
-  if (event) event.stopPropagation(); // Evita gatillar el clic de zoom
+  if (event) event.stopPropagation();
   if (!categoriaActual) return;
   
-  // Quitar el zoom si la imagen cambia
   const imgPrincipal = document.getElementById('modal-img-principal');
   if (imgPrincipal) imgPrincipal.classList.remove('zoomed');
 
