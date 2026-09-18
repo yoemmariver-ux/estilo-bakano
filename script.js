@@ -1,4 +1,4 @@
-// Base de datos de productos adaptada a tu estructura de carpetas
+// Base de datos de productos adaptada
 const productos = [
   // --- REMERAS (1 a 37) ---
   ...Array.from({ length: 36 }, (_, i) => ({
@@ -28,12 +28,38 @@ const productos = [
     talles: ["Único (Ajustable)"]
   })),
 
-  // --- BUZOS (Liquidación / Conjuntos) ---
+  // --- CONJUNTOS DEPORTIVOS (Equipos) ---
+  {
+    id: "conj-1",
+    titulo: "Conjunto Deportivo de Equipo #1",
+    precio: 20000,
+    categoria: "conjuntos-deportivos",
+    imagenes: ["conjuntos deportivos/conjunto-1.jpg"],
+    talles: ["S", "M", "L", "XL"]
+  },
+  {
+    id: "conj-2",
+    titulo: "Conjunto Deportivo de Equipo #2",
+    precio: 20000,
+    categoria: "conjuntos-deportivos",
+    imagenes: ["conjuntos deportivos/conjunto-2.jpg"],
+    talles: ["S", "M", "L", "XL"]
+  },
+  {
+    id: "conj-3",
+    titulo: "Conjunto Deportivo de Equipo #3",
+    precio: 20000,
+    categoria: "conjuntos-deportivos",
+    imagenes: ["conjuntos deportivos/conjunto-3.jpg"],
+    talles: ["S", "M", "L", "XL"]
+  },
+
+  // --- LIQUIDACIÓN (Buzos a $15.000) ---
   {
     id: "buzo-1",
     titulo: "Buzo Oversize Urbano #1",
     precio: 15000,
-    categoria: "conjuntos-deportivos",
+    categoria: "liquidacion",
     esLiquidacion: true,
     imagenes: ["liquidacion/buzo-1.jpg"],
     talles: ["M", "L", "XL"]
@@ -42,7 +68,7 @@ const productos = [
     id: "buzo-2",
     titulo: "Buzo Oversize Urbano #2",
     precio: 15000,
-    categoria: "conjuntos-deportivos",
+    categoria: "liquidacion",
     esLiquidacion: true,
     imagenes: ["liquidacion/buzo-2.jpg"],
     talles: ["M", "L", "XL"]
@@ -51,7 +77,7 @@ const productos = [
     id: "buzo-3",
     titulo: "Buzo Oversize Urbano #3",
     precio: 15000,
-    categoria: "conjuntos-deportivos",
+    categoria: "liquidacion",
     esLiquidacion: true,
     imagenes: ["liquidacion/buzo-3.jpg"],
     talles: ["M", "L", "XL"]
@@ -60,21 +86,10 @@ const productos = [
     id: "buzo-4",
     titulo: "Buzo Oversize Urbano #4",
     precio: 15000,
-    categoria: "conjuntos-deportivos",
+    categoria: "liquidacion",
     esLiquidacion: true,
     imagenes: ["liquidacion/buzo-4.jpg"],
     talles: ["M", "L", "XL"]
-  },
-
-  // --- CONJUNTOS Y CAMPERAS (Liquidación) ---
-  {
-    id: "conj-1",
-    titulo: "Conjunto Deportivo Urbano",
-    precio: 20000,
-    categoria: "conjuntos-deportivos",
-    esLiquidacion: true,
-    imagenes: ["conjuntos deportivos/conjunto-1.jpg"],
-    talles: ["S", "M", "L", "XL"]
   },
 
   // --- OTROS PRODUCTOS ---
@@ -107,7 +122,7 @@ const productos = [
 let carrito = [];
 let productoSeleccionado = null;
 
-// Manejo inteligente de errores de imagen
+// Manejo de errores de imagen con alternativas de rutas
 function manejarErrorImagen(imgElement) {
   const srcOriginal = imgElement.getAttribute("data-src-original") || imgElement.src;
   if (!imgElement.getAttribute("data-src-original")) {
@@ -122,6 +137,8 @@ function manejarErrorImagen(imgElement) {
       imgElement.src = srcOriginal.replace("remeras/remeras-", "remeras/remera-");
     } else if (srcOriginal.includes("gorras/gorras-")) {
       imgElement.src = srcOriginal.replace("gorras/gorras-", "gorras/gorra-");
+    } else if (srcOriginal.includes("conjuntos deportivos/conjunto-")) {
+      imgElement.src = srcOriginal.replace("conjuntos deportivos/conjunto-", "conjuntos deportivos/conjuntos-");
     } else {
       imgElement.src = srcOriginal.replace(".jpg", ".png");
     }
@@ -182,7 +199,7 @@ function filtrarCategoria(categoria, event) {
   if (categoria === "todos") {
     renderizarCatalogo(productos);
   } else if (categoria === "liquidacion") {
-    const liquidacion = productos.filter((p) => p.esLiquidacion || p.precio <= 10000);
+    const liquidacion = productos.filter((p) => p.esLiquidacion || p.categoria === "liquidacion" || p.precio <= 10000);
     renderizarCatalogo(liquidacion);
   } else {
     const filtrados = productos.filter((p) => p.categoria === categoria);
