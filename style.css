@@ -386,3 +386,60 @@ footer { background-color: #080808; border-top: 1px solid #1c1c1c; padding: 25px
 @media (max-width: 768px) {
   .modal-content.modal-grande { grid-template-columns: 1fr; }
 }
+/* 1. Controlar el tamaño de la imagen dentro del carrito */
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #080808;
+  flex-shrink: 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #282828;
+  position: relative;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-details h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.cart-item-details p {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+/* 2. Estilo WhatsApp para el botón de checkout */
+.cart-checkout-btn {
+  width: 100%;
+  background-color: #25d366;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.cart-checkout-btn:hover {
+  background-color: #20bd5a;
+  transform: translateY(-2px);
+}
