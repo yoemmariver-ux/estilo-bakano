@@ -1,162 +1,195 @@
-// Base de datos completa con todos los archivos reales de las carpetas
-const productosDB = {
-  "conjuntos-deportivos": [
-    { id: "c1", nombre: "Conjunto Arsenal FC", precio: 45000, img: "images/conjuntos deportivos/conjunto-arsenal.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "c2", nombre: "Conjunto FC Barcelona", precio: 45000, img: "images/conjuntos deportivos/conjunto-barsa.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "c3", nombre: "Conjunto Flamengo", precio: 45000, img: "images/conjuntos deportivos/conjunto-flamengo.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "c4", nombre: "Conjunto Selección Francia", precio: 45000, img: "images/conjuntos deportivos/conjunto-francia.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "c5", nombre: "Conjunto Italia", precio: 45000, img: "images/conjuntos deportivos/conjunto-italia.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "c6", nombre: "Conjunto Manchester City", precio: 45000, img: "images/conjuntos deportivos/conjunto-mancity.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "c7", nombre: "Conjunto Manchester United", precio: 45000, img: "images/conjuntos deportivos/conjunto-manutd.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "c8", nombre: "Conjunto Real Madrid", precio: 45000, img: "images/conjuntos deportivos/conjunto-realmadrid.jpg", talles: ["Consultar talles disponibles"] }
-  ],
-  "remeras": Array.from({ length: 17 }, (_, i) => ({
-    id: `r${i + 1}`,
-    nombre: `Remera Urban Model ${i + 1}`,
+// Base de datos de productos
+const productos = [
+  // --- REMERAS (1 a 37) ---
+  ...Array.from({ length: 36 }, (_, i) => ({
+    id: `rem-${i + 1}`,
+    titulo: `Remera Streetwear #${i + 1}`,
     precio: 15000,
-    img: `images/remeras/remeras-${i + 1}.jpg`,
-    talles: ["Consultar talles disponibles"]
+    categoria: "remeras",
+    imagenes: [`images/remeras/remeras-${i + 1}.jpg`],
+    talles: ["S", "M", "L", "XL", "XXL"]
   })),
-  "gorras": Array.from({ length: 22 }, (_, i) => ({
-    id: `g${i + 1}`,
-    nombre: `Gorra Urbana Model ${i + 1}`,
+  {
+    id: "rem-37",
+    titulo: "Remera Streetwear #37 (Oferta)",
+    precio: 10000,
+    categoria: "remeras",
+    imagenes: ["images/remeras/remeras-37.jpg"],
+    talles: ["S", "M", "L", "XL"]
+  },
+
+  // --- GORRAS (1 a 27) ---
+  ...Array.from({ length: 27 }, (_, i) => ({
+    id: `gor-${i + 1}`,
+    titulo: `Gorra Urbana #${i + 1}`,
+    precio: 12000, // Ajustá este valor si el precio base de gorras es distinto
+    categoria: "gorras",
+    imagenes: [`images/gorras/gorras-${i + 1}.jpg`],
+    talles: ["Único (Ajustable)"]
+  })),
+
+  // --- BUZOS (4 Unidades a $15.000) ---
+  {
+    id: "buzo-1",
+    titulo: "Buzo Oversize Urbano #1",
     precio: 15000,
-    img: `images/gorras/gorras-${i + 1}.jpg`,
-    talles: ["Consultar talles disponibles"]
-  })),
-  "boxers": Array.from({ length: 5 }, (_, i) => ({
-    id: `b${i + 1}`,
-    nombre: `Pack x3 Boxers Model ${i + 1}`,
-    precio: 12000,
-    img: `images/boxers/boxers-${i + 1}.jpg`,
-    talles: ["Consultar talles disponibles"]
-  })),
-  "gafas": [
-    { id: "gf1", nombre: "Gafas Sport Model 1", precio: 8500, img: "images/gafas/gafas-1.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "gf2", nombre: "Gafas Sport Model 2", precio: 8500, img: "images/gafas/gafas-2.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "gf3", nombre: "Gafas Sport Model 3", precio: 8500, img: "images/gafas/gafas-3.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "gf4", nombre: "Gafas Sport Model 5", precio: 8500, img: "images/gafas/gafas-5.jpg", talles: ["Consultar talles disponibles"] }
-  ],
-  "auriculares-smartwatch": [
-    { id: "sw1", nombre: "Auricular Sport 2", precio: 15000, img: "images/auriculares y smartwatch/auricular-2.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "sw2", nombre: "Auriculares TWS", precio: 15000, img: "images/auriculares y smartwatch/auricular-tws.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "sw3", nombre: "Smartwatch Ultra", precio: 20000, img: "images/auriculares y smartwatch/smartwatch.jpg", talles: ["Consultar talles disponibles"] }
-  ],
-  "liquidacion": [
-    { id: "l1", nombre: "Buzo Urban Off", precio: 15000, img: "images/liquidacion/buzo-1.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l2", nombre: "Campera Black Edition 1", precio: 40000, img: "images/liquidacion/campera-1.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l3", nombre: "Campera Model 2", precio: 40000, img: "images/liquidacion/campera-2.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l4", nombre: "Campera White-Black 3", precio: 40000, img: "images/liquidacion/campera-3.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l5", nombre: "Campera White 4", precio: 40000, img: "images/liquidacion/campera-4.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l6", nombre: "Campera Dark 5", precio: 40000, img: "images/liquidacion/campera-5.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l7", nombre: "Campera Navy 6", precio: 40000, img: "images/liquidacion/campera-6.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l8", nombre: "Campera Olive 7", precio: 40000, img: "images/liquidacion/campera-7.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l9", nombre: "Campera Street 8", precio: 40000, img: "images/liquidacion/campera-8.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l10", nombre: "Campera Matte Black 9", precio: 40000, img: "images/liquidacion/campera-9.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l11", nombre: "Campera Puffer 10", precio: 40000, img: "images/liquidacion/campera-10.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l12", nombre: "Campera Red 11", precio: 40000, img: "images/liquidacion/campera-11.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l13", nombre: "Campera College 12", precio: 40000, img: "images/liquidacion/campera-12.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l14", nombre: "Campera Dark 13", precio: 40000, img: "images/liquidacion/campera-13.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l15", nombre: "Chaleco Neon Green 1", precio: 20000, img: "images/liquidacion/chaleco-1.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l16", nombre: "Chaleco Lime 2", precio: 20000, img: "images/liquidacion/chaleco-2.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l17", nombre: "Chaleco Bicolor 3", precio: 20000, img: "images/liquidacion/chaleco-3.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l18", nombre: "Chaleco Dark Red 4", precio: 20000, img: "images/liquidacion/chaleco-4.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l19", nombre: "Conjunto Urban 1", precio: 18000, img: "images/liquidacion/conjunto-1.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l20", nombre: "Conjunto Urban 2", precio: 18000, img: "images/liquidacion/conjunto-2.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l21", nombre: "Conjunto Urban 3", precio: 18000, img: "images/liquidacion/conjunto-3.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l22", nombre: "Conjunto Urban 4", precio: 18000, img: "images/liquidacion/conjunto-4.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l23", nombre: "Pantalón Jogger 1", precio: 20000, img: "images/liquidacion/pantalon-1.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l24", nombre: "Pantalón Jogger Grey 2", precio: 20000, img: "images/liquidacion/pantalon-2.jpg", talles: ["Consultar talles disponibles"] },
-    { id: "l25", nombre: "Remera Malvinas Selección", precio: 10000, img: "images/liquidacion/remera-seleccion-malvinas.jpg", talles: ["Consultar talles disponibles"] }
-  ]
-};
+    categoria: "conjuntos-deportivos",
+    imagenes: ["images/buzos/buzo-1.jpg"],
+    talles: ["M", "L", "XL"]
+  },
+  {
+    id: "buzo-2",
+    titulo: "Buzo Oversize Urbano #2",
+    precio: 15000,
+    categoria: "conjuntos-deportivos",
+    imagenes: ["images/buzos/buzo-2.jpg"],
+    talles: ["M", "L", "XL"]
+  },
+  {
+    id: "buzo-3",
+    titulo: "Buzo Oversize Urbano #3",
+    precio: 15000,
+    categoria: "conjuntos-deportivos",
+    imagenes: ["images/buzos/buzo-3.jpg"],
+    talles: ["M", "L", "XL"]
+  },
+  {
+    id: "buzo-4",
+    titulo: "Buzo Oversize Urbano #4",
+    precio: 15000,
+    categoria: "conjuntos-deportivos",
+    imagenes: ["images/buzos/buzo-4.jpg"],
+    talles: ["M", "L", "XL"]
+  },
+
+  // --- OTROS PRODUCTOS Y CATEGORÍAS ---
+  {
+    id: "box-1",
+    titulo: "Pack Boxers Estilo Bakano",
+    precio: 8000,
+    categoria: "boxers",
+    imagenes: ["images/boxers/boxer-1.jpg"],
+    talles: ["M", "L", "XL"]
+  },
+  {
+    id: "gaf-1",
+    titulo: "Gafas de Sol Urban Style",
+    precio: 9500,
+    categoria: "gafas",
+    imagenes: ["images/gafas/gafas-1.jpg"],
+    talles: ["Único"]
+  },
+  {
+    id: "tech-1",
+    titulo: "Smartwatch Deportivo Bakano",
+    precio: 25000,
+    categoria: "auriculares-smartwatch",
+    imagenes: ["images/tech/smartwatch-1.jpg"],
+    talles: ["Negro", "Gris"]
+  }
+];
 
 let carrito = [];
 let productoSeleccionado = null;
-const NUMERO_WHATSAPP = "5493834287709";
 
-// Renderizar todos los productos de la categoría seleccionada
-function filtrarCategoria(categoria, e) {
-  document.querySelectorAll('.btn-cat').forEach(btn => btn.classList.remove('active'));
-  if (e) e.target.classList.add('active');
+// Inicialización de la tienda
+document.addEventListener("DOMContentLoaded", () => {
+  renderizarCatalogo(productos);
+});
 
-  const catalogo = document.getElementById('catalogo');
-  catalogo.innerHTML = '';
+// Renderizar Productos en la Grilla
+function renderizarCatalogo(listaProductos) {
+  const contenedor = document.getElementById("catalogo");
+  contenedor.innerHTML = "";
 
-  let productosAMostrar = [];
-
-  if (categoria === 'todos') {
-    Object.values(productosDB).forEach(lista => {
-      productosAMostrar = productosAMostrar.concat(lista);
-    });
-  } else if (productosDB[categoria]) {
-    productosAMostrar = productosDB[categoria];
+  if (listaProductos.length === 0) {
+    contenedor.innerHTML = `<p style="text-align:center; grid-column: 1/-1; color:#888;">No hay productos disponibles en esta categoría.</p>`;
+    return;
   }
 
-  // Generar cada tarjeta individual directamente en pantalla
-  productosAMostrar.forEach(prod => {
-    const card = document.createElement('article');
-    card.className = 'producto-card';
-    card.onclick = () => abrirDetalleProducto(prod);
+  listaProductos.forEach((prod) => {
+    const card = document.createElement("div");
+    card.classList.add("producto-card");
+    card.onclick = () => abrirModal(prod.id);
 
     card.innerHTML = `
       <div class="img-container">
-        <img src="${prod.img}" alt="${prod.nombre}">
+        <img src="${prod.imagenes[0]}" alt="${prod.titulo}" loading="lazy" onerror="this.src='images/estilobakano.jpg'">
       </div>
       <div class="prod-detalles">
-        <h3>${prod.nombre}</h3>
-        <p class="precio">$${prod.precio.toLocaleString('es-AR')}</p>
-        <button class="btn-elegir">Ver Detalle / Comprar</button>
+        <h3>${prod.titulo}</h3>
+        <p class="precio">$${prod.precio.toLocaleString("es-AR")}</p>
+        <button class="btn-elegir">Ver Opciones 👁️</button>
       </div>
     `;
-    catalogo.appendChild(card);
+    contenedor.appendChild(card);
   });
 }
 
-// Abrir el modal con la foto a la izquierda y la información + agregar al carrito al costado
-function abrirDetalleProducto(prod) {
-  productoSeleccionado = prod;
+// Filtrar por Categorías
+function filtrarCategoria(categoria, event) {
+  document.querySelectorAll(".btn-cat").forEach((btn) => btn.classList.remove("active"));
+  if (event) event.target.classList.add("active");
 
-  const feed = document.getElementById('modal-feed-imagenes');
-  feed.innerHTML = `<img src="${prod.img}" alt="${prod.nombre}">`;
+  if (categoria === "todos") {
+    renderizarCatalogo(productos);
+  } else if (categoria === "liquidacion") {
+    // Muestra solo productos con descuento u ofertas
+    const liquidacion = productos.filter((p) => p.precio <= 10000);
+    renderizarCatalogo(liquidacion);
+  } else {
+    const filtrados = productos.filter((p) => p.categoria === categoria);
+    renderizarCatalogo(filtrados);
+  }
+}
 
-  document.getElementById('modal-titulo').innerText = prod.nombre;
-  document.getElementById('modal-precio').innerText = `$${prod.precio.toLocaleString('es-AR')}`;
+// Modal de Detalle
+function abrirModal(idProd) {
+  productoSeleccionado = productos.find((p) => p.id === idProd);
+  if (!productoSeleccionado) return;
 
-  const selectTalle = document.getElementById('modal-talle');
-  selectTalle.innerHTML = '';
-  prod.talles.forEach(talle => {
-    const opt = document.createElement('option');
-    opt.value = talle;
-    opt.innerText = talle;
-    selectTalle.appendChild(opt);
+  document.getElementById("modal-titulo").innerText = productoSeleccionado.titulo;
+  document.getElementById("modal-precio").innerText = `$${productoSeleccionado.precio.toLocaleString("es-AR")}`;
+
+  // Cargar Imagen Principal
+  const feedImg = document.getElementById("modal-feed-imagenes");
+  feedImg.innerHTML = `<img src="${productoSeleccionado.imagenes[0]}" alt="${productoSeleccionado.titulo}">`;
+
+  // Cargar Talles/Variantes
+  const selectTalle = document.getElementById("modal-talle");
+  selectTalle.innerHTML = "";
+  productoSeleccionado.talles.forEach((talle) => {
+    selectTalle.innerHTML += `<option value="${talle}">${talle}</option>`;
   });
 
-  document.getElementById('modal-cant').value = 1;
-  document.getElementById('modal-producto').classList.add('active');
+  document.getElementById("modal-cant").value = 1;
+  document.getElementById("modal-producto").classList.add("active");
 }
 
 function cerrarModal() {
-  document.getElementById('modal-producto').classList.remove('active');
+  document.getElementById("modal-producto").classList.remove("active");
+  productoSeleccionado = null;
 }
 
-// Agregar al carrito desde el modal
+// Lógica del Carrito
 function agregarAlCarritoDesdeModal() {
   if (!productoSeleccionado) return;
 
-  const talle = document.getElementById('modal-talle').value;
-  const cantidad = parseInt(document.getElementById('modal-cant').value);
+  const talle = document.getElementById("modal-talle").value;
+  const cantidad = parseInt(document.getElementById("modal-cant").value) || 1;
 
-  const itemExistente = carrito.find(item => item.id === productoSeleccionado.id && item.talle === talle);
+  const itemExistente = carrito.find(
+    (item) => item.id === productoSeleccionado.id && item.talle === talle
+  );
 
   if (itemExistente) {
     itemExistente.cantidad += cantidad;
   } else {
     carrito.push({
       id: productoSeleccionado.id,
-      nombre: productoSeleccionado.nombre,
+      titulo: productoSeleccionado.titulo,
       precio: productoSeleccionado.precio,
-      img: productoSeleccionado.img,
+      imagen: productoSeleccionado.imagenes[0],
       talle: talle,
       cantidad: cantidad
     });
@@ -164,50 +197,7 @@ function agregarAlCarritoDesdeModal() {
 
   actualizarCarritoUI();
   cerrarModal();
-  toggleCart();
-}
-
-// Alternar visibilidad del carrito lateral
-function toggleCart() {
-  document.getElementById('cart-drawer').classList.toggle('active');
-  document.getElementById('cart-overlay').classList.toggle('active');
-}
-
-// Actualizar interfaz del carrito
-function actualizarCarritoUI() {
-  const container = document.getElementById('cart-items');
-  const countEl = document.getElementById('cart-count');
-  const totalEl = document.getElementById('cart-total-price');
-
-  container.innerHTML = '';
-
-  let totalItems = 0;
-  let totalPrice = 0;
-
-  if (carrito.length === 0) {
-    container.innerHTML = '<p class="cart-empty-text">El carrito está vacío</p>';
-  } else {
-    carrito.forEach((item, index) => {
-      totalItems += item.cantidad;
-      totalPrice += item.precio * item.cantidad;
-
-      const div = document.createElement('div');
-      div.className = 'cart-item';
-      div.innerHTML = `
-        <img src="${item.img}" alt="${item.nombre}">
-        <div class="cart-item-details">
-          <h4>${item.nombre}</h4>
-          <p>Talle: ${item.talle} | Cant: ${item.cantidad}</p>
-          <p class="precio">$${(item.precio * item.cantidad).toLocaleString('es-AR')}</p>
-        </div>
-        <button class="cart-remove-btn" onclick="eliminarDelCarrito(${index})">✕</button>
-      `;
-      container.appendChild(div);
-    });
-  }
-
-  countEl.innerText = totalItems;
-  totalEl.innerText = `$${totalPrice.toLocaleString('es-AR')}`;
+  toggleCart(true); // Abre el carrito lateral
 }
 
 function eliminarDelCarrito(index) {
@@ -215,25 +205,78 @@ function eliminarDelCarrito(index) {
   actualizarCarritoUI();
 }
 
-// Finalizar pedido enviando todo el carrito por WhatsApp
-function checkoutWhatsApp() {
-  if (carrito.length === 0) return;
+function actualizarCarritoUI() {
+  const contenedorItems = document.getElementById("cart-items");
+  const totalCount = document.getElementById("cart-count");
+  const totalPrice = document.getElementById("cart-total-price");
 
-  let mensaje = "Hola! Quiero realizar el siguiente pedido:%0A%0A";
+  contenedorItems.innerHTML = "";
+
+  if (carrito.length === 0) {
+    contenedorItems.innerHTML = `<p class="cart-empty-text">El carrito está vacío</p>`;
+    totalCount.innerText = "0";
+    totalPrice.innerText = "$0";
+    return;
+  }
+
   let total = 0;
+  let cantidadTotal = 0;
 
-  carrito.forEach(item => {
-    const subtotal = item.precio * item.cantidad;
-    total += subtotal;
-    mensaje += `• *${item.nombre}*%0A  Talle: ${item.talle} | Cant: ${item.cantidad} | Subtotal: $${subtotal.toLocaleString('es-AR')}%0A`;
+  carrito.forEach((item, index) => {
+    total += item.precio * item.cantidad;
+    cantidadTotal += item.cantidad;
+
+    const itemElement = document.createElement("div");
+    itemElement.classList.add("cart-item");
+    itemElement.innerHTML = `
+      <img src="${item.imagen}" alt="${item.titulo}">
+      <div class="cart-item-details">
+        <h4>${item.titulo}</h4>
+        <p>Talle: ${item.talle} | Cant: ${item.cantidad}</p>
+        <p class="precio">$${(item.precio * item.cantidad).toLocaleString("es-AR")}</p>
+      </div>
+      <button class="cart-remove-btn" onclick="eliminarDelCarrito(${index})">🗑️</button>
+    `;
+    contenedorItems.appendChild(itemElement);
   });
 
-  mensaje += `%0A*Total General: $${total.toLocaleString('es-AR')}*`;
-
-  window.open(`https://wa.me/${NUMERO_WHATSAPP}?text=${mensaje}`, '_blank');
+  totalCount.innerText = cantidadTotal;
+  totalPrice.innerText = `$${total.toLocaleString("es-AR")}`;
 }
 
-// Cargar productos al inicio
-document.addEventListener('DOMContentLoaded', () => {
-  filtrarCategoria('todos');
-});
+function toggleCart(forceOpen = false) {
+  const drawer = document.getElementById("cart-drawer");
+  const overlay = document.getElementById("cart-overlay");
+
+  if (forceOpen) {
+    drawer.classList.add("active");
+    overlay.classList.add("active");
+  } else {
+    drawer.classList.toggle("active");
+    overlay.classList.toggle("active");
+  }
+}
+
+// Checkout directo por WhatsApp
+function checkoutWhatsApp() {
+  if (carrito.length === 0) {
+    alert("Agregá productos al carrito antes de finalizar la compra.");
+    return;
+  }
+
+  const numeroTelefono = "5493834287709"; // Número configurado
+  let mensaje = "¡Hola *Estilo Bakano*! 👋 Quería realizar el siguiente pedido:\n\n";
+
+  let total = 0;
+  carrito.forEach((item, index) => {
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+    mensaje += `${index + 1}. *${item.titulo}*\n   • Talle: ${item.talle}\n   • Cantidad: ${item.cantidad}\n   • Precio: $${subtotal.toLocaleString("es-AR")}\n\n`;
+  });
+
+  mensaje += `💰 *TOTAL A PAGAR:* $${total.toLocaleString("es-AR")}\n\n`;
+  mensaje += "Quedo a la espera para coordinar el pago y envío. ¡Muchas gracias!";
+
+  const url = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
+}
