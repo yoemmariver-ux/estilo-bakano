@@ -28,12 +28,13 @@ const productos = [
     talles: ["Único (Ajustable)"]
   })),
 
-  // --- BUZOS (4 Unidades a $15.000) ---
+  // --- BUZOS (Nuevos a $15.000 en Liquidación / Conjuntos) ---
   {
     id: "buzo-1",
     titulo: "Buzo Oversize Urbano #1",
     precio: 15000,
     categoria: "conjuntos-deportivos",
+    esLiquidacion: true,
     imagenes: ["images/buzos/buzo-1.jpg"],
     talles: ["M", "L", "XL"]
   },
@@ -42,6 +43,7 @@ const productos = [
     titulo: "Buzo Oversize Urbano #2",
     precio: 15000,
     categoria: "conjuntos-deportivos",
+    esLiquidacion: true,
     imagenes: ["images/buzos/buzo-2.jpg"],
     talles: ["M", "L", "XL"]
   },
@@ -50,6 +52,7 @@ const productos = [
     titulo: "Buzo Oversize Urbano #3",
     precio: 15000,
     categoria: "conjuntos-deportivos",
+    esLiquidacion: true,
     imagenes: ["images/buzos/buzo-3.jpg"],
     talles: ["M", "L", "XL"]
   },
@@ -58,11 +61,32 @@ const productos = [
     titulo: "Buzo Oversize Urbano #4",
     precio: 15000,
     categoria: "conjuntos-deportivos",
+    esLiquidacion: true,
     imagenes: ["images/buzos/buzo-4.jpg"],
     talles: ["M", "L", "XL"]
   },
 
-  // --- OTROS PRODUCTOS Y CATEGORÍAS ---
+  // --- CONJUNTOS Y CAMPERAS (Liquidación) ---
+  {
+    id: "conj-1",
+    titulo: "Conjunto Deportivo Urbano",
+    precio: 20000,
+    categoria: "conjuntos-deportivos",
+    esLiquidacion: true,
+    imagenes: ["images/conjuntos/conjunto-1.jpg"],
+    talles: ["S", "M", "L", "XL"]
+  },
+  {
+    id: "camp-1",
+    titulo: "Campera Streetwear Impermeable",
+    precio: 22000,
+    categoria: "conjuntos-deportivos",
+    esLiquidacion: true,
+    imagenes: ["images/camperas/campera-1.jpg"],
+    talles: ["M", "L", "XL"]
+  },
+
+  // --- OTROS PRODUCTOS ---
   {
     id: "box-1",
     titulo: "Pack Boxers Estilo Bakano",
@@ -92,17 +116,39 @@ const productos = [
 let carrito = [];
 let productoSeleccionado = null;
 
-// Manejo de errores de carga de imágenes con alternativas de extensión
+// Manejo inteligente de errores de imagen para probar distintas rutas y extensiones
 function manejarErrorImagen(imgElement) {
-  const currentSrc = imgElement.src;
+  const srcOriginal = imgElement.getAttribute("data-src-original") || imgElement.src;
+  if (!imgElement.getAttribute("data-src-original")) {
+    imgElement.setAttribute("data-src-original", srcOriginal);
+  }
 
-  if (currentSrc.endsWith(".jpg")) {
-    imgElement.src = currentSrc.replace(".jpg", ".png");
-  } else if (currentSrc.endsWith(".png")) {
-    imgElement.src = currentSrc.replace(".png", ".jpeg");
-  } else if (currentSrc.endsWith(".jpeg")) {
-    imgElement.src = currentSrc.replace(".jpeg", ".JPG");
+  const intentos = parseInt(imgElement.getAttribute("data-intento") || "0");
+
+  if (intentos === 0) {
+    // Intento 1: Probar en singular si la ruta tenía plural (ej: remeras-1.jpg -> remera-1.jpg)
+    imgElement.setAttribute("data-intento", "1");
+    if (srcOriginal.includes("remeras/remeras-")) {
+      imgElement.src = srcOriginal.replace("remeras/remeras-", "remeras/remera-");
+    } else if (srcOriginal.includes("gorras/gorras-")) {
+      imgElement.src = srcOriginal.replace("gorras/gorras-", "gorras/gorra-");
+    } else {
+      imgElement.src = srcOriginal.replace(".jpg", ".png");
+    }
+  } else if (intentos === 1) {
+    // Intento 2: Probar con extensión .png
+    imgElement.setAttribute("data-intento", "2");
+    imgElement.src = imgElement.src.replace(/\.(jpg|jpeg|JPG|JPEG)/, ".png");
+  } else if (intentos === 2) {
+    // Intento 3: Probar con extensión .JPG en mayúsculas
+    imgElement.setAttribute("data-intento", "3");
+    imgElement.src = imgElement.src.replace(/\.(png|jpg|jpeg)/, ".JPG");
+  } else if (intentos === 3) {
+    // Intento 4: Probar con extensión .JPEG
+    imgElement.setAttribute("data-intento", "4");
+    imgElement.src = imgElement.src.replace(/\.(JPG|png|jpg)/, ".jpeg");
   } else {
+    // Fallback final al logo por defecto si la foto realmente no existe
     imgElement.onerror = null;
     imgElement.src = "images/estilobakano.jpg";
   }
@@ -150,7 +196,8 @@ function filtrarCategoria(categoria, event) {
   if (categoria === "todos") {
     renderizarCatalogo(productos);
   } else if (categoria === "liquidacion") {
-    const liquidacion = productos.filter((p) => p.precio <= 10000);
+    // Muestra productos marcados en liquidación u ofertas <= $10.000
+    const liquidacion = productos.filter((p) => p.esLiquidacion || p.precio <= 10000);
     renderizarCatalogo(liquidacion);
   } else {
     const filtrados = productos.filter((p) => p.categoria === categoria);
