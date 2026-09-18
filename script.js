@@ -1,59 +1,327 @@
-function enviarMensaje() {
-  const entrada = document.getElementById("entrada").value.toLowerCase().trim();
-  const chat = document.getElementById("chat");
+// Base de datos de productos adaptada a tu estructura de carpetas
+const productos = [
+  // --- REMERAS (1 a 37) ---
+  ...Array.from({ length: 36 }, (_, i) => ({
+    id: `rem-${i + 1}`,
+    titulo: `Remera Streetwear #${i + 1}`,
+    precio: 15000,
+    categoria: "remeras",
+    imagenes: [`remeras/remeras-${i + 1}.jpg`],
+    talles: ["S", "M", "L", "XL", "XXL"]
+  })),
+  {
+    id: "rem-37",
+    titulo: "Remera Streetwear #37 (Oferta)",
+    precio: 10000,
+    categoria: "remeras",
+    imagenes: ["remeras/remeras-37.jpg"],
+    talles: ["S", "M", "L", "XL"]
+  },
 
-  let respuesta = "";
+  // --- GORRAS (1 a 27) ---
+  ...Array.from({ length: 27 }, (_, i) => ({
+    id: `gor-${i + 1}`,
+    titulo: `Gorra Urbana #${i + 1}`,
+    precio: 12000,
+    categoria: "gorras",
+    imagenes: [`gorras/gorras-${i + 1}.jpg`],
+    talles: ["Único (Ajustable)"]
+  })),
 
-  // Diccionario de temas y palabras clave
-  const temas = {
-    tapso: {
-      keywords: ["tapso", "contame de tapso", "informacion de tapso", "sobre tapso", "que es tapso", "donde queda tapso"],
-      respuesta: "Tapso es una localidad fundada en 1826, ubicada entre Catamarca y Santiago del Estero, con 882 habitantes según el censo 2010. Su gentilicio es tapseño/a y se accede por la Ruta Nacional 157."
-    },
-    autoridades: {
-      keywords: ["autoridades", "intendente", "quien es el intendente", "secretario de gobierno", "gobierno municipal", "maximas autoridades"],
-      respuesta: "Las máximas autoridades de la Municipalidad de Tapso son el Dr. Mario Alberto Sosa (Intendente Municipal) y Pedro 'Dante' Villalba (Secretario de Gobierno / Intendente Suplente)."
-    },
-    distritos: {
-      keywords: ["distritos", "barrios", "jurisdiccion", "localidades"],
-      respuesta: "La jurisdicción de Tapso incluye los distritos de Achalco, Ayapaso, Simogasta, Colonia Achalco, Los Morteros, Choya Viejo y La Calera."
-    },
-    cultura: {
-      keywords: ["fiesta", "festival", "eventos", "cultura"],
-      respuesta: "Tapso celebra el Festival Folclórico Unión de Pueblos en enero y la Fiesta de La Quebrada en junio."
-    },
-    poblacion: {
-      keywords: ["habitantes", "poblacion", "censo"],
-      respuesta: "Según el censo 2010, Tapso tiene 882 habitantes: 691 en Santiago del Estero y 191 en Catamarca."
-    },
-    sismos: {
-      keywords: ["sismo", "terremoto", "actividad sísmica"],
-      respuesta: "La región de Tapso presenta sismicidad frecuente de baja intensidad, con antecedentes de terremotos importantes en 1817, 1966, 1973 y 2004."
-    }
-  };
+  // --- BUZOS (Liquidación / Conjuntos) ---
+  {
+    id: "buzo-1",
+    titulo: "Buzo Oversize Urbano #1",
+    precio: 15000,
+    categoria: "conjuntos-deportivos",
+    esLiquidacion: true,
+    imagenes: ["liquidacion/buzo-1.jpg"],
+    talles: ["M", "L", "XL"]
+  },
+  {
+    id: "buzo-2",
+    titulo: "Buzo Oversize Urbano #2",
+    precio: 15000,
+    categoria: "conjuntos-deportivos",
+    esLiquidacion: true,
+    imagenes: ["liquidacion/buzo-2.jpg"],
+    talles: ["M", "L", "XL"]
+  },
+  {
+    id: "buzo-3",
+    titulo: "Buzo Oversize Urbano #3",
+    precio: 15000,
+    categoria: "conjuntos-deportivos",
+    esLiquidacion: true,
+    imagenes: ["liquidacion/buzo-3.jpg"],
+    talles: ["M", "L", "XL"]
+  },
+  {
+    id: "buzo-4",
+    titulo: "Buzo Oversize Urbano #4",
+    precio: 15000,
+    categoria: "conjuntos-deportivos",
+    esLiquidacion: true,
+    imagenes: ["liquidacion/buzo-4.jpg"],
+    talles: ["M", "L", "XL"]
+  },
 
-  // Buscar coincidencia en los temas
-  let encontrado = false;
-  for (const tema in temas) {
-    for (const palabra of temas[tema].keywords) {
-      if (entrada.includes(palabra)) {
-        respuesta = temas[tema].respuesta;
-        encontrado = true;
-        break;
-      }
-    }
-    if (encontrado) break;
+  // --- CONJUNTOS Y CAMPERAS (Liquidación) ---
+  {
+    id: "conj-1",
+    titulo: "Conjunto Deportivo Urbano",
+    precio: 20000,
+    categoria: "conjuntos-deportivos",
+    esLiquidacion: true,
+    imagenes: ["conjuntos deportivos/conjunto-1.jpg"],
+    talles: ["S", "M", "L", "XL"]
+  },
+
+  // --- OTROS PRODUCTOS ---
+  {
+    id: "box-1",
+    titulo: "Pack Boxers Estilo Bakano",
+    precio: 8000,
+    categoria: "boxers",
+    imagenes: ["boxeadores/boxer-1.jpg"],
+    talles: ["M", "L", "XL"]
+  },
+  {
+    id: "gaf-1",
+    titulo: "Gafas de Sol Urban Style",
+    precio: 9500,
+    categoria: "gafas",
+    imagenes: ["gafas/gafas-1.jpg"],
+    talles: ["Único"]
+  },
+  {
+    id: "tech-1",
+    titulo: "Smartwatch Deportivo Bakano",
+    precio: 25000,
+    categoria: "auriculares-smartwatch",
+    imagenes: ["auriculares y reloj inteligente/smartwatch-1.jpg"],
+    talles: ["Negro", "Gris"]
+  }
+];
+
+let carrito = [];
+let productoSeleccionado = null;
+
+// Manejo inteligente de errores de imagen
+function manejarErrorImagen(imgElement) {
+  const srcOriginal = imgElement.getAttribute("data-src-original") || imgElement.src;
+  if (!imgElement.getAttribute("data-src-original")) {
+    imgElement.setAttribute("data-src-original", srcOriginal);
   }
 
-  // Si no encontró nada, respuesta genérica
-  if (!encontrado) {
-    respuesta = "Soy TapsoBot, tu asistente virtual. Preguntame lo que quieras sobre el municipio.";
+  const intentos = parseInt(imgElement.getAttribute("data-intento") || "0");
+
+  if (intentos === 0) {
+    imgElement.setAttribute("data-intento", "1");
+    if (srcOriginal.includes("remeras/remeras-")) {
+      imgElement.src = srcOriginal.replace("remeras/remeras-", "remeras/remera-");
+    } else if (srcOriginal.includes("gorras/gorras-")) {
+      imgElement.src = srcOriginal.replace("gorras/gorras-", "gorras/gorra-");
+    } else {
+      imgElement.src = srcOriginal.replace(".jpg", ".png");
+    }
+  } else if (intentos === 1) {
+    imgElement.setAttribute("data-intento", "2");
+    imgElement.src = imgElement.src.replace(/\.(jpg|jpeg|JPG|JPEG)/, ".png");
+  } else if (intentos === 2) {
+    imgElement.setAttribute("data-intento", "3");
+    imgElement.src = imgElement.src.replace(/\.(png|jpg|jpeg)/, ".JPG");
+  } else if (intentos === 3) {
+    imgElement.setAttribute("data-intento", "4");
+    imgElement.src = imgElement.src.replace(/\.(JPG|png|jpg)/, ".jpeg");
+  } else {
+    imgElement.onerror = null;
+    imgElement.src = "estilobakano.jpg";
+  }
+}
+
+// Inicialización de la tienda
+document.addEventListener("DOMContentLoaded", () => {
+  renderizarCatalogo(productos);
+});
+
+// Renderizar Productos en la Grilla
+function renderizarCatalogo(listaProductos) {
+  const contenedor = document.getElementById("catalogo");
+  contenedor.innerHTML = "";
+
+  if (listaProductos.length === 0) {
+    contenedor.innerHTML = `<p style="text-align:center; grid-column: 1/-1; color:#888;">No hay productos disponibles en esta categoría.</p>`;
+    return;
   }
 
-  // Mostrar mensajes en el chat
-  chat.innerHTML += `<div class="user-msg">${entrada}</div>`;
-  chat.innerHTML += `<div class="bot-msg">${respuesta}</div>`;
+  listaProductos.forEach((prod) => {
+    const card = document.createElement("div");
+    card.classList.add("producto-card");
+    card.onclick = () => abrirModal(prod.id);
 
-  // Limpiar el campo de entrada
-  document.getElementById("entrada").value = "";
+    card.innerHTML = `
+      <div class="img-container">
+        <img src="${prod.imagenes[0]}" alt="${prod.titulo}" loading="lazy" onerror="manejarErrorImagen(this)">
+      </div>
+      <div class="prod-detalles">
+        <h3>${prod.titulo}</h3>
+        <p class="precio">$${prod.precio.toLocaleString("es-AR")}</p>
+        <button class="btn-elegir">Ver Opciones 👁️</button>
+      </div>
+    `;
+    contenedor.appendChild(card);
+  });
+}
+
+// Filtrar por Categorías
+function filtrarCategoria(categoria, event) {
+  document.querySelectorAll(".btn-cat").forEach((btn) => btn.classList.remove("active"));
+  if (event) event.target.classList.add("active");
+
+  if (categoria === "todos") {
+    renderizarCatalogo(productos);
+  } else if (categoria === "liquidacion") {
+    const liquidacion = productos.filter((p) => p.esLiquidacion || p.precio <= 10000);
+    renderizarCatalogo(liquidacion);
+  } else {
+    const filtrados = productos.filter((p) => p.categoria === categoria);
+    renderizarCatalogo(filtrados);
+  }
+}
+
+// Modal de Detalle
+function abrirModal(idProd) {
+  productoSeleccionado = productos.find((p) => p.id === idProd);
+  if (!productoSeleccionado) return;
+
+  document.getElementById("modal-titulo").innerText = productoSeleccionado.titulo;
+  document.getElementById("modal-precio").innerText = `$${productoSeleccionado.precio.toLocaleString("es-AR")}`;
+
+  const feedImg = document.getElementById("modal-feed-imagenes");
+  feedImg.innerHTML = `<img src="${productoSeleccionado.imagenes[0]}" alt="${productoSeleccionado.titulo}" onerror="manejarErrorImagen(this)">`;
+
+  const selectTalle = document.getElementById("modal-talle");
+  selectTalle.innerHTML = "";
+  productoSeleccionado.talles.forEach((talle) => {
+    selectTalle.innerHTML += `<option value="${talle}">${talle}</option>`;
+  });
+
+  document.getElementById("modal-cant").value = 1;
+  document.getElementById("modal-producto").classList.add("active");
+}
+
+function cerrarModal() {
+  document.getElementById("modal-producto").classList.remove("active");
+  productoSeleccionado = null;
+}
+
+// Lógica del Carrito
+function agregarAlCarritoDesdeModal() {
+  if (!productoSeleccionado) return;
+
+  const talle = document.getElementById("modal-talle").value;
+  const cantidad = parseInt(document.getElementById("modal-cant").value) || 1;
+
+  const itemExistente = carrito.find(
+    (item) => item.id === productoSeleccionado.id && item.talle === talle
+  );
+
+  if (itemExistente) {
+    itemExistente.cantidad += cantidad;
+  } else {
+    carrito.push({
+      id: productoSeleccionado.id,
+      titulo: productoSeleccionado.titulo,
+      precio: productoSeleccionado.precio,
+      imagen: productoSeleccionado.imagenes[0],
+      talle: talle,
+      cantidad: cantidad
+    });
+  }
+
+  actualizarCarritoUI();
+  cerrarModal();
+  toggleCart(true);
+}
+
+function eliminarDelCarrito(index) {
+  carrito.splice(index, 1);
+  actualizarCarritoUI();
+}
+
+function actualizarCarritoUI() {
+  const contenedorItems = document.getElementById("cart-items");
+  const totalCount = document.getElementById("cart-count");
+  const totalPrice = document.getElementById("cart-total-price");
+
+  contenedorItems.innerHTML = "";
+
+  if (carrito.length === 0) {
+    contenedorItems.innerHTML = `<p class="cart-empty-text">El carrito está vacío</p>`;
+    totalCount.innerText = "0";
+    totalPrice.innerText = "$0";
+    return;
+  }
+
+  let total = 0;
+  let cantidadTotal = 0;
+
+  carrito.forEach((item, index) => {
+    total += item.precio * item.cantidad;
+    cantidadTotal += item.cantidad;
+
+    const itemElement = document.createElement("div");
+    itemElement.classList.add("cart-item");
+    itemElement.innerHTML = `
+      <img src="${item.imagen}" alt="${item.titulo}" onerror="manejarErrorImagen(this)">
+      <div class="cart-item-details">
+        <h4>${item.titulo}</h4>
+        <p>Talle: ${item.talle} | Cant: ${item.cantidad}</p>
+        <p class="precio">$${(item.precio * item.cantidad).toLocaleString("es-AR")}</p>
+      </div>
+      <button class="cart-remove-btn" onclick="eliminarDelCarrito(${index})">🗑️</button>
+    `;
+    contenedorItems.appendChild(itemElement);
+  });
+
+  totalCount.innerText = cantidadTotal;
+  totalPrice.innerText = `$${total.toLocaleString("es-AR")}`;
+}
+
+function toggleCart(forceOpen = false) {
+  const drawer = document.getElementById("cart-drawer");
+  const overlay = document.getElementById("cart-overlay");
+
+  if (forceOpen) {
+    drawer.classList.add("active");
+    overlay.classList.add("active");
+  } else {
+    drawer.classList.toggle("active");
+    overlay.classList.toggle("active");
+  }
+}
+
+// Checkout directo por WhatsApp
+function checkoutWhatsApp() {
+  if (carrito.length === 0) {
+    alert("Agregá productos al carrito antes de finalizar la compra.");
+    return;
+  }
+
+  const numeroTelefono = "5493834287709";
+  let mensaje = "¡Hola *Estilo Bakano*! 👋 Quería realizar el siguiente pedido:\n\n";
+
+  let total = 0;
+  carrito.forEach((item, index) => {
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+    mensaje += `${index + 1}. *${item.titulo}*\n   • Talle: ${item.talle}\n   • Cantidad: ${item.cantidad}\n   • Precio: $${subtotal.toLocaleString("es-AR")}\n\n`;
+  });
+
+  mensaje += `💰 *TOTAL A PAGAR:* $${total.toLocaleString("es-AR")}\n\n`;
+  mensaje += "Quedo a la espera para coordinar el pago y envío. ¡Muchas gracias!";
+
+  const url = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
 }
