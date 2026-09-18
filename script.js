@@ -22,7 +22,7 @@ const productos = [
   ...Array.from({ length: 27 }, (_, i) => ({
     id: `gor-${i + 1}`,
     titulo: `Gorra Urbana #${i + 1}`,
-    precio: 12000, // Ajustá este valor si el precio base de gorras es distinto
+    precio: 12000,
     categoria: "gorras",
     imagenes: [`images/gorras/gorras-${i + 1}.jpg`],
     talles: ["Único (Ajustable)"]
@@ -92,6 +92,22 @@ const productos = [
 let carrito = [];
 let productoSeleccionado = null;
 
+// Manejo de errores de carga de imágenes con alternativas de extensión
+function manejarErrorImagen(imgElement) {
+  const currentSrc = imgElement.src;
+
+  if (currentSrc.endsWith(".jpg")) {
+    imgElement.src = currentSrc.replace(".jpg", ".png");
+  } else if (currentSrc.endsWith(".png")) {
+    imgElement.src = currentSrc.replace(".png", ".jpeg");
+  } else if (currentSrc.endsWith(".jpeg")) {
+    imgElement.src = currentSrc.replace(".jpeg", ".JPG");
+  } else {
+    imgElement.onerror = null;
+    imgElement.src = "images/estilobakano.jpg";
+  }
+}
+
 // Inicialización de la tienda
 document.addEventListener("DOMContentLoaded", () => {
   renderizarCatalogo(productos);
@@ -114,7 +130,7 @@ function renderizarCatalogo(listaProductos) {
 
     card.innerHTML = `
       <div class="img-container">
-        <img src="${prod.imagenes[0]}" alt="${prod.titulo}" loading="lazy" onerror="this.src='images/estilobakano.jpg'">
+        <img src="${prod.imagenes[0]}" alt="${prod.titulo}" loading="lazy" onerror="manejarErrorImagen(this)">
       </div>
       <div class="prod-detalles">
         <h3>${prod.titulo}</h3>
@@ -134,7 +150,6 @@ function filtrarCategoria(categoria, event) {
   if (categoria === "todos") {
     renderizarCatalogo(productos);
   } else if (categoria === "liquidacion") {
-    // Muestra solo productos con descuento u ofertas
     const liquidacion = productos.filter((p) => p.precio <= 10000);
     renderizarCatalogo(liquidacion);
   } else {
@@ -151,11 +166,9 @@ function abrirModal(idProd) {
   document.getElementById("modal-titulo").innerText = productoSeleccionado.titulo;
   document.getElementById("modal-precio").innerText = `$${productoSeleccionado.precio.toLocaleString("es-AR")}`;
 
-  // Cargar Imagen Principal
   const feedImg = document.getElementById("modal-feed-imagenes");
-  feedImg.innerHTML = `<img src="${productoSeleccionado.imagenes[0]}" alt="${productoSeleccionado.titulo}">`;
+  feedImg.innerHTML = `<img src="${productoSeleccionado.imagenes[0]}" alt="${productoSeleccionado.titulo}" onerror="manejarErrorImagen(this)">`;
 
-  // Cargar Talles/Variantes
   const selectTalle = document.getElementById("modal-talle");
   selectTalle.innerHTML = "";
   productoSeleccionado.talles.forEach((talle) => {
@@ -197,7 +210,7 @@ function agregarAlCarritoDesdeModal() {
 
   actualizarCarritoUI();
   cerrarModal();
-  toggleCart(true); // Abre el carrito lateral
+  toggleCart(true);
 }
 
 function eliminarDelCarrito(index) {
@@ -229,7 +242,7 @@ function actualizarCarritoUI() {
     const itemElement = document.createElement("div");
     itemElement.classList.add("cart-item");
     itemElement.innerHTML = `
-      <img src="${item.imagen}" alt="${item.titulo}">
+      <img src="${item.imagen}" alt="${item.titulo}" onerror="manejarErrorImagen(this)">
       <div class="cart-item-details">
         <h4>${item.titulo}</h4>
         <p>Talle: ${item.talle} | Cant: ${item.cantidad}</p>
@@ -264,7 +277,7 @@ function checkoutWhatsApp() {
     return;
   }
 
-  const numeroTelefono = "5493834287709"; // Número configurado
+  const numeroTelefono = "5493834287709";
   let mensaje = "¡Hola *Estilo Bakano*! 👋 Quería realizar el siguiente pedido:\n\n";
 
   let total = 0;
