@@ -1,6 +1,6 @@
-// Base de datos de productos adaptada
+// Base de datos de productos
 const productos = [
-  // --- REMERAS (1 a 37) ---
+  // --- REMERAS (1 a 37 - $15.000) ---
   ...Array.from({ length: 36 }, (_, i) => ({
     id: `rem-${i + 1}`,
     titulo: `Remera Streetwear #${i + 1}`,
@@ -18,7 +18,7 @@ const productos = [
     talles: ["S", "M", "L", "XL"]
   },
 
-  // --- GORRAS (1 a 27) ---
+  // --- GORRAS (1 a 27 - $12.000) ---
   ...Array.from({ length: 27 }, (_, i) => ({
     id: `gor-${i + 1}`,
     titulo: `Gorra Urbana #${i + 1}`,
@@ -28,101 +28,67 @@ const productos = [
     talles: ["Único (Ajustable)"]
   })),
 
-  // --- CONJUNTOS DEPORTIVOS (Equipos) ---
-  {
-    id: "conj-1",
-    titulo: "Conjunto Deportivo de Equipo #1",
-    precio: 20000,
-    categoria: "conjuntos-deportivos",
-    imagenes: ["conjuntos deportivos/conjunto-1.jpg"],
-    talles: ["S", "M", "L", "XL"]
-  },
-  {
-    id: "conj-2",
-    titulo: "Conjunto Deportivo de Equipo #2",
-    precio: 20000,
-    categoria: "conjuntos-deportivos",
-    imagenes: ["conjuntos deportivos/conjunto-2.jpg"],
-    talles: ["S", "M", "L", "XL"]
-  },
-  {
-    id: "conj-3",
-    titulo: "Conjunto Deportivo de Equipo #3",
-    precio: 20000,
-    categoria: "conjuntos-deportivos",
-    imagenes: ["conjuntos deportivos/conjunto-3.jpg"],
-    talles: ["S", "M", "L", "XL"]
-  },
+  // --- CONJUNTOS DEPORTIVOS DE EQUIPOS ($45.000) ---
+  { id: "conj-arsenal", titulo: "Conjunto Deportivo Arsenal", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-arsenal.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-barsa", titulo: "Conjunto Deportivo Barcelona", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-barsa.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-flamengo", titulo: "Conjunto Deportivo Flamengo", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-flamengo.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-francia", titulo: "Conjunto Deportivo Selección Francia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-francia.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-italia", titulo: "Conjunto Deportivo Selección Italia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-italia.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-mancity", titulo: "Conjunto Deportivo Manchester City", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-mancity.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-manutd", titulo: "Conjunto Deportivo Manchester United", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-manutd.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-realmadrid", titulo: "Conjunto Deportivo Real Madrid", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-realmadrid.jpg"], talles: ["S", "M", "L", "XL"] },
 
-  // --- LIQUIDACIÓN (Buzos a $15.000) ---
-  {
-    id: "buzo-1",
-    titulo: "Buzo Oversize Urbano #1",
-    precio: 15000,
-    categoria: "liquidacion",
-    esLiquidacion: true,
-    imagenes: ["liquidacion/buzo-1.jpg"],
-    talles: ["M", "L", "XL"]
-  },
-  {
-    id: "buzo-2",
-    titulo: "Buzo Oversize Urbano #2",
-    precio: 15000,
-    categoria: "liquidacion",
-    esLiquidacion: true,
-    imagenes: ["liquidacion/buzo-2.jpg"],
-    talles: ["M", "L", "XL"]
-  },
-  {
-    id: "buzo-3",
-    titulo: "Buzo Oversize Urbano #3",
-    precio: 15000,
-    categoria: "liquidacion",
-    esLiquidacion: true,
-    imagenes: ["liquidacion/buzo-3.jpg"],
-    talles: ["M", "L", "XL"]
-  },
-  {
-    id: "buzo-4",
-    titulo: "Buzo Oversize Urbano #4",
-    precio: 15000,
-    categoria: "liquidacion",
-    esLiquidacion: true,
-    imagenes: ["liquidacion/buzo-4.jpg"],
-    talles: ["M", "L", "XL"]
-  },
+  // --- LIQUIDACIÓN (Buzos, Camperas y Chalecos) ---
+  { id: "buzo-1", titulo: "Buzo Oversize Urbano #1", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-1.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-2", titulo: "Buzo Oversize Urbano #2", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-2.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-3", titulo: "Buzo Oversize Urbano #3", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-3.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-4", titulo: "Buzo Oversize Urbano #4", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-4.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-5", titulo: "Buzo Oversize Urbano #5", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-5.jpg"], talles: ["M", "L", "XL"] },
+  
+  // Camperas
+  { id: "camp-1", titulo: "Campera Streetwear #1", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-1.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-2", titulo: "Campera Puffer Beige #2", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-2.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-3", titulo: "Campera Puffer Blanca #3", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-3.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-4", titulo: "Campera Puffer Cream #4", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-4.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-5", titulo: "Campera Cortaviento #5", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-5.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-6", titulo: "Campera Urbana Azul #6", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-6.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-7", titulo: "Campera Bicolor Verde/Negro #7", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-7.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-8", titulo: "Campera Negra Basica #8", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-8.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-9", titulo: "Campera Puffer Negra #9", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-9.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-10", titulo: "Campera Tricolor #10", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-10.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-11", titulo: "Campera Deportiva Roja #11", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-11.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-12", titulo: "Campera Bordo/Negro #12", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-12.jpg"], talles: ["M", "L", "XL"] },
+  { id: "camp-13", titulo: "Campera Sport Negra #13", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-13.jpg"], talles: ["M", "L", "XL"] },
 
-  // --- OTROS PRODUCTOS ---
-  {
-    id: "box-1",
-    titulo: "Pack Boxers Estilo Bakano",
-    precio: 8000,
-    categoria: "boxers",
-    imagenes: ["boxeadores/boxer-1.jpg"],
-    talles: ["M", "L", "XL"]
-  },
-  {
-    id: "gaf-1",
-    titulo: "Gafas de Sol Urban Style",
-    precio: 9500,
-    categoria: "gafas",
-    imagenes: ["gafas/gafas-1.jpg"],
-    talles: ["Único"]
-  },
-  {
-    id: "tech-1",
-    titulo: "Smartwatch Deportivo Bakano",
-    precio: 25000,
-    categoria: "auriculares-smartwatch",
-    imagenes: ["auriculares y reloj inteligente/smartwatch-1.jpg"],
-    talles: ["Negro", "Gris"]
-  }
+  // Chalecos
+  { id: "chal-1", titulo: "Chaleco Inflable Verde #1", precio: 18000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-1.jpg"], talles: ["M", "L", "XL"] },
+  { id: "chal-2", titulo: "Chaleco Inflable Neón #2", precio: 18000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-2.jpg"], talles: ["M", "L", "XL"] },
+  { id: "chal-3", titulo: "Chaleco Inflable Naranja/Negro #3", precio: 18000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-3.jpg"], talles: ["M", "L", "XL"] },
+  { id: "chal-4", titulo: "Chaleco Inflable Rojo/Negro #4", precio: 18000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-4.jpg"], talles: ["M", "L", "XL"] },
+
+  // --- BOXERS ($8.000) ---
+  { id: "box-1", titulo: "Pack Boxers Estilo Bakano #1", precio: 8000, categoria: "boxers", imagenes: ["boxers/boxers-1.jpg"], talles: ["M", "L", "XL"] },
+  { id: "box-2", titulo: "Pack Boxers Estilo Bakano #2", precio: 8000, categoria: "boxers", imagenes: ["boxers/boxers-2.jpg"], talles: ["M", "L", "XL"] },
+  { id: "box-3", titulo: "Pack Boxers Estilo Bakano #3", precio: 8000, categoria: "boxers", imagenes: ["boxers/boxers-3.jpg"], talles: ["M", "L", "XL"] },
+  { id: "box-4", titulo: "Pack Boxers Estilo Bakano #4", precio: 8000, categoria: "boxers", imagenes: ["boxers/boxers-4.jpg"], talles: ["M", "L", "XL"] },
+  { id: "box-5", titulo: "Pack Boxers Estilo Bakano #5", precio: 8000, categoria: "boxers", imagenes: ["boxers/boxers-5.jpg"], talles: ["M", "L", "XL"] },
+
+  // --- GAFAS ($9.500) ---
+  { id: "gaf-1", titulo: "Gafas de Sol Urban Style #1", precio: 9500, categoria: "gafas", imagenes: ["gafas/gafas-1.jpg"], talles: ["Único"] },
+  { id: "gaf-2", titulo: "Gafas de Sol Urban Style #2", precio: 9500, categoria: "gafas", imagenes: ["gafas/gafas-2.jpg"], talles: ["Único"] },
+  { id: "gaf-3", titulo: "Gafas de Sol Urban Style #3", precio: 9500, categoria: "gafas", imagenes: ["gafas/gafas-3.jpg"], talles: ["Único"] },
+  { id: "gaf-5", titulo: "Gafas de Sol Urban Style #5", precio: 9500, categoria: "gafas", imagenes: ["gafas/gafas-5.jpg"], talles: ["Único"] },
+
+  // --- ACCESORIOS TECH ---
+  { id: "aur-2", titulo: "Auriculares Inalámbricos Pro", precio: 18000, categoria: "auriculares-smartwatch", imagenes: ["auriculares y reloj inteligente/auricular-2.jpg"], talles: ["Blanco", "Negro"] },
+  { id: "aur-tws", titulo: "Auriculares TWS Sport", precio: 15000, categoria: "auriculares-smartwatch", imagenes: ["auriculares y reloj inteligente/auricular-tws.jpg"], talles: ["Verde", "Negro"] },
+  { id: "smartwatch", titulo: "Smartwatch Deportivo Bakano", precio: 25000, categoria: "auriculares-smartwatch", imagenes: ["auriculares y reloj inteligente/smartwatch.jpg"], talles: ["Negro", "Gris"] }
 ];
 
 let carrito = [];
 let productoSeleccionado = null;
 
-// Manejo de errores de imagen con alternativas de rutas
+// Manejo inteligente de errores de imagen
 function manejarErrorImagen(imgElement) {
   const srcOriginal = imgElement.getAttribute("data-src-original") || imgElement.src;
   if (!imgElement.getAttribute("data-src-original")) {
@@ -137,8 +103,6 @@ function manejarErrorImagen(imgElement) {
       imgElement.src = srcOriginal.replace("remeras/remeras-", "remeras/remera-");
     } else if (srcOriginal.includes("gorras/gorras-")) {
       imgElement.src = srcOriginal.replace("gorras/gorras-", "gorras/gorra-");
-    } else if (srcOriginal.includes("conjuntos deportivos/conjunto-")) {
-      imgElement.src = srcOriginal.replace("conjuntos deportivos/conjunto-", "conjuntos deportivos/conjuntos-");
     } else {
       imgElement.src = srcOriginal.replace(".jpg", ".png");
     }
@@ -199,7 +163,7 @@ function filtrarCategoria(categoria, event) {
   if (categoria === "todos") {
     renderizarCatalogo(productos);
   } else if (categoria === "liquidacion") {
-    const liquidacion = productos.filter((p) => p.esLiquidacion || p.categoria === "liquidacion" || p.precio <= 10000);
+    const liquidacion = productos.filter((p) => p.esLiquidacion || p.categoria === "liquidacion");
     renderizarCatalogo(liquidacion);
   } else {
     const filtrados = productos.filter((p) => p.categoria === categoria);
