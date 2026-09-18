@@ -3,99 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estilo Bakano</title>
-  <link rel="stylesheet" href="styles.css?v=3">
+  <title>Estilo Bakano - Indumentaria y Accesorios Urbano</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <div class="logo-container">
-      <img src="images/logo1.png" alt="Estilo Bakano" class="header-logo">
-      <img src="images/logo2.png" alt="BK" class="header-logo">
+    <div class="top-nav">
+      <div class="logos-chicos">
+        <img src="images/estilobakano.jpg" alt="Bakano Logo" class="logo-pequeno">
+        <img src="images/estilobakanobk.jpg" alt="Logo BK" class="logo-pequeno">
+      </div>
+      
+      <button class="btn-cart" id="cart-toggle-btn" onclick="toggleCart()">
+        🛒 Carrito <span id="cart-count">0</span>
+      </button>
     </div>
-    <div class="cart-icon-container" onclick="toggleCart()">
-      🛒 <span id="cart-count" class="cart-badge">0</span>
+
+    <div class="banner-container">
+      <img src="images/bakano-final.jpg" alt="Estilo Bakano" class="banner-titulo">
+      
+      <div class="bio-header">
+        <p class="bio-destacado-urbano">
+          <span>NO VENDEMOS ROPA.</span>
+          <span class="highlight-verde">VENDEMOS PRESENCIA.</span>
+        </p>
+        <p class="bio-sub">Streetwear | Gorras | Outfit completo</p>
+        <p class="bio-tag">⚡ Stock real, entra y se va</p>
+        <p class="bio-tag">📌 Ventas por menor y Mayor</p>
+      </div>
     </div>
   </header>
 
-  <!-- Filtro de Categorías -->
-  <nav class="categories-nav">
-    <button class="btn-cat active" onclick="filtrarCategoria('Todos')">Todos</button>
-    <button class="btn-cat" onclick="filtrarCategoria('Camperas')">Camperas</button>
-    <button class="btn-cat" onclick="filtrarCategoria('Joggers')">Joggers</button>
-    <button class="btn-cat" onclick="filtrarCategoria('Accesorios')">Accesorios</button>
+  <!-- Categorías de Navegación -->
+  <nav class="categorias-bar">
+    <button class="btn-cat active" onclick="filtrarCategoria('todos', event)">Todos</button>
+    <button class="btn-cat btn-liquidacion" onclick="filtrarCategoria('liquidacion', event)">🔥 LIQUIDACIÓN 🔥</button>
+    <button class="btn-cat" onclick="filtrarCategoria('conjuntos-deportivos', event)">Conjuntos</button>
+    <button class="btn-cat" onclick="filtrarCategoria('remeras', event)">Remeras</button>
+    <button class="btn-cat" onclick="filtrarCategoria('gorras', event)">Gorras</button>
+    <button class="btn-cat" onclick="filtrarCategoria('boxers', event)">Boxers</button>
+    <button class="btn-cat" onclick="filtrarCategoria('gafas', event)">Gafas</button>
+    <button class="btn-cat" onclick="filtrarCategoria('auriculares-smartwatch', event)">Auriculares y Smartwatch</button>
   </nav>
 
-  <!-- Catálogo Principal -->
-  <main>
-    <div id="catalogo" class="catalogo-grid">
-      <!-- Se puebla dinámicamente desde script.js -->
-    </div>
-  </main>
+  <!-- Grilla principal donde se renderizan directamente los productos -->
+  <main class="catalogo-grid" id="catalogo"></main>
 
-  <!-- Modal Detalle de Producto -->
+  <!-- Modal Detalle del Producto -->
   <div id="modal-producto" class="modal-overlay">
-    <div class="modal-content">
-      <button class="btn-close-modal" onclick="cerrarModal()">✕</button>
-      <div class="modal-body">
-        <div class="modal-feed">
-          <img id="modal-img" src="" alt="Producto">
-        </div>
-        <div class="modal-info">
-          <h2 id="modal-titulo">Nombre Producto</h2>
-          <p id="modal-precio" class="precio">$0</p>
-          
-          <div class="form-group">
-            <label for="modal-talle">Talle / Variante:</label>
-            <select id="modal-talle">
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
-          </div>
+    <div class="modal-content modal-grande">
+      <button class="modal-close" onclick="cerrarModal()">✕</button>
+      
+      <!-- Columna Izquierda: Imagen del producto -->
+      <div class="modal-img-col">
+        <div class="modal-feed-scroll" id="modal-feed-imagenes"></div>
+      </div>
 
-          <div class="form-group">
-            <label for="modal-cantidad">Cantidad:</label>
-            <input type="number" id="modal-cantidad" value="1" min="1">
-          </div>
+      <!-- Columna Derecha: Información y Agregar al Carrito -->
+      <div class="modal-info-col">
+        <h3 id="modal-titulo">Nombre del Producto</h3>
+        <p id="modal-precio" class="precio-modal">$0</p>
 
-          <button class="btn-add-cart" onclick="agregarAlCarritoDesdeModal()">Agregar al Carrito</button>
+        <div class="seccion-modal opciones-inline">
+          <div class="selector-item">
+            <label for="modal-talle">Elegir Talle / Variante:</label>
+            <select id="modal-talle"></select>
+          </div>
+          <div class="selector-item">
+            <label for="modal-cant">Cantidad:</label>
+            <input type="number" id="modal-cant" value="1" min="1" max="10">
+          </div>
         </div>
+
+        <button class="btn-wsp-directo" onclick="agregarAlCarritoDesdeModal()">
+          🛒 Agregar al Carrito
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- Carrito Lateral (Drawer) -->
-  <div id="cart-overlay" class="cart-drawer-overlay" onclick="toggleCart()"></div>
-  <aside id="cart-drawer" class="cart-drawer">
+  <!-- Drawer Lateral del Carrito -->
+  <div id="cart-drawer" class="cart-drawer">
     <div class="cart-header">
-      <h2>Tu Carrito</h2>
-      <button onclick="toggleCart()" class="btn-close-drawer">✕</button>
+      <h3>Tu Carrito</h3>
+      <button class="cart-close-btn" onclick="toggleCart()">✕</button>
     </div>
-    <div id="cart-body" class="cart-body">
-      <!-- Items agregados se generan vía JS -->
+    <div id="cart-items" class="cart-items">
+      <p class="cart-empty-text">El carrito está vacío</p>
     </div>
     <div class="cart-footer">
       <div class="cart-total">
         <span>Total:</span>
         <span id="cart-total-price">$0</span>
       </div>
-      <button class="btn-whatsapp" onclick="enviarWhatsApp()">
-        Pedir por WhatsApp
+      <button class="cart-checkout-btn" onclick="checkoutWhatsApp()">
+        Finalizar Pedido por WhatsApp 📲
       </button>
     </div>
-  </aside>
+  </div>
+  <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
 
-  <!-- Footer con Redes Sociales -->
+  <!-- Footer -->
   <footer>
-    <div class="social-icons">
-      <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-      <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
-      <a href="#"><img src="images/whatsapp.png" alt="WhatsApp"></a>
-      <a href="#"><img src="images/maps.png" alt="Ubicación"></a>
+    <p class="footer-title">Seguinos en nuestras redes</p>
+    <div class="redes">
+      <a href="https://facebook.com/TuPagina" target="_blank"><img src="images/facebook.png" alt="Facebook" class="icono-red"></a>
+      <a href="https://www.instagram.com/estilobakano.cta/" target="_blank"><img src="images/instagram.png" alt="Instagram" class="icono-red"></a>
+      <a href="https://wa.me/5493834287709" target="_blank"><img src="images/watsapp.png" alt="WhatsApp" class="icono-red"></a>
+      <a href="https://maps.app.goo.gl/4qBBeKGtxUMCvYgVA" target="_blank"><img src="images/ubicacion.png" alt="Ubicación" class="icono-red"></a>
     </div>
+    <p class="copyright">&copy; 2026 Estilo Bakano - Todos los derechos reservados</p>
   </footer>
 
   <script src="script.js"></script>
