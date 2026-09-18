@@ -92,23 +92,26 @@ header {
 .bio-header {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
 }
 
+/* Frase con estilo urbano graffiti/tagging */
 .bio-destacado-urbano {
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: 1px;
+  font-family: 'Permanent Marker', 'Rock Salt', cursive, sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 1.5px;
   display: flex;
-  gap: 8px;
+  gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+  line-height: 1.4;
 }
 
 .highlight-verde {
   color: #00e676;
-  text-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
+  text-shadow: 0 0 12px rgba(0, 230, 118, 0.5);
 }
 
 .bio-sub {
@@ -619,6 +622,6 @@ footer {
   }
 
   .bio-destacado-urbano {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }
