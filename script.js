@@ -60,11 +60,11 @@ const productos = [
   { id: "camp-12", titulo: "Campera Bordo/Negro #12", precio: 40000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-12.jpg"], talles: ["M", "L", "XL"] },
   { id: "camp-13", titulo: "Campera Sport Negra #13", precio: 40000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-13.jpg"], talles: ["M", "L", "XL"] },
 
-  // Chalecos
-  { id: "chal-1", titulo: "Chaleco Inflable Verde #1", precio: 18000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-1.jpg"], talles: ["M", "L", "XL"] },
-  { id: "chal-2", titulo: "Chaleco Inflable Neón #2", precio: 18000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-2.jpg"], talles: ["M", "L", "XL"] },
-  { id: "chal-3", titulo: "Chaleco Inflable Naranja/Negro #3", precio: 18000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-3.jpg"], talles: ["M", "L", "XL"] },
-  { id: "chal-4", titulo: "Chaleco Inflable Rojo/Negro #4", precio: 18000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-4.jpg"], talles: ["M", "L", "XL"] },
+  // Chalecos ($22.000)
+  { id: "chal-1", titulo: "Chaleco Inflable Verde #1", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-1.jpg"], talles: ["M", "L", "XL"] },
+  { id: "chal-2", titulo: "Chaleco Inflable Neón #2", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-2.jpg"], talles: ["M", "L", "XL"] },
+  { id: "chal-3", titulo: "Chaleco Inflable Naranja/Negro #3", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-3.jpg"], talles: ["M", "L", "XL"] },
+  { id: "chal-4", titulo: "Chaleco Inflable Rojo/Negro #4", precio: 22000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/chaleco-4.jpg"], talles: ["M", "L", "XL"] },
 
   // --- BOXERS ($12.000) ---
   { id: "box-1", titulo: "Pack Boxers Estilo Bakano #1", precio: 12000, categoria: "boxers", imagenes: ["boxers/boxers-1.jpg"], talles: ["M", "L", "XL"] },
