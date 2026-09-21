@@ -44,6 +44,15 @@ const productos = [
   { id: "buzo-3", titulo: "Buzo Oversize Urbano #3", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-3.jpg"], talles: ["M", "L", "XL"] },
   { id: "buzo-4", titulo: "Buzo Oversize Urbano #4", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-4.jpg"], talles: ["M", "L", "XL"] },
   { id: "buzo-5", titulo: "Buzo Oversize Urbano #5", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-5.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-6", titulo: "Buzo Oversize Urbano #6", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-6.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-7", titulo: "Buzo Oversize Urbano #7", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-7.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-8", titulo: "Buzo Oversize Urbano #8", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-8.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-9", titulo: "Buzo Oversize Urbano #9", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-9.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-10", titulo: "Buzo Oversize Urbano #10", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-10.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-11", titulo: "Buzo Oversize Urbano #11", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-11.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-12", titulo: "Buzo Oversize Urbano #12", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-12.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-13", titulo: "Buzo Oversize Urbano #13", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-13.jpg"], talles: ["M", "L", "XL"] },
+  { id: "buzo-14", titulo: "Buzo Oversize Urbano #14", precio: 15000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/buzo-14.jpg"], talles: ["M", "L", "XL"] },
   
   // Camperas ($40.000)
   { id: "camp-1", titulo: "Campera Streetwear #1", precio: 40000, categoria: "liquidacion", esLiquidacion: true, imagenes: ["liquidacion/campera-1.jpg"], talles: ["M", "L", "XL"] },
