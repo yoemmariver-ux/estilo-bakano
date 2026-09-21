@@ -89,9 +89,9 @@ const productos = [
   { id: "gaf-5", titulo: "Gafas de Sol Urban Style #5", precio: 9500, categoria: "gafas", imagenes: ["gafas/gafas-5.jpg"], talles: ["Único"] },
 
   // --- ACCESORIOS TECH ($15.000) ---
-  { id: "aur-2", titulo: "Auriculares Inalámbricos Pro", precio: 15000, categoria: "auriculares-smartwatch", imagenes: ["auriculares y reloj inteligente/auricular-2.jpg"], talles: ["Blanco", "Negro"] },
-  { id: "aur-tws", titulo: "Auriculares TWS Sport", precio: 15000, categoria: "auriculares-smartwatch", imagenes: ["auriculares y reloj inteligente/auricular-tws.jpg"], talles: ["Verde", "Negro"] },
-  { id: "smartwatch", titulo: "Smartwatch Deportivo Bakano", precio: 15000, categoria: "auriculares-smartwatch", imagenes: ["auriculares y reloj inteligente/smartwatch.jpg"], talles: ["Negro", "Gris"] }
+  { id: "aur-2", titulo: "Auriculares Inalámbricos Pro", precio: 15000, categoria: "auriculares-smartwatch", imagenes: ["images/auriculares y smartwatch/auricular-2.jpg"], talles: ["Blanco", "Negro"] },
+  { id: "aur-tws", titulo: "Auriculares TWS Sport", precio: 15000, categoria: "auriculares-smartwatch", imagenes: ["images/auriculares y smartwatch/auricular-tws.jpg"], talles: ["Verde", "Negro"] },
+  { id: "smartwatch", titulo: "Smartwatch Deportivo Bakano", precio: 15000, categoria: "auriculares-smartwatch", imagenes: ["images/auriculares y smartwatch/smartwatch.jpg"], talles: ["Negro", "Gris"] }
 ];
 
 let carrito = [];
@@ -113,7 +113,7 @@ function manejarErrorImagen(imgElement) {
     } else if (srcOriginal.includes("gorras/gorras-")) {
       imgElement.src = srcOriginal.replace("gorras/gorras-", "gorras/gorra-");
     } else if (srcOriginal.includes("auriculares%20y%20reloj%20inteligente/")) {
-      imgElement.src = srcOriginal.replace("auriculares%20y%20reloj%20inteligente/", "auriculares y reloj inteligente/");
+      imgElement.src = srcOriginal.replace("auriculares%20y%20reloj%20inteligente/", "images/auriculares y smartwatch/");
     } else {
       imgElement.src = srcOriginal.replace(".jpg", ".png");
     }
