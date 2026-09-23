@@ -88,10 +88,10 @@ const productos = [
   { id: "gaf-3", titulo: "Gafas de Sol Urban Style #3", precio: 9500, categoria: "gafas", imagenes: ["gafas/gafas-3.jpg"], talles: ["Único"] },
   { id: "gaf-5", titulo: "Gafas de Sol Urban Style #5", precio: 9500, categoria: "gafas", imagenes: ["gafas/gafas-5.jpg"], talles: ["Único"] },
 
-  // --- ACCESORIOS TECH ($15.000) ---
+  // --- ACCESORIOS TECH ---
   { id: "aur-2", titulo: "Auriculares Inalámbricos Pro", precio: 15000, categoria: "auriculares-smartwatch", imagenes: ["images/auriculares y smartwatch/auricular-2.jpg"], talles: ["Blanco", "Negro"] },
   { id: "aur-tws", titulo: "Auriculares TWS Sport", precio: 15000, categoria: "auriculares-smartwatch", imagenes: ["images/auriculares y smartwatch/auricular-tws.jpg"], talles: ["Verde", "Negro"] },
-  { id: "smartwatch", titulo: "Smartwatch Deportivo Bakano", precio: 15000, categoria: "auriculares-smartwatch", imagenes: ["images/auriculares y smartwatch/smartwatch.jpg"], talles: ["Negro", "Gris"] }
+  { id: "smartwatch", titulo: "Smartwatch Deportivo Bakano", precio: 20000, categoria: "auriculares-smartwatch", imagenes: ["images/auriculares y smartwatch/smartwatch.jpg"], talles: ["Negro", "Gris"] }
 ];
 
 let carrito = [];
