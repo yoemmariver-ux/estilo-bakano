@@ -1,6 +1,6 @@
 // Base de datos de productos
 const productos = [
-  // --- REMERAS (1 a 36 - $20.000) ---
+  // --- REMERAS (1 a 47 - $20.000, con remera-37 en oferta) ---
   ...Array.from({ length: 36 }, (_, i) => ({
     id: `rem-${i + 1}`,
     titulo: `Remera Streetwear #${i + 1}`,
@@ -17,9 +17,27 @@ const productos = [
     imagenes: ["remeras/remeras-37.jpg"],
     talles: ["S", "M", "L", "XL"]
   },
+  ...Array.from({ length: 10 }, (_, i) => ({
+    id: `rem-${i + 38}`,
+    titulo: `Remera Streetwear #${i + 38}`,
+    precio: 20000,
+    categoria: "remeras",
+    imagenes: [`remeras/remeras-${i + 38}.jpg`],
+    talles: ["S", "M", "L", "XL", "XXL"]
+  })),
 
-  // --- GORRAS (1 a 27 - $15.000) ---
-  ...Array.from({ length: 27 }, (_, i) => ({
+  // --- CHOMBAS (1 a 4 - $25.000) ---
+  ...Array.from({ length: 4 }, (_, i) => ({
+    id: `chomba-${i + 1}`,
+    titulo: `Chomba Urbana #${i + 1}`,
+    precio: 25000,
+    categoria: "chombas",
+    imagenes: [`chombas/chombas-${i + 1}.jpg`],
+    talles: ["S", "M", "L", "XL"]
+  })),
+
+  // --- GORRAS (1 a 37 - $15.000) ---
+  ...Array.from({ length: 37 }, (_, i) => ({
     id: `gor-${i + 1}`,
     titulo: `Gorra Urbana #${i + 1}`,
     precio: 15000,
@@ -112,6 +130,8 @@ function manejarErrorImagen(imgElement) {
       imgElement.src = srcOriginal.replace("remeras/remeras-", "remeras/remera-");
     } else if (srcOriginal.includes("gorras/gorras-")) {
       imgElement.src = srcOriginal.replace("gorras/gorras-", "gorras/gorra-");
+    } else if (srcOriginal.includes("chombas/chombas-")) {
+      imgElement.src = srcOriginal.replace("chombas/chombas-", "chombas/chomba-");
     } else if (srcOriginal.includes("auriculares%20y%20reloj%20inteligente/")) {
       imgElement.src = srcOriginal.replace("auriculares%20y%20reloj%20inteligente/", "images/auriculares y smartwatch/");
     } else {
