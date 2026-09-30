@@ -49,11 +49,13 @@ const productos = [
   // --- CONJUNTOS DEPORTIVOS DE EQUIPOS ($45.000) ---
   { id: "conj-arsenal", titulo: "Conjunto Deportivo Arsenal", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-arsenal.jpg"], talles: ["S", "M", "L", "XL"] },
   { id: "conj-barsa", titulo: "Conjunto Deportivo Barcelona", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-barsa.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-chelsea", titulo: "Conjunto Deportivo Chelsea", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-chelsea.jpg"], talles: ["S", "M", "L", "XL"] },
   { id: "conj-flamengo", titulo: "Conjunto Deportivo Flamengo", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-flamengo.jpg"], talles: ["S", "M", "L", "XL"] },
   { id: "conj-francia", titulo: "Conjunto Deportivo Selección Francia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-francia.jpg"], talles: ["S", "M", "L", "XL"] },
   { id: "conj-italia", titulo: "Conjunto Deportivo Selección Italia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-italia.jpg"], talles: ["S", "M", "L", "XL"] },
   { id: "conj-mancity", titulo: "Conjunto Deportivo Manchester City", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-mancity.jpg"], talles: ["S", "M", "L", "XL"] },
   { id: "conj-manutd", titulo: "Conjunto Deportivo Manchester United", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-manutd.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-nike", titulo: "Conjunto Deportivo Nike", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-nike.jpg"], talles: ["S", "M", "L", "XL"] },
   { id: "conj-realmadrid", titulo: "Conjunto Deportivo Real Madrid", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-realmadrid.jpg"], talles: ["S", "M", "L", "XL"] },
 
   // --- LIQUIDACIÓN (Buzos, Camperas y Chalecos) ---
