@@ -109,11 +109,11 @@ const productos = [
   { id: "bill-1", titulo: "Billetera Urbana Bakano #1", precio: 12000, categoria: "accesorios", imagenes: ["images/accesorios/billetera-1.jpg"], talles: ["Único"] },
   { id: "smartwatch", titulo: "Smartwatch Deportivo Bakano", precio: 20000, categoria: "accesorios", imagenes: ["images/accesorios/smartwatch.jpg"], talles: ["Negro", "Gris"] },
 
-  // --- ZAPATILLAS Y MEDIAS ---
-  { id: "med-1", titulo: "Pack Medias Antideslizantes #1", precio: 5000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/medias-1.jpg"], talles: ["Único"] },
-  { id: "zap-1", titulo: "Zapatillas Deportivas Bakano #1", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-1.jpg"], talles: ["39", "40", "41", "42", "43"] },
-  { id: "zap-2", titulo: "Zapatillas Deportivas Bakano #2", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-2.jpg"], talles: ["39", "40", "41", "42", "43"] },
-  { id: "zap-3", titulo: "Zapatillas Deportivas Bakano #3", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-3.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  // --- ZAPATILLAS Y MEDIAS ($45.000) ---
+  { id: "med-1", titulo: "Pack Medias Antideslizantes #1", precio: 5000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas%20y%20medias/medias-1.jpg"], talles: ["Único"] },
+  { id: "zap-1", titulo: "Zapatillas Deportivas Bakano #1", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas%20y%20medias/zapatillas-1.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  { id: "zap-2", titulo: "Zapatillas Deportivas Bakano #2", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas%20y%20medias/zapatillas-2.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  { id: "zap-3", titulo: "Zapatillas Deportivas Bakano #3", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas%20y%20medias/zapatillas-3.jpg"], talles: ["39", "40", "41", "42", "43"] },
 
   // --- PERFUMES ($25.000) ---
   { id: "perf-1", titulo: "Perfume Importado #1", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-1.jpg"], talles: ["100ml"] },
@@ -121,7 +121,7 @@ const productos = [
   { id: "perf-3", titulo: "Perfume Importado #3", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-3.jpg"], talles: ["100ml"] },
   { id: "perf-4", titulo: "Perfume Importado #4", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-4.jpg"], talles: ["100ml"] },
 
-  // --- NIÑOS ($15.000) ---
+  // --- NIÑOS ($12.000) ---
   ...Array.from({ length: 8 }, (_, i) => ({
     id: `nin-${i + 1}`,
     titulo: `Remera Niño Streetwear #${i + 1}`,
@@ -135,7 +135,7 @@ const productos = [
 let carrito = [];
 let productoSeleccionado = null;
 
-// Manejo inteligente de errores de imagen
+// Manejo inteligente y exhaustivo de errores de imagen
 function manejarErrorImagen(imgElement) {
   const srcOriginal = imgElement.getAttribute("data-src-original") || imgElement.src;
   if (!imgElement.getAttribute("data-src-original")) {
@@ -143,19 +143,19 @@ function manejarErrorImagen(imgElement) {
   }
 
   const intentos = parseInt(imgElement.getAttribute("data-intento") || "0");
+  const basePath = srcOriginal.substring(0, srcOriginal.lastIndexOf("."));
 
-  if (intentos === 0) {
-    imgElement.setAttribute("data-intento", "1");
-    if (srcOriginal.includes(".jpg")) {
-      imgElement.src = srcOriginal.replace(".jpg", ".jpeg");
-    } else if (srcOriginal.includes(".jpeg")) {
-      imgElement.src = srcOriginal.replace(".jpeg", ".png");
-    } else {
-      imgElement.src = srcOriginal.replace(".png", ".jpg");
-    }
-  } else if (intentos === 1) {
-    imgElement.setAttribute("data-intento", "2");
-    imgElement.src = srcOriginal.replace(/\.(jpg|jpeg|png)/i, ".JPG");
+  const variaciones = [
+    `${basePath}.JPG`,
+    `${basePath}.jpeg`,
+    `${basePath}.JPEG`,
+    `${basePath}.png`,
+    `${basePath}.PNG`
+  ];
+
+  if (intentos < variaciones.length) {
+    imgElement.setAttribute("data-intento", (intentos + 1).toString());
+    imgElement.src = variaciones[intentos];
   } else {
     imgElement.onerror = null;
     imgElement.src = "images/estilobakano.jpg";
