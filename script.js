@@ -135,7 +135,7 @@ const productos = [
 let carrito = [];
 let productoSeleccionado = null;
 
-// Función de error limpia: SÓLO prueba cambiar la extensión final (.jpg -> .png -> .jpeg)
+// Manejo inteligente de errores de imagen
 function manejarErrorImagen(imgElement) {
   const srcOriginal = imgElement.getAttribute("data-src-original") || imgElement.src;
   if (!imgElement.getAttribute("data-src-original")) {
@@ -146,14 +146,13 @@ function manejarErrorImagen(imgElement) {
 
   if (intentos === 0) {
     imgElement.setAttribute("data-intento", "1");
-    // Cambiar solo la extensión sin alterar las carpetas de la ruta
     imgElement.src = srcOriginal.replace(/\.jpg$/i, ".png");
   } else if (intentos === 1) {
     imgElement.setAttribute("data-intento", "2");
     imgElement.src = srcOriginal.replace(/\.jpg$/i, ".jpeg");
   } else {
     imgElement.onerror = null;
-    imgElement.src = "images/estilobakano.jpg"; // Imagen por defecto
+    imgElement.src = "images/estilobakano.jpg";
   }
 }
 
