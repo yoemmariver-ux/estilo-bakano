@@ -1,6 +1,6 @@
 // Base de datos de productos
 const productos = [
-  // --- REMERAS (1 a 47 - $20.000, con remera-37 en oferta) ---
+  // --- REMERAS (1 a 36 - $20.000) ---
   ...Array.from({ length: 36 }, (_, i) => ({
     id: `rem-${i + 1}`,
     titulo: `Remera Streetwear #${i + 1}`,
@@ -17,27 +17,34 @@ const productos = [
     imagenes: ["remeras/remeras-37.jpg"],
     talles: ["S", "M", "L", "XL"]
   },
-  ...Array.from({ length: 10 }, (_, i) => ({
-    id: `rem-${i + 38}`,
-    titulo: `Remera Streetwear #${i + 38}`,
-    precio: 20000,
-    categoria: "remeras",
-    imagenes: [`remeras/remeras-${i + 38}.jpg`],
-    talles: ["S", "M", "L", "XL", "XXL"]
-  })),
+  // --- REMERAS NUEVAS (38 a 47) ---
+  ...Array.from({ length: 10 }, (_, i) => {
+    const num = i + 38;
+    return {
+      id: `rem-${num}`,
+      titulo: `Remera Streetwear #${num}`,
+      precio: 20000,
+      categoria: "remeras",
+      imagenes: [`remeras/remera-${num}.jpg`],
+      talles: ["S", "M", "L", "XL", "XXL"]
+    };
+  }),
 
   // --- CHOMBAS (1 a 4 - $25.000) ---
-  ...Array.from({ length: 4 }, (_, i) => ({
-    id: `chomba-${i + 1}`,
-    titulo: `Chomba Urbana #${i + 1}`,
-    precio: 25000,
-    categoria: "chombas",
-    imagenes: [`chombas/chombas-${i + 1}.jpg`],
-    talles: ["S", "M", "L", "XL"]
-  })),
+  ...Array.from({ length: 4 }, (_, i) => {
+    const num = i + 1;
+    return {
+      id: `chomba-${num}`,
+      titulo: `Chomba Urbana #${num}`,
+      precio: 25000,
+      categoria: "chombas",
+      imagenes: [`chombas/chomba-${num}.jpg`],
+      talles: ["S", "M", "L", "XL"]
+    };
+  }),
 
-  // --- GORRAS (1 a 37 - $15.000) ---
-  ...Array.from({ length: 37 }, (_, i) => ({
+  // --- GORRAS (1 a 27 - $15.000) ---
+  ...Array.from({ length: 27 }, (_, i) => ({
     id: `gor-${i + 1}`,
     titulo: `Gorra Urbana #${i + 1}`,
     precio: 15000,
@@ -45,6 +52,18 @@ const productos = [
     imagenes: [`gorras/gorras-${i + 1}.jpg`],
     talles: ["Único (Ajustable)"]
   })),
+  // --- GORRAS NUEVAS (28 a 37) ---
+  ...Array.from({ length: 10 }, (_, i) => {
+    const num = i + 28;
+    return {
+      id: `gor-${num}`,
+      titulo: `Gorra Urbana #${num}`,
+      precio: 15000,
+      categoria: "gorras",
+      imagenes: [`gorras/gorra-${num}.jpg`],
+      talles: ["Único (Ajustable)"]
+    };
+  }),
 
   // --- CONJUNTOS DEPORTIVOS DE EQUIPOS ($45.000) ---
   { id: "conj-arsenal", titulo: "Conjunto Deportivo Arsenal", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-arsenal.jpg"], talles: ["S", "M", "L", "XL"] },
@@ -126,14 +145,19 @@ function manejarErrorImagen(imgElement) {
 
   if (intentos === 0) {
     imgElement.setAttribute("data-intento", "1");
+    // Intercambia plural / singular si falló
     if (srcOriginal.includes("remeras/remeras-")) {
       imgElement.src = srcOriginal.replace("remeras/remeras-", "remeras/remera-");
+    } else if (srcOriginal.includes("remeras/remera-")) {
+      imgElement.src = srcOriginal.replace("remeras/remera-", "remeras/remeras-");
     } else if (srcOriginal.includes("gorras/gorras-")) {
       imgElement.src = srcOriginal.replace("gorras/gorras-", "gorras/gorra-");
+    } else if (srcOriginal.includes("gorras/gorra-")) {
+      imgElement.src = srcOriginal.replace("gorras/gorra-", "gorras/gorras-");
     } else if (srcOriginal.includes("chombas/chombas-")) {
       imgElement.src = srcOriginal.replace("chombas/chombas-", "chombas/chomba-");
-    } else if (srcOriginal.includes("auriculares%20y%20reloj%20inteligente/")) {
-      imgElement.src = srcOriginal.replace("auriculares%20y%20reloj%20inteligente/", "images/auriculares y smartwatch/");
+    } else if (srcOriginal.includes("chombas/chomba-")) {
+      imgElement.src = srcOriginal.replace("chombas/chomba-", "chombas/chombas-");
     } else {
       imgElement.src = srcOriginal.replace(".jpg", ".png");
     }
@@ -148,7 +172,7 @@ function manejarErrorImagen(imgElement) {
     imgElement.src = imgElement.src.replace(/\.(JPG|png|jpg)/, ".jpeg");
   } else {
     imgElement.onerror = null;
-    imgElement.src = "estilobakano.jpg";
+    imgElement.src = "images/estilobakano.jpg";
   }
 }
 
