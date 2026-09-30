@@ -6,7 +6,7 @@ const productos = [
     titulo: `Remera Streetwear #${i + 1}`,
     precio: 20000,
     categoria: "remeras",
-    imagenes: [`remeras/remeras-${i + 1}.jpg`],
+    imagenes: [`images/remeras/remeras-${i + 1}.jpg`],
     talles: ["S", "M", "L", "XL", "XXL"]
   })),
   {
@@ -14,7 +14,7 @@ const productos = [
     titulo: "Remera Streetwear #37 (Oferta)",
     precio: 15000,
     categoria: "remeras",
-    imagenes: ["remeras/remeras-37.jpg"],
+    imagenes: ["images/remeras/remeras-37.jpg"],
     talles: ["S", "M", "L", "XL"]
   },
   ...Array.from({ length: 10 }, (_, i) => ({
@@ -22,7 +22,7 @@ const productos = [
     titulo: `Remera Streetwear #${i + 38}`,
     precio: 20000,
     categoria: "remeras",
-    imagenes: [`remeras/remeras-${i + 38}.jpg`],
+    imagenes: [`images/remeras/remeras-${i + 38}.jpg`],
     talles: ["S", "M", "L", "XL", "XXL"]
   })),
 
@@ -42,21 +42,21 @@ const productos = [
     titulo: `Gorra Urbana #${i + 1}`,
     precio: 15000,
     categoria: "gorras",
-    imagenes: [`gorras/gorras-${i + 1}.jpg`],
+    imagenes: [`images/gorras/gorras-${i + 1}.jpg`],
     talles: ["Único (Ajustable)"]
   })),
 
   // --- CONJUNTOS DEPORTIVOS ($45.000) ---
-  { id: "conj-arsenal", titulo: "Conjunto Deportivo Arsenal", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-arsenal.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-barsa", titulo: "Conjunto Deportivo Barcelona", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-barsa.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-chelsea", titulo: "Conjunto Deportivo Chelsea", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-chelsea.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-flamengo", titulo: "Conjunto Deportivo Flamengo", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-flamengo.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-francia", titulo: "Conjunto Deportivo Selección Francia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-francia.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-italia", titulo: "Conjunto Deportivo Selección Italia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-italia.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-mancity", titulo: "Conjunto Deportivo Manchester City", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-mancity.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-manutd", titulo: "Conjunto Deportivo Manchester United", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-manutd.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-nike", titulo: "Conjunto Deportivo Nike", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-nike.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-realmadrid", titulo: "Conjunto Deportivo Real Madrid", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["conjuntos deportivos/conjunto-realmadrid.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-arsenal", titulo: "Conjunto Deportivo Arsenal", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-arsenal.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-barsa", titulo: "Conjunto Deportivo Barcelona", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-barsa.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-chelsea", titulo: "Conjunto Deportivo Chelsea", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-chelsea.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-flamengo", titulo: "Conjunto Deportivo Flamengo", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-flamengo.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-francia", titulo: "Conjunto Deportivo Selección Francia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-francia.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-italia", titulo: "Conjunto Deportivo Selección Italia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-italia.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-mancity", titulo: "Conjunto Deportivo Manchester City", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-mancity.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-manutd", titulo: "Conjunto Deportivo Manchester United", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-manutd.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-nike", titulo: "Conjunto Deportivo Nike", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-nike.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-realmadrid", titulo: "Conjunto Deportivo Real Madrid", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-realmadrid.jpg"], talles: ["S", "M", "L", "XL"] },
 
   // --- LIQUIDACIÓN (Buzos, Camperas y Chalecos) ---
   ...Array.from({ length: 14 }, (_, i) => ({
@@ -65,7 +65,7 @@ const productos = [
     precio: 15000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`liquidacion/buzo-${i + 1}.jpg`],
+    imagenes: [`images/liquidacion/buzo-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
   ...Array.from({ length: 13 }, (_, i) => ({
@@ -74,7 +74,7 @@ const productos = [
     precio: 40000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`liquidacion/campera-${i + 1}.jpg`],
+    imagenes: [`images/liquidacion/campera-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
   ...Array.from({ length: 4 }, (_, i) => ({
@@ -83,7 +83,7 @@ const productos = [
     precio: 22000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`liquidacion/chaleco-${i + 1}.jpg`],
+    imagenes: [`images/liquidacion/chaleco-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
 
@@ -93,15 +93,15 @@ const productos = [
     titulo: `Pack Boxers Estilo Bakano #${i + 1}`,
     precio: 12000,
     categoria: "boxers",
-    imagenes: [`boxers/boxers-${i + 1}.jpg`],
+    imagenes: [`images/boxers/boxers-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
 
   // --- GAFAS ($9.500) ---
-  { id: "gaf-1", titulo: "Gafas de Sol Urban Style #1", precio: 9500, categoria: "gafas", imagenes: ["gafas/gafas-1.jpg"], talles: ["Único"] },
-  { id: "gaf-2", titulo: "Gafas de Sol Urban Style #2", precio: 9500, categoria: "gafas", imagenes: ["gafas/gafas-2.jpg"], talles: ["Único"] },
-  { id: "gaf-3", titulo: "Gafas de Sol Urban Style #3", precio: 9500, categoria: "gafas", imagenes: ["gafas/gafas-3.jpg"], talles: ["Único"] },
-  { id: "gaf-5", titulo: "Gafas de Sol Urban Style #5", precio: 9500, categoria: "gafas", imagenes: ["gafas/gafas-5.jpg"], talles: ["Único"] },
+  { id: "gaf-1", titulo: "Gafas de Sol Urban Style #1", precio: 9500, categoria: "gafas", imagenes: ["images/gafas/gafas-1.jpg"], talles: ["Único"] },
+  { id: "gaf-2", titulo: "Gafas de Sol Urban Style #2", precio: 9500, categoria: "gafas", imagenes: ["images/gafas/gafas-2.jpg"], talles: ["Único"] },
+  { id: "gaf-3", titulo: "Gafas de Sol Urban Style #3", precio: 9500, categoria: "gafas", imagenes: ["images/gafas/gafas-3.jpg"], talles: ["Único"] },
+  { id: "gaf-5", titulo: "Gafas de Sol Urban Style #5", precio: 9500, categoria: "gafas", imagenes: ["images/gafas/gafas-5.jpg"], talles: ["Único"] },
 
   // --- ACCESORIOS ---
   { id: "aur-2", titulo: "Auriculares Inalámbricos Pro", precio: 15000, categoria: "accesorios", imagenes: ["images/accesorios/auricular-2.jpg"], talles: ["Blanco", "Negro"] },
@@ -119,7 +119,7 @@ const productos = [
   { id: "perf-1", titulo: "Perfume Importado #1", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-1.jpg"], talles: ["100ml"] },
   { id: "perf-2", titulo: "Perfume Importado #2", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-2.jpg"], talles: ["100ml"] },
   { id: "perf-3", titulo: "Perfume Importado #3", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-3.jpg"], talles: ["100ml"] },
-  { id: "perf-4", titulo: "Perfume Importado #4", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-4.jog.jpeg"], talles: ["100ml"] },
+  { id: "perf-4", titulo: "Perfume Importado #4", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-4.jpg"], talles: ["100ml"] },
 
   // --- NIÑOS ($15.000) ---
   ...Array.from({ length: 8 }, (_, i) => ({
