@@ -106,26 +106,26 @@ const productos = [
   // --- ACCESORIOS ---
   { id: "aur-2", titulo: "Auriculares Inalámbricos Pro", precio: 15000, categoria: "accesorios", imagenes: ["images/accesorios/auricular-2.jpg"], talles: ["Blanco", "Negro"] },
   { id: "aur-tws", titulo: "Auriculares TWS Sport", precio: 15000, categoria: "accesorios", imagenes: ["images/accesorios/auricular-tws.jpg"], talles: ["Verde", "Negro"] },
-  { id: "bill-1", titulo: "Billetera Urbana Bakano #1", precio: 12000, categoria: "accesorios", imagenes: ["images/accesorios/billetera-1.jpg"], talles: ["Único"] },
+  { id: "bill-1", titulo: "Billetera Urbana Bakano #1", precio: 10000, categoria: "accesorios", imagenes: ["images/accesorios/billetera-1.jpg"], talles: ["Único"] },
   { id: "smartwatch", titulo: "Smartwatch Deportivo Bakano", precio: 20000, categoria: "accesorios", imagenes: ["images/accesorios/smartwatch.jpg"], talles: ["Negro", "Gris"] },
 
   // --- ZAPATILLAS Y MEDIAS ---
-  { id: "med-1", titulo: "Pack Medias Antideslizantes #1", precio: 5000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/medias-1.jpg"], talles: ["Único"] },
-  { id: "zap-1", titulo: "Zapatillas Deportivas Bakano #1", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-1.jpg"], talles: ["39", "40", "41", "42", "43"] },
-  { id: "zap-2", titulo: "Zapatillas Deportivas Bakano #2", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-2.jpg"], talles: ["39", "40", "41", "42", "43"] },
-  { id: "zap-3", titulo: "Zapatillas Deportivas Bakano #3", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-3.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  { id: "med-1", titulo: "Pack Medias Antideslizantes #1", precio: 4000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/medias-1.jpg"], talles: ["Único"] },
+  { id: "zap-1", titulo: "Zapatillas Deportivas Bakano #1", precio: 45000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-1.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  { id: "zap-2", titulo: "Zapatillas Deportivas Bakano #2", precio: 45000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-2.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  { id: "zap-3", titulo: "Zapatillas Deportivas Bakano #3", precio: 45000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-3.jpg"], talles: ["39", "40", "41", "42", "43"] },
 
-  // --- PERFUMES ($25.000) ---
-  { id: "perf-1", titulo: "Perfume Importado #1", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-1.jpg"], talles: ["100ml"] },
-  { id: "perf-2", titulo: "Perfume Importado #2", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-2.jpg"], talles: ["100ml"] },
-  { id: "perf-3", titulo: "Perfume Importado #3", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-3.jpg"], talles: ["100ml"] },
-  { id: "perf-4", titulo: "Perfume Importado #4", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-4.jpg"], talles: ["100ml"] },
+  // --- PERFUMES ($10.000) ---
+  { id: "perf-1", titulo: "Perfume Importado #1", precio: 10000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-1.jpg"], talles: ["100ml"] },
+  { id: "perf-2", titulo: "Perfume Importado #2", precio: 10000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-2.jpg"], talles: ["100ml"] },
+  { id: "perf-3", titulo: "Perfume Importado #3", precio: 10000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-3.jpg"], talles: ["100ml"] },
+  { id: "perf-4", titulo: "Perfume Importado #4", precio: 10000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-4.jpg"], talles: ["100ml"] },
 
-  // --- NIÑOS ($15.000) ---
+  // --- NIÑOS ($12.000) ---
   ...Array.from({ length: 8 }, (_, i) => ({
     id: `nin-${i + 1}`,
     titulo: `Remera Niño Streetwear #${i + 1}`,
-    precio: 15000,
+    precio: 12000,
     categoria: "ninos",
     imagenes: [`images/ninos/remeras-nino-${i + 1}.jpg`],
     talles: ["4", "6", "8", "10", "12", "14", "16"]
@@ -183,7 +183,7 @@ function renderizarCatalogo(listaProductos) {
       <div class="prod-detalles">
         <h3>${prod.titulo}</h3>
         <p class="precio">$${prod.precio.toLocaleString("es-AR")}</p>
-        <button class="btn-elegir">Ver Opciones 👁️</button>
+        <button class="btn-elegir">Ver Opciones 👁️️</button>
       </div>
     `;
     contenedor.appendChild(card);
