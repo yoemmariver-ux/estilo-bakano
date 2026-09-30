@@ -127,7 +127,7 @@ const productos = [
     titulo: `Remera Niño Streetwear #${i + 1}`,
     precio: 15000,
     categoria: "ninos",
-    imagenes: [`images/Niños/remeras-niño-${i + 1}.jpg`],
+    imagenes: [`images/ninos/remeras-nino-${i + 1}.jpg`],
     talles: ["4", "6", "8", "10", "12", "14", "16"]
   }))
 ];
