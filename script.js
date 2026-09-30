@@ -103,41 +103,31 @@ const productos = [
   { id: "gaf-3", titulo: "Gafas de Sol Urban Style #3", precio: 9500, categoria: "gafas", imagenes: ["images/gafas/gafas-3.jpg"], talles: ["Único"] },
   { id: "gaf-5", titulo: "Gafas de Sol Urban Style #5", precio: 9500, categoria: "gafas", imagenes: ["images/gafas/gafas-5.jpg"], talles: ["Único"] },
 
-  // --- CHOMBAS ---
-  ...Array.from({ length: 4 }, (_, i) => ({
-    id: `chomba-${i + 1}`,
-    titulo: `Chomba Urbana #${i + 1}`,
-    precio: 25000,
-    categoria: "chombas",
-    imagenes: [`./images/chombas/chombas-${i + 1}.jpg`],
-    talles: ["S", "M", "L", "XL"]
-  })),
-
   // --- ACCESORIOS ---
-  { id: "aur-2", titulo: "Auriculares Inalámbricos Pro", precio: 15000, categoria: "accesorios", imagenes: ["./images/accesorios/auricular-2.jpg"], talles: ["Blanco", "Negro"] },
-  { id: "aur-tws", titulo: "Auriculares TWS Sport", precio: 15000, categoria: "accesorios", imagenes: ["./images/accesorios/auricular-tws.jpg"], talles: ["Verde", "Negro"] },
-  { id: "bill-1", titulo: "Billetera Urbana Bakano #1", precio: 12000, categoria: "accesorios", imagenes: ["./images/accesorios/billetera-1.jpg"], talles: ["Único"] },
-  { id: "smartwatch", titulo: "Smartwatch Deportivo Bakano", precio: 20000, categoria: "accesorios", imagenes: ["./images/accesorios/smartwatch.jpg"], talles: ["Negro", "Gris"] },
+  { id: "aur-2", titulo: "Auriculares Inalámbricos Pro", precio: 15000, categoria: "accesorios", imagenes: ["images/accesorios/auricular-2.jpg"], talles: ["Blanco", "Negro"] },
+  { id: "aur-tws", titulo: "Auriculares TWS Sport", precio: 15000, categoria: "accesorios", imagenes: ["images/accesorios/auricular-tws.jpg"], talles: ["Verde", "Negro"] },
+  { id: "bill-1", titulo: "Billetera Urbana Bakano #1", precio: 12000, categoria: "accesorios", imagenes: ["images/accesorios/billetera-1.jpg"], talles: ["Único"] },
+  { id: "smartwatch", titulo: "Smartwatch Deportivo Bakano", precio: 20000, categoria: "accesorios", imagenes: ["images/accesorios/smartwatch.jpg"], talles: ["Negro", "Gris"] },
 
   // --- ZAPATILLAS Y MEDIAS ---
-  { id: "med-1", titulo: "Pack Medias Antideslizantes #1", precio: 5000, categoria: "zapatillas-medias", imagenes: ["./images/zapatillas y medias/medias-1.jpg"], talles: ["Único"] },
-  { id: "zap-1", titulo: "Zapatillas Deportivas Bakano #1", precio: 38000, categoria: "zapatillas-medias", imagenes: ["./images/zapatillas y medias/zapatillas-1.jpg"], talles: ["39", "40", "41", "42", "43"] },
-  { id: "zap-2", titulo: "Zapatillas Deportivas Bakano #2", precio: 38000, categoria: "zapatillas-medias", imagenes: ["./images/zapatillas y medias/zapatillas-2.jpg"], talles: ["39", "40", "41", "42", "43"] },
-  { id: "zap-3", titulo: "Zapatillas Deportivas Bakano #3", precio: 38000, categoria: "zapatillas-medias", imagenes: ["./images/zapatillas y medias/zapatillas-3.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  { id: "med-1", titulo: "Pack Medias Antideslizantes #1", precio: 5000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/medias-1.jpg"], talles: ["Único"] },
+  { id: "zap-1", titulo: "Zapatillas Deportivas Bakano #1", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-1.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  { id: "zap-2", titulo: "Zapatillas Deportivas Bakano #2", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-2.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  { id: "zap-3", titulo: "Zapatillas Deportivas Bakano #3", precio: 38000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-3.jpg"], talles: ["39", "40", "41", "42", "43"] },
 
-  // --- PERFUMES ---
-  { id: "perf-1", titulo: "Perfume Importado #1", precio: 25000, categoria: "perfumes", imagenes: ["./images/perfumes/perfumes-1.jpg"], talles: ["100ml"] },
-  { id: "perf-2", titulo: "Perfume Importado #2", precio: 25000, categoria: "perfumes", imagenes: ["./images/perfumes/perfumes-2.jpg"], talles: ["100ml"] },
-  { id: "perf-3", titulo: "Perfume Importado #3", precio: 25000, categoria: "perfumes", imagenes: ["./images/perfumes/perfumes-3.jpg"], talles: ["100ml"] },
-  { id: "perf-4", titulo: "Perfume Importado #4", precio: 25000, categoria: "perfumes", imagenes: ["./images/perfumes/perfumes-4.jpg"], talles: ["100ml"] },
+  // --- PERFUMES ($25.000) ---
+  { id: "perf-1", titulo: "Perfume Importado #1", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-1.jpg"], talles: ["100ml"] },
+  { id: "perf-2", titulo: "Perfume Importado #2", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-2.jpg"], talles: ["100ml"] },
+  { id: "perf-3", titulo: "Perfume Importado #3", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-3.jpg"], talles: ["100ml"] },
+  { id: "perf-4", titulo: "Perfume Importado #4", precio: 25000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-4.jpg"], talles: ["100ml"] },
 
-  // --- NIÑOS ---
+  // --- NIÑOS ($15.000) ---
   ...Array.from({ length: 8 }, (_, i) => ({
     id: `nin-${i + 1}`,
     titulo: `Remera Niño Streetwear #${i + 1}`,
     precio: 15000,
     categoria: "ninos",
-    imagenes: [`./images/ninos/remeras-nino-${i + 1}.jpg`],
+    imagenes: [`images/ninos/remeras-nino-${i + 1}.jpg`],
     talles: ["4", "6", "8", "10", "12", "14", "16"]
   }))
 ];
@@ -145,7 +135,7 @@ const productos = [
 let carrito = [];
 let productoSeleccionado = null;
 
-// Manejo inteligente y exhaustivo de errores de imagen
+// Función de error limpia: SÓLO prueba cambiar la extensión final (.jpg -> .png -> .jpeg)
 function manejarErrorImagen(imgElement) {
   const srcOriginal = imgElement.getAttribute("data-src-original") || imgElement.src;
   if (!imgElement.getAttribute("data-src-original")) {
@@ -153,22 +143,17 @@ function manejarErrorImagen(imgElement) {
   }
 
   const intentos = parseInt(imgElement.getAttribute("data-intento") || "0");
-  const basePath = srcOriginal.substring(0, srcOriginal.lastIndexOf("."));
 
-  const variaciones = [
-    `${basePath}.JPG`,
-    `${basePath}.jpeg`,
-    `${basePath}.JPEG`,
-    `${basePath}.png`,
-    `${basePath}.PNG`
-  ];
-
-  if (intentos < variaciones.length) {
-    imgElement.setAttribute("data-intento", (intentos + 1).toString());
-    imgElement.src = variaciones[intentos];
+  if (intentos === 0) {
+    imgElement.setAttribute("data-intento", "1");
+    // Cambiar solo la extensión sin alterar las carpetas de la ruta
+    imgElement.src = srcOriginal.replace(/\.jpg$/i, ".png");
+  } else if (intentos === 1) {
+    imgElement.setAttribute("data-intento", "2");
+    imgElement.src = srcOriginal.replace(/\.jpg$/i, ".jpeg");
   } else {
     imgElement.onerror = null;
-    imgElement.src = "images/estilobakano.jpg";
+    imgElement.src = "images/estilobakano.jpg"; // Imagen por defecto
   }
 }
 
