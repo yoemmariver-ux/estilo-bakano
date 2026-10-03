@@ -48,14 +48,14 @@ const productos = [
   { id: "conj-nike", titulo: "Conjunto Deportivo Nike", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-nike.jpg"], talles: ["S", "M", "L", "XL"] },
   { id: "conj-realmadrid", titulo: "Conjunto Deportivo Real Madrid", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-realmadrid.jpg"], talles: ["S", "M", "L", "XL"] },
 
-  // --- LIQUIDACIÓN ---
+// --- LIQUIDACIÓN ---
   ...Array.from({ length: 14 }, (_, i) => ({
     id: `buzo-${i + 1}`,
     titulo: `Buzo Oversize Urbano #${i + 1}`,
     precio: 15000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`images/liquidación/buzo-${i + 1}.jpg`],
+    imagenes: [`/images/liquidacion/buzo-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
   ...Array.from({ length: 13 }, (_, i) => ({
@@ -64,7 +64,7 @@ const productos = [
     precio: 40000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`images/liquidación/campera-${i + 1}.jpg`],
+    imagenes: [`/images/liquidacion/campera-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
   ...Array.from({ length: 4 }, (_, i) => ({
@@ -73,7 +73,7 @@ const productos = [
     precio: 22000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`images/liquidación/chaleco-${i + 1}.jpg`],
+    imagenes: [`/images/liquidacion/chaleco-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
 
