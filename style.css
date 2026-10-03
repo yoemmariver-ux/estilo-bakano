@@ -212,7 +212,7 @@ header {
   color: #ffffff;
 }
 
-/* Grilla del Catálogo */
+/* Grilla del Catálogo (Escritorio/PC) */
 .catalogo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -634,8 +634,43 @@ footer {
   color: #555;
 }
 
-/* Responsivo para celulares */
+/* Responsivo Exclusivo para Celulares */
 @media (max-width: 768px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 productos por fila en celular */
+    gap: 6px;
+    padding: 10px 5px;
+  }
+
+  .producto-card {
+    border-radius: 8px;
+  }
+
+  .prod-detalles {
+    padding: 6px 4px;
+  }
+
+  .prod-detalles h3 {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+    line-height: 1.1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .prod-detalles .precio {
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+  }
+
+  .btn-elegir {
+    padding: 5px 2px;
+    font-size: 0.65rem;
+    border-radius: 5px;
+  }
+
   .modal-content.modal-grande {
     grid-template-columns: 1fr;
     max-height: 95vh;
