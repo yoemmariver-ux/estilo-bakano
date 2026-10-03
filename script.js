@@ -1,15 +1,7 @@
-// Fallback inteligente si una imagen falla al cargar
+// Fallback seguro sin bucles para evitar parpadeos y bloqueos de IP
 function manejarErrorImagen(imgElement) {
-  const srcOriginal = imgElement.getAttribute("src");
-
-  if (srcOriginal.includes("images/")) {
-    imgElement.src = srcOriginal.replace("images/", "imágenes/");
-  } else if (srcOriginal.includes("imágenes/")) {
-    imgElement.src = srcOriginal.replace("imágenes/", "images/");
-  } else {
-    imgElement.onerror = null;
-    imgElement.src = "images/estilobakano.jpg";
-  }
+  imgElement.onerror = null; // Corta el bucle de error inmediatamente
+  imgElement.src = "images/estilobakano.jpg"; // Muestra el logo por defecto si no carga
 }
 
 // Base de datos de productos
