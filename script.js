@@ -1,73 +1,71 @@
 // Base de datos de productos
 const productos = [
-  // --- REMERAS (1 a 36 - $20.000) ---
+  // --- REMERAS (1 a 47) ---
   ...Array.from({ length: 36 }, (_, i) => ({
     id: `rem-${i + 1}`,
     titulo: `Remera Streetwear #${i + 1}`,
     precio: 20000,
     categoria: "remeras",
-    imagenes: [`images/remeras/remeras-${i + 1}.jpg`],
+    imagenes: [`imágenes/remeras/remeras-${i + 1}.jpg`],
     talles: ["S", "M", "L", "XL", "XXL"]
   })),
-  // --- REMERA 37 (Oferta) ---
   {
     id: "rem-37",
     titulo: "Remera Streetwear #37 (Oferta)",
     precio: 15000,
     categoria: "remeras",
-    imagenes: ["images/remeras/remeras-37.jpg"],
+    imagenes: ["imágenes/remeras/remeras-37.jpg"],
     talles: ["S", "M", "L", "XL"]
   },
-  // --- REMERAS (38 a 47) - Ajustado nombre en singular y extensión .JPG ---
   ...Array.from({ length: 10 }, (_, i) => ({
     id: `rem-${i + 38}`,
     titulo: `Remera Streetwear #${i + 38}`,
     precio: 20000,
     categoria: "remeras",
-    imagenes: [`images/remeras/remera-${i + 38}.JPG`],
+    imagenes: [`imágenes/remeras/remeras-${i + 38}.jpg`],
     talles: ["S", "M", "L", "XL", "XXL"]
   })),
 
-  // --- CHOMBAS (1 a 4 - $25.000) ---
+  // --- CHOMBAS (1 a 4) ---
   ...Array.from({ length: 4 }, (_, i) => ({
     id: `chomba-${i + 1}`,
     titulo: `Chomba Urbana #${i + 1}`,
     precio: 25000,
     categoria: "chombas",
-    imagenes: [`images/chombas/chombas-${i + 1}.jpg`],
+    imagenes: [`imágenes/chombas/chombas-${i + 1}.jpg`],
     talles: ["S", "M", "L", "XL"]
   })),
 
-  // --- GORRAS (1 a 37 - $15.000) ---
+  // --- GORRAS (1 a 37) ---
   ...Array.from({ length: 37 }, (_, i) => ({
     id: `gor-${i + 1}`,
     titulo: `Gorra Urbana #${i + 1}`,
     precio: 15000,
     categoria: "gorras",
-    imagenes: [`images/gorras/gorras-${i + 1}.jpg`],
+    imagenes: [`imágenes/gorras/gorras-${i + 1}.jpg`],
     talles: ["Único (Ajustable)"]
   })),
 
-  // --- CONJUNTOS DEPORTIVOS ($45.000) ---
-  { id: "conj-arsenal", titulo: "Conjunto Deportivo Arsenal", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-arsenal.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-barsa", titulo: "Conjunto Deportivo Barcelona", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-barsa.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-chelsea", titulo: "Conjunto Deportivo Chelsea", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-chelsea.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-flamengo", titulo: "Conjunto Deportivo Flamengo", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-flamengo.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-francia", titulo: "Conjunto Deportivo Selección Francia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-francia.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-italia", titulo: "Conjunto Deportivo Selección Italia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-italia.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-mancity", titulo: "Conjunto Deportivo Manchester City", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-mancity.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-manutd", titulo: "Conjunto Deportivo Manchester United", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-manutd.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-nike", titulo: "Conjunto Deportivo Nike", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-nike.jpg"], talles: ["S", "M", "L", "XL"] },
-  { id: "conj-realmadrid", titulo: "Conjunto Deportivo Real Madrid", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["images/conjuntos deportivos/conjunto-realmadrid.jpg"], talles: ["S", "M", "L", "XL"] },
+  // --- CONJUNTOS DEPORTIVOS ---
+  { id: "conj-arsenal", titulo: "Conjunto Deportivo Arsenal", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["imágenes/conjuntos deportivos/conjunto-arsenal.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-barsa", titulo: "Conjunto Deportivo Barcelona", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["imágenes/conjuntos deportivos/conjunto-barsa.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-chelsea", titulo: "Conjunto Deportivo Chelsea", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["imágenes/conjuntos deportivos/conjunto-chelsea.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-flamengo", titulo: "Conjunto Deportivo Flamengo", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["imágenes/conjuntos deportivos/conjunto-flamengo.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-francia", titulo: "Conjunto Deportivo Selección Francia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["imágenes/conjuntos deportivos/conjunto-francia.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-italia", titulo: "Conjunto Deportivo Selección Italia", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["imágenes/conjuntos deportivos/conjunto-italia.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-mancity", titulo: "Conjunto Deportivo Manchester City", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["imágenes/conjuntos deportivos/conjunto-mancity.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-manutd", titulo: "Conjunto Deportivo Manchester United", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["imágenes/conjuntos deportivos/conjunto-manutd.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-nike", titulo: "Conjunto Deportivo Nike", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["imágenes/conjuntos deportivos/conjunto-nike.jpg"], talles: ["S", "M", "L", "XL"] },
+  { id: "conj-realmadrid", titulo: "Conjunto Deportivo Real Madrid", precio: 45000, categoria: "conjuntos-deportivos", imagenes: ["imágenes/conjuntos deportivos/conjunto-realmadrid.jpg"], talles: ["S", "M", "L", "XL"] },
 
-  // --- LIQUIDACIÓN (Buzos, Camperas y Chalecos) ---
+  // --- LIQUIDACIÓN ---
   ...Array.from({ length: 14 }, (_, i) => ({
     id: `buzo-${i + 1}`,
     titulo: `Buzo Oversize Urbano #${i + 1}`,
     precio: 15000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`images/liquidacion/buzo-${i + 1}.jpg`],
+    imagenes: [`imágenes/liquidacion/buzo-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
   ...Array.from({ length: 13 }, (_, i) => ({
@@ -76,7 +74,7 @@ const productos = [
     precio: 40000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`images/liquidacion/campera-${i + 1}.jpg`],
+    imagenes: [`imágenes/liquidacion/campera-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
   ...Array.from({ length: 4 }, (_, i) => ({
@@ -85,51 +83,51 @@ const productos = [
     precio: 22000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`images/liquidacion/chaleco-${i + 1}.jpg`],
+    imagenes: [`imágenes/liquidacion/chaleco-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
 
-  // --- BOXERS ($12.000) ---
+  // --- BOXERS ---
   ...Array.from({ length: 5 }, (_, i) => ({
     id: `box-${i + 1}`,
     titulo: `Pack Boxers Estilo Bakano #${i + 1}`,
     precio: 12000,
     categoria: "boxers",
-    imagenes: [`images/boxers/boxers-${i + 1}.jpg`],
+    imagenes: [`imágenes/boxers/boxers-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
 
-  // --- GAFAS ($9.500) ---
-  { id: "gaf-1", titulo: "Gafas de Sol Urban Style #1", precio: 9500, categoria: "gafas", imagenes: ["images/gafas/gafas-1.jpg"], talles: ["Único"] },
-  { id: "gaf-2", titulo: "Gafas de Sol Urban Style #2", precio: 9500, categoria: "gafas", imagenes: ["images/gafas/gafas-2.jpg"], talles: ["Único"] },
-  { id: "gaf-3", titulo: "Gafas de Sol Urban Style #3", precio: 9500, categoria: "gafas", imagenes: ["images/gafas/gafas-3.jpg"], talles: ["Único"] },
-  { id: "gaf-5", titulo: "Gafas de Sol Urban Style #5", precio: 9500, categoria: "gafas", imagenes: ["images/gafas/gafas-5.jpg"], talles: ["Único"] },
+  // --- GAFAS ---
+  { id: "gaf-1", titulo: "Gafas de Sol Urban Style #1", precio: 9500, categoria: "gafas", imagenes: ["imágenes/gafas/gafas-1.jpg"], talles: ["Único"] },
+  { id: "gaf-2", titulo: "Gafas de Sol Urban Style #2", precio: 9500, categoria: "gafas", imagenes: ["imágenes/gafas/gafas-2.jpg"], talles: ["Único"] },
+  { id: "gaf-3", titulo: "Gafas de Sol Urban Style #3", precio: 9500, categoria: "gafas", imagenes: ["imágenes/gafas/gafas-3.jpg"], talles: ["Único"] },
+  { id: "gaf-5", titulo: "Gafas de Sol Urban Style #5", precio: 9500, categoria: "gafas", imagenes: ["imágenes/gafas/gafas-5.jpg"], talles: ["Único"] },
 
   // --- ACCESORIOS ---
-  { id: "aur-2", titulo: "Auriculares Inalámbricos Pro", precio: 15000, categoria: "accesorios", imagenes: ["images/accesorios/auricular-2.jpg"], talles: ["Blanco", "Negro"] },
-  { id: "aur-tws", titulo: "Auriculares TWS Sport", precio: 15000, categoria: "accesorios", imagenes: ["images/accesorios/auricular-tws.jpg"], talles: ["Verde", "Negro"] },
-  { id: "bill-1", titulo: "Billetera Urbana Bakano #1", precio: 10000, categoria: "accesorios", imagenes: ["images/accesorios/billetera-1.jpg"], talles: ["Único"] },
-  { id: "smartwatch", titulo: "Smartwatch Deportivo Bakano", precio: 20000, categoria: "accesorios", imagenes: ["images/accesorios/smartwatch.jpg"], talles: ["Negro", "Gris"] },
+  { id: "aur-2", titulo: "Auriculares Inalámbricos Pro", precio: 15000, categoria: "accesorios", imagenes: ["imágenes/accesorios/auricular-2.jpg"], talles: ["Blanco", "Negro"] },
+  { id: "aur-tws", titulo: "Auriculares TWS Sport", precio: 15000, categoria: "accesorios", imagenes: ["imágenes/accesorios/auricular-tws.jpg"], talles: ["Verde", "Negro"] },
+  { id: "bill-1", titulo: "Billetera Urbana Bakano #1", precio: 10000, categoria: "accesorios", imagenes: ["imágenes/accesorios/billetera-1.jpg"], talles: ["Único"] },
+  { id: "smartwatch", titulo: "Smartwatch Deportivo Bakano", precio: 20000, categoria: "accesorios", imagenes: ["imágenes/accesorios/smartwatch.jpg"], talles: ["Negro", "Gris"] },
 
   // --- ZAPATILLAS Y MEDIAS ---
-  { id: "med-1", titulo: "Pack Medias Antideslizantes #1", precio: 4000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/medias-1.jpg"], talles: ["Único"] },
-  { id: "zap-1", titulo: "Zapatillas Deportivas Bakano #1", precio: 45000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-1.jpg"], talles: ["39", "40", "41", "42", "43"] },
-  { id: "zap-2", titulo: "Zapatillas Deportivas Bakano #2", precio: 45000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-2.jpg"], talles: ["39", "40", "41", "42", "43"] },
-  { id: "zap-3", titulo: "Zapatillas Deportivas Bakano #3", precio: 45000, categoria: "zapatillas-medias", imagenes: ["images/zapatillas y medias/zapatillas-3.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  { id: "med-1", titulo: "Pack Medias Antideslizantes #1", precio: 4000, categoria: "zapatillas-medias", imagenes: ["imágenes/zapatillas y medias/medias-1.jpg"], talles: ["Único"] },
+  { id: "zap-1", titulo: "Zapatillas Deportivas Bakano #1", precio: 45000, categoria: "zapatillas-medias", imagenes: ["imágenes/zapatillas y medias/zapatillas-1.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  { id: "zap-2", titulo: "Zapatillas Deportivas Bakano #2", precio: 45000, categoria: "zapatillas-medias", imagenes: ["imágenes/zapatillas y medias/zapatillas-2.jpg"], talles: ["39", "40", "41", "42", "43"] },
+  { id: "zap-3", titulo: "Zapatillas Deportivas Bakano #3", precio: 45000, categoria: "zapatillas-medias", imagenes: ["imágenes/zapatillas y medias/zapatillas-3.jpg"], talles: ["39", "40", "41", "42", "43"] },
 
-  // --- PERFUMES ($10.000) ---
-  { id: "perf-1", titulo: "Perfume Importado #1", precio: 10000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-1.jpg"], talles: ["100ml"] },
-  { id: "perf-2", titulo: "Perfume Importado #2", precio: 10000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-2.jpg"], talles: ["100ml"] },
-  { id: "perf-3", titulo: "Perfume Importado #3", precio: 10000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-3.jpg"], talles: ["100ml"] },
-  { id: "perf-4", titulo: "Perfume Importado #4", precio: 10000, categoria: "perfumes", imagenes: ["images/perfumes/perfumes-4.jpg"], talles: ["100ml"] },
+  // --- PERFUMES ---
+  { id: "perf-1", titulo: "Perfume Importado #1", precio: 10000, categoria: "perfumes", imagenes: ["imágenes/perfumes/perfumes-1.jpg"], talles: ["100ml"] },
+  { id: "perf-2", titulo: "Perfume Importado #2", precio: 10000, categoria: "perfumes", imagenes: ["imágenes/perfumes/perfumes-2.jpg"], talles: ["100ml"] },
+  { id: "perf-3", titulo: "Perfume Importado #3", precio: 10000, categoria: "perfumes", imagenes: ["imágenes/perfumes/perfumes-3.jpg"], talles: ["100ml"] },
+  { id: "perf-4", titulo: "Perfume Importado #4", precio: 10000, categoria: "perfumes", imagenes: ["imágenes/perfumes/perfumes-4.jpg"], talles: ["100ml"] },
 
-  // --- NIÑOS ($12.000) ---
+  // --- NIÑOS ---
   ...Array.from({ length: 8 }, (_, i) => ({
     id: `nin-${i + 1}`,
     titulo: `Remera Niño Streetwear #${i + 1}`,
     precio: 12000,
     categoria: "ninos",
-    imagenes: [`images/ninos/remeras-nino-${i + 1}.jpg`],
+    imagenes: [`imágenes/ninos/remeras-nino-${i + 1}.jpg`],
     talles: ["4", "6", "8", "10", "12", "14", "16"]
   }))
 ];
@@ -137,48 +135,15 @@ const productos = [
 let carrito = [];
 let productoSeleccionado = null;
 
-// Manejo inteligente de errores de imagen
 function manejarErrorImagen(imgElement) {
-  const srcOriginal = imgElement.getAttribute("data-src-original") || imgElement.src;
-  if (!imgElement.getAttribute("data-src-original")) {
-    imgElement.setAttribute("data-src-original", srcOriginal);
-  }
-
-  const intentos = parseInt(imgElement.getAttribute("data-intento") || "0");
-
-  if (intentos === 0) {
-    imgElement.setAttribute("data-intento", "1");
-    // Prueba alternando remeras- por remera- o viceversa
-    if (srcOriginal.includes("remeras-")) {
-      imgElement.src = srcOriginal.replace("remeras-", "remera-");
-    } else if (srcOriginal.includes("remera-")) {
-      imgElement.src = srcOriginal.replace("remera-", "remeras-");
-    } else {
-      imgElement.src = srcOriginal.replace(/\.jpg$/i, ".png");
-    }
-  } else if (intentos === 1) {
-    imgElement.setAttribute("data-intento", "2");
-    // Prueba cambiando extensión a minúscula o mayúscula
-    if (srcOriginal.endsWith(".jpg")) {
-      imgElement.src = srcOriginal.replace(".jpg", ".JPG");
-    } else {
-      imgElement.src = srcOriginal.replace(".JPG", ".jpg");
-    }
-  } else if (intentos === 2) {
-    imgElement.setAttribute("data-intento", "3");
-    imgElement.src = srcOriginal.replace(/\.(jpg|JPG)$/i, ".png");
-  } else {
-    imgElement.onerror = null;
-    imgElement.src = "images/estilobakano.jpg";
-  }
+  imgElement.onerror = null;
+  imgElement.src = "imágenes/estilobakano.jpg";
 }
 
-// Inicialización de la tienda
 document.addEventListener("DOMContentLoaded", () => {
   renderizarCatalogo(productos);
 });
 
-// Renderizar Productos en la Grilla
 function renderizarCatalogo(listaProductos) {
   const contenedor = document.getElementById("catalogo");
   contenedor.innerHTML = "";
@@ -207,7 +172,6 @@ function renderizarCatalogo(listaProductos) {
   });
 }
 
-// Filtrar por Categorías
 function filtrarCategoria(categoria, event) {
   document.querySelectorAll(".btn-cat").forEach((btn) => btn.classList.remove("active"));
   if (event) event.target.classList.add("active");
@@ -223,7 +187,6 @@ function filtrarCategoria(categoria, event) {
   }
 }
 
-// Modal de Detalle
 function abrirModal(idProd) {
   productoSeleccionado = productos.find((p) => p.id === idProd);
   if (!productoSeleccionado) return;
@@ -249,7 +212,6 @@ function cerrarModal() {
   productoSeleccionado = null;
 }
 
-// Lógica del Carrito
 function agregarAlCarritoDesdeModal() {
   if (!productoSeleccionado) return;
 
@@ -335,7 +297,6 @@ function toggleCart(forceOpen = false) {
   }
 }
 
-// Checkout directo por WhatsApp
 function checkoutWhatsApp() {
   if (carrito.length === 0) {
     alert("Agregá productos al carrito antes de finalizar la compra.");
