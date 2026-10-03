@@ -135,7 +135,7 @@ const productos = [
 let carrito = [];
 let productoSeleccionado = null;
 
-// Manejo inteligente de errores de imagen
+// Manejo inteligente de errores de imagen (soporta .jpg, .JPG, .png, .jpeg)
 function manejarErrorImagen(imgElement) {
   const srcOriginal = imgElement.getAttribute("data-src-original") || imgElement.src;
   if (!imgElement.getAttribute("data-src-original")) {
@@ -146,11 +146,18 @@ function manejarErrorImagen(imgElement) {
 
   if (intentos === 0) {
     imgElement.setAttribute("data-intento", "1");
-    imgElement.src = srcOriginal.replace(/\.jpg$/i, ".png");
+    // Intentar cambiando la extensión a .JPG en mayúscula
+    imgElement.src = srcOriginal.replace(/\.jpg$/i, ".JPG");
   } else if (intentos === 1) {
     imgElement.setAttribute("data-intento", "2");
+    // Intentar con extensión .png
+    imgElement.src = srcOriginal.replace(/\.jpg$/i, ".png");
+  } else if (intentos === 2) {
+    imgElement.setAttribute("data-intento", "3");
+    // Intentar con extensión .jpeg
     imgElement.src = srcOriginal.replace(/\.jpg$/i, ".jpeg");
   } else {
+    // Si falla todo, se carga la imagen por defecto
     imgElement.onerror = null;
     imgElement.src = "images/estilobakano.jpg";
   }
@@ -183,7 +190,7 @@ function renderizarCatalogo(listaProductos) {
       <div class="prod-detalles">
         <h3>${prod.titulo}</h3>
         <p class="precio">$${prod.precio.toLocaleString("es-AR")}</p>
-        <button class="btn-elegir">Ver Opciones 👁️️</button>
+        <button class="btn-elegir">Ver Opciones 👁</button>
       </div>
     `;
     contenedor.appendChild(card);
