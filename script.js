@@ -1,6 +1,6 @@
 // Base de datos de productos
 const productos = [
-  // --- REMERAS (1 a 47 - $20.000, con remera-37 en oferta) ---
+  // --- REMERAS (1 a 36 - $20.000) ---
   ...Array.from({ length: 36 }, (_, i) => ({
     id: `rem-${i + 1}`,
     titulo: `Remera Streetwear #${i + 1}`,
@@ -9,6 +9,7 @@ const productos = [
     imagenes: [`images/remeras/remeras-${i + 1}.jpg`],
     talles: ["S", "M", "L", "XL", "XXL"]
   })),
+  // --- REMERA 37 (Oferta) ---
   {
     id: "rem-37",
     titulo: "Remera Streetwear #37 (Oferta)",
@@ -17,12 +18,13 @@ const productos = [
     imagenes: ["images/remeras/remeras-37.jpg"],
     talles: ["S", "M", "L", "XL"]
   },
+  // --- REMERAS (38 a 47) - Ajustado nombre en singular y extensión .JPG ---
   ...Array.from({ length: 10 }, (_, i) => ({
     id: `rem-${i + 38}`,
     titulo: `Remera Streetwear #${i + 38}`,
     precio: 20000,
     categoria: "remeras",
-    imagenes: [`images/remeras/remeras-${i + 38}.jpg`],
+    imagenes: [`images/remeras/remera-${i + 38}.JPG`],
     talles: ["S", "M", "L", "XL", "XXL"]
   })),
 
@@ -135,7 +137,7 @@ const productos = [
 let carrito = [];
 let productoSeleccionado = null;
 
-// Manejo inteligente de errores de imagen (soporta .jpg, .JPG, .png, .jpeg)
+// Manejo inteligente de errores de imagen
 function manejarErrorImagen(imgElement) {
   const srcOriginal = imgElement.getAttribute("data-src-original") || imgElement.src;
   if (!imgElement.getAttribute("data-src-original")) {
@@ -146,18 +148,26 @@ function manejarErrorImagen(imgElement) {
 
   if (intentos === 0) {
     imgElement.setAttribute("data-intento", "1");
-    // Intentar cambiando la extensión a .JPG en mayúscula
-    imgElement.src = srcOriginal.replace(/\.jpg$/i, ".JPG");
+    // Prueba alternando remeras- por remera- o viceversa
+    if (srcOriginal.includes("remeras-")) {
+      imgElement.src = srcOriginal.replace("remeras-", "remera-");
+    } else if (srcOriginal.includes("remera-")) {
+      imgElement.src = srcOriginal.replace("remera-", "remeras-");
+    } else {
+      imgElement.src = srcOriginal.replace(/\.jpg$/i, ".png");
+    }
   } else if (intentos === 1) {
     imgElement.setAttribute("data-intento", "2");
-    // Intentar con extensión .png
-    imgElement.src = srcOriginal.replace(/\.jpg$/i, ".png");
+    // Prueba cambiando extensión a minúscula o mayúscula
+    if (srcOriginal.endsWith(".jpg")) {
+      imgElement.src = srcOriginal.replace(".jpg", ".JPG");
+    } else {
+      imgElement.src = srcOriginal.replace(".JPG", ".jpg");
+    }
   } else if (intentos === 2) {
     imgElement.setAttribute("data-intento", "3");
-    // Intentar con extensión .jpeg
-    imgElement.src = srcOriginal.replace(/\.jpg$/i, ".jpeg");
+    imgElement.src = srcOriginal.replace(/\.(jpg|JPG)$/i, ".png");
   } else {
-    // Si falla todo, se carga la imagen por defecto
     imgElement.onerror = null;
     imgElement.src = "images/estilobakano.jpg";
   }
