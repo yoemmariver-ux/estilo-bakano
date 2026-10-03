@@ -55,7 +55,7 @@ const productos = [
     precio: 15000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`images/liquidacion/buzo-${i + 1}.jpg`],
+    imagenes: [`images/liquidación/buzo-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
   ...Array.from({ length: 13 }, (_, i) => ({
@@ -64,7 +64,7 @@ const productos = [
     precio: 40000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`images/liquidacion/campera-${i + 1}.jpg`],
+    imagenes: [`images/liquidación/campera-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
   ...Array.from({ length: 4 }, (_, i) => ({
@@ -73,7 +73,7 @@ const productos = [
     precio: 22000,
     categoria: "liquidacion",
     esLiquidacion: true,
-    imagenes: [`images/liquidacion/chaleco-${i + 1}.jpg`],
+    imagenes: [`images/liquidación/chaleco-${i + 1}.jpg`],
     talles: ["M", "L", "XL"]
   })),
 
