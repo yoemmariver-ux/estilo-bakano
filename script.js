@@ -1,13 +1,7 @@
-// Función para corregir rutas de imágenes automáticamente según la estructura
-function fijarRutaImagen(categoria, nombreArchivo) {
-  return `images/${categoria}/${nombreArchivo}`;
-}
-
-// Fallback universal si una imagen falla al cargar
+// Fallback inteligente si una imagen falla al cargar
 function manejarErrorImagen(imgElement) {
   const srcOriginal = imgElement.getAttribute("src");
 
-  // Intenta alternativas comunes de carpeta
   if (srcOriginal.includes("images/")) {
     imgElement.src = srcOriginal.replace("images/", "imágenes/");
   } else if (srcOriginal.includes("imágenes/")) {
